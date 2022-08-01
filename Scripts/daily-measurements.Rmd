@@ -1,0 +1,83 @@
+---
+title: "Daily_measurements"
+author: "LaurenZane"
+date: "7/19/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+```{r}
+# load libraries, set working directory, load dataframe
+library(dplyr)
+library(tidyverse)
+library(ggplot2)
+library(lubridate) # used for converting 8 digit date into datetime format for R
+library(RColorBrewer)
+setwd("/Users/laurenzane/Desktop/Putnam_Lab/Lab_Management/Lab_Resources/CBLS_Wetlab/daily_measurements")
+getwd() # confirm that wd is in CBLS Wetlab Protocol directory
+daily_measurements <- read.csv("Daily_measurements_tracking.csv")
+daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date into datetime format
+
+```
+
+```{r}
+
+# preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
+# for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
+
+month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-07-18", ] # use if you would like to subset by month or from certain date range 
+no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
+no_qtank[no_qtank == ""] <- NA # replace blanks with NA
+
+daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
+
+```
+
+```{r} 
+
+# temperature plot
+
+temp <- ggplot(no_qtank, aes(x=Date, y=Temperature_C, color=Tank_ID)) +
+    geom_point()+
+    scale_color_manual(values = c("#66CCFF", "#66CCFF", "#66CCFF",
+                                "#66CCFF","#66CC33"))
+print(temp)
+
+ggsave(path = "./", filename = "20220718_daily_measurements_temp.pdf")
+
+```
+
+```{r} 
+
+## salinity plot 
+
+sal <- ggplot(no_qtank, aes(x=Date, y=Salinity_psu, color=Tank_ID)) +
+    geom_point()+
+    scale_color_manual(values = c("#66CCFF", "#66CCFF", "#66CCFF",
+                                "#66CCFF","#66CC33"))
+
+print(sal)
+
+ggsave(path = "./", filename = "20220718_daily_measurements_sal.pdf")
+
+
+```
+```{r}
+
+## pH plot 
+
+pH <- ggplot(no_qtank, aes(x=Date, y=pH_mv, color=Tank_ID)) +
+    geom_point()+
+    scale_color_manual(values = c("#66CCFF", "#66CCFF", "#66CCFF",
+                                "#66CCFF","#66CC33"))
+
+print(pH)
+
+ggsave(path = "./", filename = "20220718_daily_measurements_pH.pdf")
+
+```
+
