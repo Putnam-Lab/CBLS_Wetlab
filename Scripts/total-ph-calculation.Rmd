@@ -1,7 +1,7 @@
 ---
-title: "Daily_measurements"
-author: "LaurenZane"
-date: "7/19/2022"
+title: "Total-pH-calculation"
+author: "LaurenZane, jashey"
+date: '2022-08-07'
 output: html_document
 ---
 
@@ -9,67 +9,9 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-
-```{r}
-# load libraries, set working directory, load dataframe
-library(dplyr)
-library(tidyverse)
-library(ggplot2)
-library(lubridate) # used for converting 8 digit date into datetime format for R
-library(RColorBrewer)
-setwd("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab")
-getwd() # confirm that wd is in CBLS Wetlab Protocol directory
-daily_measurements <- read.csv("../Data/Daily_measurements_tracking.csv")
-daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date into datetime format
-
-```
-
 ```{r}
 
-# preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
-# for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
-
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-08-04", ] # use if you would like to subset by month or from certain date range 
-no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
-no_qtank[no_qtank == ""] <- NA # replace blanks with NA
-daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
-
-```
-
-```{r} 
-
-# temperature plot
-
-temp <- ggplot(no_qtank, aes(x=Date, y=Temperature_C, colour = Tank_ID)) + 
-    geom_line() + 
-    theme_classic() + 
-    geom_point() + 
-    ylab("Temperature °C")
-
-print(temp)
-
-
-
-```
-
-```{r} 
-
-## salinity plot 
-
-sal <- ggplot(no_qtank, aes(x=Date, y=Salinity_psu, colour = Tank_ID)) + 
-    geom_line() + 
-    theme_classic() + 
-    geom_point() +
-    ylab("Salinity (psu)")
-
-print(sal)
-
-
-
-```
-```{r}
-
-## total pH calculation setup 
+## total pH calculation setup from Tris calibration 
 
 ## for pH, we need the total pH, which depends on the Tris calibration and the temperature.
 
@@ -99,14 +41,12 @@ pH.cals #view data
 R <- 8.31447215 #gas constant in J mol-1 K-1 
 F <- 96485.339924 #Faraday constant in coulombs mol-1
 
-#merge with Seawater chemistry file
+## merge with Seawater chemistry file that contains measurements of pH in mV, salinity, and seawater temperature 
 SW.chem <- full_join(no_qtank, pH.cals, by="Date")
-
 
 ```
 
 ```{r}
-# calculate total pH
 
 # select calibration date for the week 
 
@@ -122,11 +62,17 @@ month <-daily_measurements[daily_measurements$Date >= "2022-07-25" & daily_measu
 nrows<-nrow(month) #need file length/number of rows
 
 
-total_pH <- data.frame(matrix(nrow = nrows, ncol = 6)) # changed from 4 columns to 5 LZ 20220720
+total_pH <- data.frame(matrix(nrow = nrows, ncol = 6)) # changed from 4 columns to 5 to add a date column LZ 20220720
 
-colnames(total_pH)<-c("Date","Tank_ID", "Temperature_C",'mvTris','phTris','pH.Total') 
+colnames(total_pH)<-c("Date","Tank_ID", "Temperature_C",'mvTris','phTris','pH.Total') # name columns 
 
-# Tris calculations
+
+
+```
+
+```{r}
+
+# calculate mV of the Tris standard from the Tris calibration, the pH of the Tris standard and finally, the pH on the total scale using from Dickson A. G., Sabine C. L. and Christian J. R., SOP 6a
 
 mvTris <- month$Temperature_C*pH.cals$Slope+pH.cals$Intercept #calculate the mV of the tris standard using the temperature mv relationships in the measured standard curves 
 STris<-35 #salinity of the Tris
@@ -137,6 +83,11 @@ print(phTris)
 
 pH.Total<-phTris+(mvTris/1000-month$pH_mv/1000)/(R*(month$Temperature_C+273.15)*log(10)/F) #calculate the pH on the total scale (Dickson A. G., Sabine C. L. and Christian J. R., SOP 6a)
 
+
+```
+
+```{r}
+## recording and exporting calculations example from CBLS Daily Measurements script in the CBLS_Wetlab repository
 
 # populate empty dataframe with Tris calibrations 
 Date <- month$Date
@@ -159,10 +110,9 @@ write.table(update.data,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/t
 
 ```
 
-
 ```{r}
 
-# plot total pH from the cumulative total pH
+# example plot total pH from the cumulative total pH from CBLS Wetlab Daily Measurements script
 
 total_pH_plot <- ggplot(total_pH_cumu, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
     geom_line() +  
@@ -173,50 +123,3 @@ print(total_pH_plot)
 
 
 ```
-
-```{r}
-## import .csv of TA from blue tank titrations from Titration repository, which is outside of the working directory, so you'll need the full path 
-
-TA_data <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/Titrator/Data/CBLS_Aquarium_TA.csv")
-TA_data$Date <- ymd(TA_data$Date) # convert 8 digit date into datetime format
-TA_data$Date <-as.character(TA_data$Date)
-
-# subset to remove junk samples or CRM
-TA_unknown_only <- TA_data[(TA_data$SampleID == "BT1") | (TA_data$SampleID == "BT2")|(TA_data$SampleID == "BT3") | (TA_data$SampleID == "HT1") | (TA_data$SampleID == "HT2"),]
-
-# plot TA
-
-TA <- ggplot(TA_unknown_only, aes(x=Date, y=TA, group = SampleID, colour = SampleID)) + geom_line() + geom_point() + theme_classic()
-print(TA)
-
-
-```
-
-```{r}
-# combine all plots onto one page using the ggpubr package and save as a pdf 
-
-#load library
-library(ggpubr)
-
-# create pdf 
-pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220804_daily_measurements.pdf",
-    width = 4,
-    height = 4)
-
-# combine plots using ggpubr command onto one page
-
-daily <- ggarrange(temp, sal, total_pH_plot, TA, 
-          ncol = 2, nrow = 2)
-
-print(daily) # view plot
-
-# dev.off is used to create the file 
-dev.off()
-
-
-
-
-```
-
-
-
