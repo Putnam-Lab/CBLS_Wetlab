@@ -29,7 +29,7 @@ daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date i
 # preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
 # for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
 
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-08-04", ] # use if you would like to subset by month or from certain date range 
+month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-08-16", ] # use if you would like to subset by month or from certain date range 
 no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
 no_qtank[no_qtank == ""] <- NA # replace blanks with NA
 daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
@@ -115,7 +115,7 @@ pH.cals<-pH.cals[pH.cals$Date==calib.date,]
 
 # subset daily measurements for week that pertains to the Tris calibration 
 
-month <-daily_measurements[daily_measurements$Date >= "2022-07-25" & daily_measurements$Date <= "2022-08-04", ]
+month <-daily_measurements[daily_measurements$Date >= "2022-07-25" & daily_measurements$Date <= "2022-08-16", ]
 
 #create an empty matrix to put the pH values in
 
@@ -140,7 +140,10 @@ pH.Total<-phTris+(mvTris/1000-month$pH_mv/1000)/(R*(month$Temperature_C+273.15)*
 
 # populate empty dataframe with Tris calibrations 
 Date <- month$Date
+Date <- ymd(month$Date)
 total_pH$Date <- Date
+print(total_pH$Date)
+total_pH$Date <- as.Date(total_pH$Date)
 Tank_ID <- month$Tank_ID
 total_pH$Tank_ID <- Tank_ID
 Temperature_C <- month$Temperature_C
@@ -152,8 +155,12 @@ total_pH$mvTris <- mvTris
 # append total pH to cumulative total pH dataframe each week
 getwd()
 total_pH_cumu <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH_cumulative.csv")
+total_pH_cumu$Date <- format(total_pH_cumu$Date, "%d-%m-%Y")
+total_pH_cumu$Date <- as.Date(total_pH_cumu$Date)
 update.data <- rbind(total_pH_cumu, total_pH)
-write.table(update.data,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH_cumulative.csv",sep=",", row.names=FALSE)
+tail(update.data)
+ymd(update.data$Date)
+write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/20220816_total_pH.csv",sep=",", row.names=FALSE)
 
 
 
@@ -164,7 +171,7 @@ write.table(update.data,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/t
 
 # plot total pH from the cumulative total pH
 
-total_pH_plot <- ggplot(total_pH_cumu, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
+total_pH_plot <- ggplot(total_pH, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
     geom_line() +  
     geom_point()+
     theme_classic()+
@@ -199,7 +206,7 @@ print(TA)
 library(ggpubr)
 
 # create pdf 
-pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220804_daily_measurements.pdf",
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220816_daily_measurements.pdf",
     width = 4,
     height = 4)
 
