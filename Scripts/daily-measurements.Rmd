@@ -180,7 +180,7 @@ write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/2022
 
 # plot total pH from the cumulative total pH
 
-total_pH_plot <- ggplot(total_pH_cumu, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
+total_pH_plot <- ggplot(update.data, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
     geom_line() +  
     geom_point()+
     theme_classic()+
