@@ -3,8 +3,8 @@ title: "Daily_measurements"
 author: "LaurenZane"
 date: "7/19/2022"
 output:
-  html_document: default
   pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -20,6 +20,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 library(dplyr)
 library(tidyverse)
+
 library(ggplot2)
 library(lubridate) # used for converting 8 digit date into datetime format for R
 library(RColorBrewer)
@@ -35,7 +36,7 @@ daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date i
 # preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
 # for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
 
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-08-22", ] # use if you would like to subset by month or from certain date range 
+month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-08-25", ] # use if you would like to subset by month or from certain date range 
 no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
 no_qtank[no_qtank == ""] <- NA # replace blanks with NA
 daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
@@ -118,12 +119,12 @@ SW.chem <- full_join(no_qtank, pH.cals, by="Date")
 
 # select calibration date for the week 
 
-calib.date <- "2022-07-26"
+calib.date <- "2022-08-25"
 pH.cals<-pH.cals[pH.cals$Date==calib.date,]
 
 # subset daily measurements for week that pertains to the Tris calibration 
 
-month <-daily_measurements[daily_measurements$Date >= "2022-07-25" & daily_measurements$Date <= "2022-08-22", ]
+month <-daily_measurements[daily_measurements$Date >= "2022-08-23" & daily_measurements$Date <= "2022-08-25", ]
 
 #create an empty matrix to put the pH values in
 
@@ -162,7 +163,7 @@ total_pH$mvTris <- mvTris
 
 # append total pH to cumulative total pH dataframe each week
 getwd()
-total_pH_cumu <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH_cumulative.csv")
+total_pH_cumu <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv")
 total_pH_cumu$Date <- format(total_pH_cumu$Date, "%d-%m-%Y")
 total_pH_cumu$Date <- as.Date(total_pH_cumu$Date)
 update.data <- rbind(total_pH_cumu, total_pH)
@@ -179,7 +180,7 @@ write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/2022
 
 # plot total pH from the cumulative total pH
 
-total_pH_plot <- ggplot(total_pH, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
+total_pH_plot <- ggplot(total_pH_cumu, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
     geom_line() +  
     geom_point()+
     theme_classic()+
@@ -214,7 +215,7 @@ print(TA)
 library(ggpubr)
 
 # create pdf 
-pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220822_daily_measurements.pdf",
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220825_daily_measurements.pdf",
     width = 4,
     height = 4)
 
