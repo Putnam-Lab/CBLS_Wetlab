@@ -36,7 +36,7 @@ daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date i
 # preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
 # for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
 
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-08-25", ] # use if you would like to subset by month or from certain date range 
+month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-08-26", ] # use if you would like to subset by month or from certain date range 
 no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
 no_qtank[no_qtank == ""] <- NA # replace blanks with NA
 daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
@@ -124,7 +124,7 @@ pH.cals<-pH.cals[pH.cals$Date==calib.date,]
 
 # subset daily measurements for week that pertains to the Tris calibration 
 
-month <-daily_measurements[daily_measurements$Date >= "2022-08-23" & daily_measurements$Date <= "2022-08-25", ]
+month <-daily_measurements[daily_measurements$Date >= "2022-08-23" & daily_measurements$Date <= "2022-08-26", ]
 
 #create an empty matrix to put the pH values in
 
@@ -164,12 +164,12 @@ total_pH$mvTris <- mvTris
 # append total pH to cumulative total pH dataframe each week
 getwd()
 total_pH_cumu <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv")
-total_pH_cumu$Date <- format(total_pH_cumu$Date, "%d-%m-%Y")
 total_pH_cumu$Date <- as.Date(total_pH_cumu$Date)
+total_pH$Date <- as.Date(total_pH$Date)
 update.data <- rbind(total_pH_cumu, total_pH)
 tail(update.data)
 ymd(update.data$Date)
-write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/20220817_total_pH.csv",sep=",", row.names=FALSE)
+write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/20220826_total_pH.csv",sep=",", row.names=FALSE)
 
 
 
@@ -215,7 +215,7 @@ print(TA)
 library(ggpubr)
 
 # create pdf 
-pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220825_daily_measurements.pdf",
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220826_daily_measurements.pdf",
     width = 4,
     height = 4)
 
