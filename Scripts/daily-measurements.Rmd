@@ -36,7 +36,7 @@ daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date i
 # preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
 # for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
 
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-08-26", ] # use if you would like to subset by month or from certain date range 
+month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-08-29", ] # use if you would like to subset by month or from certain date range 
 no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
 no_qtank[no_qtank == ""] <- NA # replace blanks with NA
 daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
@@ -124,7 +124,7 @@ pH.cals<-pH.cals[pH.cals$Date==calib.date,]
 
 # subset daily measurements for week that pertains to the Tris calibration 
 
-month <-daily_measurements[daily_measurements$Date >= "2022-08-23" & daily_measurements$Date <= "2022-08-26", ]
+month <-daily_measurements[daily_measurements$Date >= "2022-08-23" & daily_measurements$Date <= "2022-08-29", ]
 
 #create an empty matrix to put the pH values in
 
@@ -146,6 +146,7 @@ print(phTris)
 
 pH.Total<-phTris+(mvTris/1000-month$pH_mv/1000)/(R*(month$Temperature_C+273.15)*log(10)/F) #calculate the pH on the total scale (Dickson A. G., Sabine C. L. and Christian J. R., SOP 6a)
 
+print(pH.Total)
 
 # populate empty dataframe with Tris calibrations 
 Date <- month$Date
@@ -169,7 +170,7 @@ total_pH$Date <- as.Date(total_pH$Date)
 update.data <- rbind(total_pH_cumu, total_pH)
 tail(update.data)
 ymd(update.data$Date)
-write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/20220826_total_pH.csv",sep=",", row.names=FALSE)
+write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/20220829_total_pH.csv",sep=",", row.names=FALSE)
 
 
 
@@ -215,7 +216,7 @@ print(TA)
 library(ggpubr)
 
 # create pdf 
-pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220826_daily_measurements.pdf",
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220829_daily_measurements.pdf",
     width = 4,
     height = 4)
 
