@@ -2,7 +2,7 @@
 # last modification on 20210621 by RB
 setwd("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/tris_cal/") #set working directory
 getwd()
-Calib.Data <-read.table("20220830.csv", header=TRUE, sep=",", na.string="NA", as.is=TRUE) #reads in the data files
+Calib.Data <-read.table("20220919.csv", header=TRUE, sep=",", na.string="NA", as.is=TRUE) #reads in the data files
 model <-lm(mVTris ~ TTris, data=Calib.Data) #runs a linear regression of mV as a function of temperature
 coe <- coef(model) #extracts the coeffecients
 R2<-summary(model)$r.squared

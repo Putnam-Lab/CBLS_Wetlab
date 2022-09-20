@@ -1,0 +1,465 @@
+---
+title: "RNA_seq_DESeq2"
+author: "hputnam"
+edited by: "laurenzane"
+date: "5/16/2022"
+output: html_document
+---
+
+
+## RNAseq Differential Expression Analysis 
+
+Load libraries
+```{r, message=FALSE, warning=FALSE}
+
+library("tidyverse")
+library("genefilter")
+library("DESeq2")
+library("goseq")
+
+
+# library("factoextra")
+# library("MuMIn")
+# library("NbClust")
+# library("ComplexHeatmap")
+# library("tidyr")
+# library("lme4")
+# library("RColorBrewer")
+# library("magrittr")
+library("ggplot2")
+library("pheatmap")
+# library("stats")
+# library("gridExtra")
+# library("VennDiagram")
+# library("here")
+# library("plotrix")
+library("R.devices")
+```
+
+Import the data files 
+```{r}
+# set working directory to RAnalysis
+unlink("/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Scripts", recursive = TRUE)
+setwd("/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis")
+getwd()
+
+#treatment information
+treatmentinfo <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Data/Pacuta/Pacuta_RNA_seq_metadata.csv", header = TRUE, sep = ",") # pacuta
+treatmentinfo <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Data/Mcap/Mcap_RNAseq_metadata.csv", header = TRUE, sep = ",") # mcap
+rownames(treatmentinfo) <- treatmentinfo$sample_num
+str(treatmentinfo)
+head(treatmentinfo)
+
+#gene count matrix
+gcount <- as.data.frame(read.csv("../../stringtie_assembly/", row.names="gene_id")) # pacuta
+
+gcount <- as.data.frame(read.csv("/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/stringtie_assembly/counts_matrices/Mcap/redo/gene_count_matrix2.csv", row.names="gene_id")) # mcap
+
+gcount<- tibble::rownames_to_column(gcount, "gene_id")
+dim(gcount)
+head(gcount)
+colSums(gcount)
+colnames(gcount)
+
+```
+
+## may remove....
+```{r}
+# merge gene count matrix from Stringtie with merged GTF files from Stringtie
+gtf <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/stringtie_assembly/merged_gtf/stringtie_pacuta_merged.gtf", header=FALSE, sep="\t", skip = 2) # pacuta
+gtf <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/stringtie_assembly/merged_gtf/stringtie_mcap_merged.gtf", header=FALSE, sep="\t", skip = 2) # mcap
+colnames(gtf) <- c("scaffold", "Gene.Predict", "id", "gene.start","gene.stop", "pos1", "pos2","pos3", "gene") # set column names 
+head(gtf)
+gtf_transcript <- subset(gtf, id == "transcript")
+
+# Make cols for gene and transcript ids
+gtf_transcript$gene_id <- sub(";.*", "", gtf_transcript$gene)
+gtf_transcript$gene_id <- gsub("gene_id", "", gtf_transcript$gene_id) #remove gene_id
+gtf_transcript$gene_id <- gsub(" ", "", gtf_transcript$gene_id) 
+
+
+gtf_transcript$transcript_id <-regmatches(gtf_transcript$gene,gregexpr("(?<=;).*",gtf_transcript$gene,perl=TRUE))
+gtf_transcript$transcript_id <- gsub("transcript_id", "", gtf_transcript$transcript_id) #remove transcript_id
+gtf_transcript$transcript_id <- gsub(";", "", gtf_transcript$transcript_id)
+gtf_transcript$transcript_id <- gsub(" ", "", gtf_transcript$transcript_id) 
+tail(gtf_transcript)
+
+# remove M from MSTRG in gene_id
+gtf_transcript$gene_id <- gsub("M","", gtf_transcript$gene_id)
+colnames(gtf_transcript)
+tail(gtf_transcript$gene_id)
+# merge count data with merged GTF data
+
+tail(gtf_transcript)
+length(intersect(gcount$gene_id, gtf_transcript$gene_id))# 5782
+print(gcount$gene_id)
+initial_merge <- merge(gcount, gtf_transcript, by = "gene_id")# merge gene counts matrix with merged GTF file 
+initial_merge <- initial_merge[,c(2:13, 23)]
+names(initial_merge)[names(initial_merge) == "transcript_id"] <- "gene_id"
+merged_count_data <- initial_merge 
+merged_count_data <- merged_count_data[-1] # removes duplicated gene_id column
+rownames(merged_count_data) <- merged_count_data$gene_id
+merged_gcount <- merged_count_data[, -c(7:16)] # updating name and removing extra columns
+
+
+# Make sure treatment info ='s the rows of count data
+all(rownames(treatmentinfo) %in% colnames(merged_count_data)) # must come out TRUE
+
+```
+
+
+##### Pre-filter gene counts
+## Pre-filtering our dataset to reduce the memory size dataframe, increase the speed of the transformation and testing functions, and improve quality of statistical analysis by removing low-coverage counts. Removed counts could represent outliers in the data and removing these improves sensitivity of statistical tests. We will filter out low coverage samples. 
+
+```{r}
+#Do we want to do any filtering?
+
+#why do we want to filter?
+
+#what do we want to filter?
+
+#how do we want to filter
+
+#Prefiltering versus DESeq2 default filtering
+#http://bioconductor.org/packages/release/bioc/vignettes/DESeq2/inst/doc/DESeq2.html#indfilt
+
+
+filt <- filterfun(pOverA(0.5,10))
+
+#create filter for the counts data
+gfilt <- genefilter(gcount, filt)
+
+
+#identify genes to keep by count filter
+gkeep <- gcount[gfilt,]
+
+
+#identify gene lists
+gn.keep <- rownames(gkeep)
+
+
+#gene count data filtered in PoverA, P percent of the samples have counts over A
+gcount_filt <- as.data.frame(gcount[which(rownames(gcount) %in% gn.keep),])
+head(gcount_filt)
+dim(gcount_filt) 
+
+# save gcount filt as a .csv file for GOSeq
+write.csv(gcount_filt, '/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Pacuta/20220830_Mcap_filtered_gene_count.csv') 
+
+# plot gene abundances for filted gene counts
+gcount_filt <- cbind(rownames(gcount_filt), data.frame(gcount_filt, row.names=NULL))
+colnames(gcount_filt) <- c("gene_id", "1041", "1548", "1628", "Sample4", "Sample5", "Sample6") 
+
+gcount_filt_long <- gcount_filt %>%
+  pivot_longer(2:7,
+               names_to = "sample", values_to = "gene_count") # by using a pivot function we can make our data "long format" so it is easier to plot 
+gcount_filt_long_plot <- ggplot(gcount_filt_long, aes(x=gene_id, y=gene_count,color=sample)) +
+  geom_point() + 
+  ggtitle("*Pocillopora acuta* filtered gene counts")+
+  labs(x = "gene id", y = "gene abundance")+
+  scale_color_manual(values=c("pink","pink","pink","orange","orange","orange"))
+
+print(gcount_filt_long_plot)
+
+ggsave("Pacuta-gcount-filt-histogram.pdf")
+```
+
+
+```{r}
+# remove rows with zeros for all values 
+
+gcount.no.zeros <- gcount_filt %>% filter(X1041.2 > 0, X1471.2 > 0, X1637.2 > 0, Sample1.2 > 0, Sample2.2 > 0, Sample3.2 > 0 )
+gcount.no.zeros <- gcount_filt %>% filter(X1101.2 > 0, X1548.2 > 0, X1628.2 > 0, Sample4.2 > 0, Sample5.2 > 0, Sample6.2 > 0 )
+
+# subset for rows that have all zeros for one kit and not the other 
+
+gcount.polya.zero <- gcount_filt %>% filter("1101" == 0)
+polya_zero_long <- gcount.polya.zero %>%
+  pivot_longer(2:7,
+               names_to = "sample", values_to = "gene_count")
+view(polya_zero_long)
+
+high_abundance_long_plot <- ggplot(abundance_long, aes(x=gene_id, y=gene_count,color=sample)) +
+  geom_point() + 
+  ggtitle("*Pocillopora acuta* highly abundant gene counts")+
+  labs(x = "gene id", y = "gene abundance")+
+  scale_color_manual(values=c("pink","pink","pink","orange","orange","orange"))
+print(high_abundance_long_plot)
+```
+
+
+```{r}
+gcount.ribofree <- gcount_filt %>% filter(Sample4.2.gtf == 0, Sample5.2.gtf == 0, Sample6.2.gtf == 0 )
+
+# subset for highly abundant transcripts
+
+gcount.high.abundance <- gcount_filt %>% filter(1101 >= 336, 1548 >= 306, 1628 >= 264, Sample4 >= 30, Sample5 >= 27, Sample6 >= 29)
+gcount.high.abundance <- cbind(rownames(gcount.high.abundance), data.frame(gcount.high.abundance, row.names=NULL))
+colnames(gcount.high.abundance) <- c("gene_id", "Sample1101", "1548", "1628", "Sample4", "Sample5", "Sample6")
+
+abundance_long <- gcount.high.abundance %>%
+  pivot_longer(2:7,
+               names_to = "sample", values_to = "gene_count")
+view(abundance_long)
+
+high_abundance_long_plot <- ggplot(abundance_long, aes(x=gene_id, y=gene_count,color=sample)) +
+  geom_point() + 
+  ggtitle("*Pocillopora acuta* highly abundant gene counts")+
+  labs(x = "gene id", y = "gene abundance")+
+  scale_color_manual(values=c("pink","pink","pink","orange","orange","orange"))
+print(high_abundance_long_plot)
+
+ggsave("Pacuta-high-abundance-histogram.pdf")
+```
+
+
+```{r}
+library(ggcorrplot)
+library(Hmisc)
+rownames(gcount_filt)
+
+gcount_filt_1101 <- gcount_filt[,c("gene_id", "1101")]
+gcount_filt_S4 <- gcount_filt[,c("gene_id", "Sample4")]
+
+ggplot(gcount_filt, aes(x="Sample4",y="1101", colour="gene_id"))
+
+cor(gcount_filt_1101[2],gcount_filt_S4[2])
+print(colnames(gcount_filt))
+help(rcorr)
+rcorr(gcount_filt[2],gcount_filt[3])
+corr_plot <- ggcorrplot(cor(gcount_filt[2:7])) +
+  ggtitle("Pocillopora acuta filtered gene count correlation by sample")
+print(corr_plot)
+ggsave("Pacuta_filtered_genecount_corr_plot.pdf")
+
+high_abundance_corr_plot <- ggcorrplot(cor(gcount.high.abundance[2:7]))+
+  ggtitle("Pocillopora acuta highly abundant counts correlation by sample")
+ggsave("Pacuta_high_abundance_corr_plot.pdf")
+print(high_abundance_corr_plot)
+
+```
+
+#Create a DESeqDataSet design from gene count matrix and labels. Here we set the design to look at treatment to test for any differences in gene expression attributed to library prep method.
+#not using DESeq due to random factors, but can still use this to visualize clusters
+```{r}
+#Set DESeq2 design
+gdds <- DESeqDataSetFromMatrix(countData = gcount.no.zeros,
+                              colData = treatmentinfo,
+                              design = ~method)
+```
+
+#### Visualize gene count data
+
+We're looking to see if the samples of the same treatments cluster
+
+##### Log-transform the count data
+First we are going to log-transform the data using a variance stabilizing transforamtion (vst). This is only for visualization purposes. Essentially, this is roughly similar to putting the data on the log2 scale. It will deal with the sampling variability of low counts by calculating within-group variability (if blind=FALSE). Importantly, it does not use the design to remove variation in the data, and so can be used to examine if there may be any variability do to technical factors such as extraction batch effects.
+
+To do this we first need to calculate the size factors of our samples. This is a rough estimate of how many reads each sample contains compared to the others. In order to use VST (the faster log2 transforming process) to log-transform our data, the size factors need to be less than 4. Otherwise, there could be artifacts in our results.
+```{r}
+SF.gdds <- estimateSizeFactors(gdds) #estimate size factors to determine if we can use vst  to transform our data. Size factors should be less than four to use vst
+print(sizeFactors(SF.gdds)) #View size factors
+```
+
+Our size factors are all less than 4, so we can use VST!
+```{r}
+gvst <- vst(gdds, blind=FALSE) #apply a variance stabilizing transformation to minimize effects of small counts and normalize library size
+```
+
+#### Principal component plot of samples
+```{r}
+gPCAdata <- plotPCA(gvst, intgroup = c("method"), returnData=TRUE)
+percentVar <- round(100*attr(gPCAdata, "percentVar")) #plot PCA of samples with all data
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Pacuta/20220830-Mcap-redo-PCAplot.pdf")
+PCAplot <- ggplot(gPCAdata, aes(PC1, PC2, color=method)) + 
+  geom_point(size=3) +
+  xlab(paste0("PC1: ",percentVar[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar[2],"% variance")) +
+  #scale_color_manual(values = c(PolyA="slateblue", RiboFree="indianred3")) +
+  coord_fixed() +
+  theme_bw() + #Set background color
+  theme(panel.border = element_blank(), # Set border
+                     #panel.grid.major = element_blank(), #Set major gridlines
+                     #panel.grid.minor = element_blank(), #Set minor gridlines
+                     axis.line = element_line(colour = "black"), #Set axes color
+        plot.background=element_blank()) + #Set the plot background
+  theme(legend.position = ("none")) + #set title attributes
+  ggtitle("Montipora capitata")
+
+#create file to save locally in the output folder
+PCAplot
+dev.off()
+
+## sometimes dev.off() doesn't work, you can also use ggsave
+ggsave(path = "/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Pacuta", filename = "PacutaPCAplot.pdf")
+
+
+```
+
+##### Run DE analysis for overall example 
+
+#Run differential expression test using a Wald model. 
+```{r, message = FALSE}
+DEGSeq2_wald <- DESeq(gdds, test = "Wald") #run differential expression test by group using the Wald model
+```
+
+#Explore significant p-values for treatment
+```{r, message = FALSE}
+DEGSeq2.results <- results(DEGSeq2_wald, contrast=c("method","PolyA","RiboFree")) 
+head(DEGSeq2.results)
+sum(DEGSeq2.results$padj < 0.05, na.rm=TRUE) #How many adjusted p-values were less than 0.05
+# Pacuta 6479
+
+sum(DEGSeq2.results$padj < 0.05 & DEGSeq2.results$log2FoldChange > 0, na.rm=TRUE) # how many adjusted p-values were more than 0.05 
+
+sum(DEGSeq2.results$padj < 0.05 & DEGSeq2.results$log2FoldChange < 0, na.rm=TRUE) # how many adjusted p-values were less than 0.05
+
+
+#create data frame with only DESeq2 DEG's with < 0.05 significance 
+
+DEGSeq2.sig.results <- subset(DEGSeq2.results, padj < 0.05)
+DEGSeq2.sig.results <- as.data.frame(DEGSeq2.sig.results)
+DEGSeq2.sig.results$gene_id <-rownames(DEGSeq2.sig.results)
+write.csv(DEGSeq2.sig.results, '/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Pacuta/20220830_Mcap-redo-DEGSeq2.sig.results.csv')  
+
+```
+
+## Visualize differentially expressed genes from DESeq2
+```{r}
+# Subset list of genes by those which padj>0.05
+DEGSeq2.output <- as.data.frame(DEGSeq2.sig.results)
+dim(DEGSeq2.output)
+DEGSeq2.results.all <- DEGSeq2.sig.results
+DEGSeq2 <- rownames(DEGSeq2.results.all) # list all gene names 
+DEGSeq2 <- unique(DEGSeq2) # select only unique gene names 
+DEGSeq2_list <- gdds[which(rownames(gdds) %in% DEGSeq2)] # filter gdds DESeq2 object by unique gene names
+dim(DEGSeq2_list) # 15 x 15
+print(counts(DEGSeq2_list))
+
+# As determined above, size factors all less than 4, so proceed with VST
+# apply a variance stabilizing transformation to minimize effects of small counts and normalize library size
+
+DEGvst <- vst(DEGSeq2_list, blind = FALSE) #nsub = nrow(counts(DEGSeq2_list)))
+
+dim(DEGvst) # 15 x 15
+print(assay(DEGvst)) # look at vst-transformed gene count data 
+
+# Plot heat map with diff expressed genes
+# Make a matrix for computing similarity
+mat <- assay(DEGvst)#[DEG.results.all, ] # make an expression object
+mat <- mat - rowMeans(mat) #difference in expression compared to average across all samples
+dim(mat)
+ann_colors <- list(treatment= c(PolyA="black", RiboFree="cadetblue3"))
+df_DEGSeq2 <- as.data.frame(colData(DEGvst)[c("method")]) #make dataframe for column naming and associated treatment
+DEGSeq2_heatmap <- pheatmap(mat, scale= "row", legend=TRUE, annotation_legend=TRUE, annotation_col=df_DEGSeq2, annotation_colors = ann_colors,
+                            clustering_distance_rows="euclidean", clustering_method = "average",
+                            show_rownames =FALSE,
+                            show_colnames =TRUE,
+                            cluster_cols = TRUE)
+
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Mcap/20220830-Mcap-redo_heatmap.pdf")
+DEGSeq2_heatmap
+dev.off()
+
+```
+
+
+```{r}
+# PCA plot of diff-expressed genes 
+DEGSeq2_PCAdata <- plotPCA(DEGvst, intgroup = c("method"), returnData=TRUE)
+percentVar_pca <- round(100*attr(DEGSeq2_PCAdata, "percentVar")) #plot PCA of samples with all data
+DEGSeq2_PCA_plot <- ggplot(DEGSeq2_PCAdata, aes(PC1, PC2, color=method)) +
+  geom_point(size=3) +
+  xlab(paste0("PC1: ",percentVar_pca[1],"% variance")) +
+  ylab(paste0("PC2: ",percentVar_pca[2],"% variance")) +
+  scale_color_manual(values = c(PolyA="black", RiboFree="cadetblue3")) +
+  coord_fixed() +
+  theme_bw() + #Set background color
+  theme(panel.border = element_blank(), # Set border
+        #panel.grid.major = element_blank(), #Set major gridlines
+        #panel.grid.minor = element_blank(), #Set minor gridlines
+        axis.line = element_line(colour = "black"), #Set axes color
+        plot.background=element_blank())+ #Set the plot background
+  ggtitle("Montipora capitata")
+
+DEGSeq2_PCA_plot
+
+ggsave(path = "/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Pacuta", filename = "Pacuta_DEGSeq2_PCA_plot.pdf")
+
+# PCA plot is of deferentially expressed genes only
+
+# Save results
+
+write.csv(counts(DEGSeq2_list), "/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Pacuta/20220828_Pacuta-v2DEGSeq2_list_unique.csv")
+
+
+
+```
+
+```{r}
+library(psych)
+library(graphics)
+# creating pairs panels 
+
+# unfiltered from counts data 
+
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Pacuta/20220610Pacuta_unfilteredpairs.pdf")
+gcount.pairs <- pairs.panels(gcount,hist.col = "red", cex.labels = 1.25)
+dev.off()
+
+#
+# zeros in both data sets removed 
+gcount.no.zeros <- filter(gcount, X1041.gtf > "0", X1471.gtf > "0", X1637.gtf  > "0", Sample1.gtf > "0", Sample2.gtf > "0", Sample3.gtf > "0" )# use for pacuta
+
+gcount.no.zeros <- filter(gcount, X1101 > "0", X1548 > "0", X1628  > "0", Sample4 > "0", Sample5 > "0", Sample6 > "0" ) # use for mcap
+
+## now create pairs panels
+
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Pacuta/20220610_Pacuta_nozeros_pairs.pdf")
+no.zeros.pairs <- pairs.panels(gcount.no.zeros, hist.col = "pink", cex.labels = 1.25)
+dev.off()
+
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Mcap/20220610_Mcap_nozeros_pairs.pdf")
+no.zeros.pairs <- pairs.panels(gcount.no.zeros, hist.col = "pink", cex.labels = 1.25)
+dev.off()
+
+
+# pairs panel using filtered for p over a (0.5,10)
+
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/Projects/Express_Compare/RAnalysis/Output/Pacuta/20220610_Pacuta_filtered_pairs.pdf")
+gcount.filt.pairs <- pairs.panels(gcount_filt, hist.col = "orange", cex.labels = 1.25)
+dev.off()
+
+```
+# GO Seq preparing and loading relevant dataframes
+```{r}
+library(goseq) #installing package
+## recall that gcount_filt is the data frame contains all genes that are expressed (pOverA(0.5,10)
+## DEGSeq2.sig.results is the data frame that contains all differentially expressed genes 
+
+head(gcount_filt)
+gcount_filt2 <- tibble::rownames_to_column(gcount_filt, "gene_id") # creates column for gene id in the filtered gene count data frame
+head(gcount_filt2)
+# gcount_filt2$gene_id <- gsub("t1","", as.character(gcount_filt2$gene_id))# removes t1 from gene id
+# gcount_filt2$gene_id <- gsub("t2","", as.character(gcount_filt2$gene_id))# removes t2 from gene id
+# gcount_filt2$gene_id <- gsub("\\.*$","", as.character(gcount_filt2$gene_id)) # removes . from end of gene id
+print(gcount_filt2$gene_id)
+
+head(DEGSeq2.sig.results)
+DEGSeq2.sig.results2 <- tibble::rownames_to_column(DEGSeq2.sig.results, "gene_id")# create column for gene id in DEG significant results dataframe 
+# seems to already have gene_id
+print(colnames(DEGSeq2.sig.results))
+head(DEGSeq2.sig.results)
+# head(DEGSeq2.sig.results2)
+# DEGSeq2.sig.results2$gene_id<-gsub("t1","",as.character(DEGSeq2.sig.results2$gene_id))#removes t1 from gene id
+# DEGSeq2.sig.results2$gene_id<-gsub("t2","",as.character(DEGSeq2.sig.results2$gene_id))# removes t2 from gene id
+# DEGSeq2.sig.results2$gene_id<-gsub("\\.*$","",as.character(DEGSeq2.sig.results2$gene_id))#removes period at end of gene id 
+print(DEGSeq2.sig.results2$gene_id)
+
+
+```
+
+
+
+
+
