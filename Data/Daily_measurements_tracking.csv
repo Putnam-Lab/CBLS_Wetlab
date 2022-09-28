@@ -520,3 +520,8 @@ Date,Tank_ID,Temperature_C,Salinity_psu,pH_mv,light1,light2,light3,light4,notes
 20220922,blue_tank2,26.31,34.43,-63,,,,,
 20220922,blue_tank3,26.3,34.43,-63,,,,,
 20220922,blue_tank4,26.3,34.42,-63,,,,,
+20220927,header_tank,26.27,34.11,-64.1,,,,,
+20220927,blue_tank1,26.3,34.1,-64.3,,,,,
+20220927,blue_tank2,26.3,34.09,-64.4,,,,,
+20220927,blue_tank3,26.3,34.09,-64.5,,,,,
+20220927,blue_tank4,26.3,34.08,-64.5,,,,,
