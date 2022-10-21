@@ -15,7 +15,7 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ```{r}
-ll# load libraries 
+# load libraries 
 
 library(dplyr)
 library(tidyverse)
@@ -25,7 +25,7 @@ library(lubridate) # used for converting 8 digit date into datetime format for R
 library(RColorBrewer)
 setwd("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab")
 getwd() # confirm that wd is in CBLS Wetlab Protocol directory
-daily_measurements <- read.csv("../Data/Daily_measurements_tracking.csv")
+daily_measurements <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/Daily_measurements_tracking.csv")
 daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date into datetime format
 
 ```
@@ -35,7 +35,7 @@ daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date i
 # preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
 # for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
 
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-09-06", ] # use if you would like to subset by month or from certain date range 
+month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-10-20", ] # use if you would like to subset by month or from certain date range 
 no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
 no_qtank[no_qtank == ""] <- NA # replace blanks with NA
 daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
@@ -118,12 +118,12 @@ SW.chem <- full_join(month, pH.cals, by="Date")
 
 # select calibration date for the week 
 
-calib.date <- "2022-08-25"
+calib.date <- "2022-10-19"
 pH.cals<-pH.cals[pH.cals$Date==calib.date,]
 
 # subset daily measurements for week that pertains to the Tris calibration 
 
-tris <-daily_measurements[daily_measurements$Date >= "2022-08-17" & daily_measurements$Date <= "2022-09-06", ]
+tris <-month[month$Date >= "2022-09-06" & month$Date <= "2022-10-21", ]
 
 #create an empty matrix to put the pH values in
 
@@ -132,7 +132,9 @@ nrows<-nrow(month) #need file length/number of rows
 
 total_pH <- data.frame(matrix(nrow = nrows, ncol = 6)) # changed from 4 columns to 5 LZ 20220720
 
+
 colnames(total_pH)<-c("Date","Tank_ID", "Temperature_C",'mvTris','phTris','pH.Total') 
+
 
 # Tris calculations
 
@@ -147,12 +149,11 @@ pH.Total<-phTris+(mvTris/1000-month$pH_mv/1000)/(R*(month$Temperature_C+273.15)*
 
 print(pH.Total)
 
+library(lubridate)
 # populate empty dataframe with Tris calibrations 
 Date <- month$Date
-Date <- ymd(month$Date)
-total_pH$Date <- Date
-print(total_pH$Date)
-total_pH$Date <- as.Date(total_pH$Date)
+ymd(Date)
+total_pH$Date <- ymd(Date)
 Tank_ID <- month$Tank_ID
 total_pH$Tank_ID <- Tank_ID
 Temperature_C <- month$Temperature_C
@@ -161,15 +162,19 @@ total_pH$pH.Total <- pH.Total
 total_pH$phTris <- phTris
 total_pH$mvTris <- mvTris
 
-# append total pH to cumulative total pH dataframe each week
+# append total pH to cumulative total pH dataframe each week; I may remove this it is unneccesay and confusing and we can just overwrite every time 
 getwd()
 total_pH_cumu <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv") # do not change
 total_pH_cumu$Date <- as.Date(total_pH_cumu$Date)
 total_pH$Date <- as.Date(total_pH$Date)
 update.data <- rbind(total_pH_cumu, total_pH)
 tail(update.data)
+view(update.data)
+view(total_pH)
 ymd(update.data$Date)
-write.table(update.data,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv",sep=",", row.names=FALSE) # do not change; updated df needs to overwrite the old one
+
+## skip above go HERE
+write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv",sep=",", row.names=FALSE) # do not change; updated df needs to overwrite the old one
 
 
 
@@ -214,7 +219,7 @@ print(TA)
 library(ggpubr)
 
 # create pdf; change name every day
-pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220906_daily_measurements.pdf",
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220021_daily_measurements.pdf",
     width = 4,
     height = 4)
 
