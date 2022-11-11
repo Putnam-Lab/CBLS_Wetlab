@@ -35,7 +35,7 @@ daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date i
 # preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
 # for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
 
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-10-20", ] # use if you would like to subset by month or from certain date range 
+month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2022-11-09", ] # use if you would like to subset by month or from certain date range 
 no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
 no_qtank[no_qtank == ""] <- NA # replace blanks with NA
 daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
@@ -123,7 +123,7 @@ pH.cals<-pH.cals[pH.cals$Date==calib.date,]
 
 # subset daily measurements for week that pertains to the Tris calibration 
 
-tris <-month[month$Date >= "2022-09-06" & month$Date <= "2022-10-21", ]
+tris <-month[month$Date >= "2022-10-19" & month$Date <= "2022-11-09", ]
 
 #create an empty matrix to put the pH values in
 
@@ -184,7 +184,7 @@ write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/tota
 
 # plot total pH from the cumulative total pH
 
-total_pH_plot <- ggplot(update.data, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
+total_pH_plot <- ggplot(total_pH, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
     geom_line() +  
     geom_point()+
     theme_classic()+
@@ -219,7 +219,7 @@ print(TA)
 library(ggpubr)
 
 # create pdf; change name every day
-pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20220021_daily_measurements.pdf",
+pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20221111_daily_measurements.pdf",
     width = 4,
     height = 4)
 
