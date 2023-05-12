@@ -12,6 +12,7 @@ library(knitr)
 library(rmarkdown)
 library(tinytex)
 knitr::opts_chunk$set(echo = TRUE)
+getwd() # for LZ "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Scripts"
 ```
 
 ```{r}
@@ -35,7 +36,7 @@ daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date i
 # preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
 # for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
 
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2023-02-08", ] # use if you would like to subset by month or from certain date range 
+month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2023-05-12", ] # use if you would like to subset by month or from certain date range 
 no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
 no_qtank[no_qtank == ""] <- NA # replace blanks with NA
 daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
@@ -161,20 +162,26 @@ total_pH$Temperature_C <- Temperature_C
 total_pH$pH.Total <- pH.Total
 total_pH$phTris <- phTris
 total_pH$mvTris <- mvTris
+```
 
-# append total pH to cumulative total pH dataframe each week; I may remove this it is unneccesay and confusing and we can just overwrite every time 
-getwd()
-total_pH_cumu <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv") # do not change
-total_pH_cumu$Date <- as.Date(total_pH_cumu$Date)
-total_pH$Date <- as.Date(total_pH$Date)
-update.data <- rbind(total_pH_cumu, total_pH)
-tail(update.data)
-view(update.data)
-view(total_pH)
-ymd(update.data$Date)
 
-## skip above go HERE
-write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv",sep=",", row.names=FALSE) # do not change; updated df needs to overwrite the old one
+```{r}
+
+# updated this script 5/12/23 LZ
+# export the total_pH dataframe as an output csv
+
+write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH_output.csv",sep=",", row.names=FALSE) 
+
+# read in cumulative total_pH 
+
+cumu.pH <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv")
+
+update.pH <- rbind(cumu.pH, total_pH) # bind most recent total_pH to cumulative total pH dataframe 
+
+tail(update.pH) #check that most recent total_pH measurements have been appended to the cumu dataframe
+
+# export data as csv file
+write.table(update.pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv",sep=",", row.names=FALSE)
 
 
 
