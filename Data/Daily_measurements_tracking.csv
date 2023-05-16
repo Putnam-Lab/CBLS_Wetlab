@@ -1114,3 +1114,5 @@ Date,Tank_ID,Temperature_C,Salinity_psu,pH_mv,light1,light2,light3,light4,notes
 20230509,quarantine_tank,23.46,38.51,-62.1,,,,,
 20230515,header_tank,26.12,34.12,-45.2,,,,,
 20230515,blue_tank1,26.2,34.02,-45.2,,,,,
+20230516,header_tank,26.23,35.05,-48.9,,,,,
+20230516,blue_tank1,26.27,34.95,-48.6,,,,,
