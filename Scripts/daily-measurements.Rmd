@@ -36,7 +36,7 @@ daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date i
 # preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
 # for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
 
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2023-05-12", ] # use if you would like to subset by month or from certain date range 
+month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2023-05-19", ] # use if you would like to subset by month or from certain date range 
 no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
 no_qtank[no_qtank == ""] <- NA # replace blanks with NA
 daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
@@ -119,12 +119,12 @@ SW.chem <- full_join(month, pH.cals, by="Date")
 
 # select calibration date for the week 
 
-calib.date <- "2022-10-19"
+calib.date <- "2023-05-15"
 pH.cals<-pH.cals[pH.cals$Date==calib.date,]
 
 # subset daily measurements for week that pertains to the Tris calibration 
 
-tris <-month[month$Date >= "2022-10-19" & month$Date <= "2022-1-25", ]
+tris <-month[month$Date >= "2023-05-15" & month$Date <= "2023-05-19", ]
 
 #create an empty matrix to put the pH values in
 
@@ -139,29 +139,33 @@ colnames(total_pH)<-c("Date","Tank_ID", "Temperature_C",'mvTris','phTris','pH.To
 
 # Tris calculations
 
-mvTris <- month$Temperature_C*pH.cals$Slope+pH.cals$Intercept #calculate the mV of the tris standard using the temperature mv relationships in the measured standard curves 
+print(tris$Temperature_C)
+mvTris <- tris$Temperature_C*pH.cals$Slope+pH.cals$Intercept #calculate the mV of the tris standard using the temperature mv relationships in the measured standard curves 
 STris<-35 #salinity of the Tris
 print(mvTris)
 
-phTris<- (11911.08-18.2499*STris-0.039336*STris^2)*(1/(month$Temperature_C+273.15))-366.27059+ 0.53993607*STris+0.00016329*STris^2+(64.52243-0.084041*STris)*log(month$Temperature_C+273.15)-0.11149858*(month$Temperature_C+273.15) #calculate the pH of the tris (Dickson A. G., Sabine C. L. and Christian J. R., SOP 6a)
+phTris<- (11911.08-18.2499*STris-0.039336*STris^2)*(1/(tris$Temperature_C+273.15))-366.27059+ 0.53993607*STris+0.00016329*STris^2+(64.52243-0.084041*STris)*log(tris$Temperature_C+273.15)-0.11149858*(tris$Temperature_C+273.15) #calculate the pH of the tris (Dickson A. G., Sabine C. L. and Christian J. R., SOP 6a)
 print(phTris)
 
-pH.Total<-phTris+(mvTris/1000-month$pH_mv/1000)/(R*(month$Temperature_C+273.15)*log(10)/F) #calculate the pH on the total scale (Dickson A. G., Sabine C. L. and Christian J. R., SOP 6a)
+pH.Total<-phTris+(mvTris/1000-tris$pH_mv/1000)/(R*(tris$Temperature_C+273.15)*log(10)/F) #calculate the pH on the total scale (Dickson A. G., Sabine C. L. and Christian J. R., SOP 6a)
 
 print(pH.Total)
 
 library(lubridate)
 # populate empty dataframe with Tris calibrations 
-Date <- month$Date
-ymd(Date)
-total_pH$Date <- ymd(Date)
-Tank_ID <- month$Tank_ID
-total_pH$Tank_ID <- Tank_ID
+tris$light1 <- pH.Total
+
+total_pH$pH.Total <- pH.Total
+total_pH$Date <- tris$Date
+Tank_ID <- tris$Tank_ID
+total_pH$Tank_ID <- tris$Tank_ID
 Temperature_C <- month$Temperature_C
 total_pH$Temperature_C <- Temperature_C
 total_pH$pH.Total <- pH.Total
 total_pH$phTris <- phTris
 total_pH$mvTris <- mvTris
+
+# help 
 ```
 
 
