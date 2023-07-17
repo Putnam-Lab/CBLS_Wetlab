@@ -24,9 +24,9 @@ library(tidyverse)
 library(ggplot2)
 library(lubridate) # used for converting 8 digit date into datetime format for R
 library(RColorBrewer)
-setwd("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab")
+setwd("../../CBLS_Wetlab/")
 getwd() # confirm that wd is in CBLS Wetlab Protocol directory
-daily_measurements <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/Daily_measurements_tracking.csv")
+daily_measurements <- read.csv("../Data/Daily_measurements_tracking.csv")
 daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date into datetime format
 
 ```
@@ -208,7 +208,7 @@ print(total_pH_plot)
 ```{r}
 ## import .csv of TA from blue tank titrations from Titration repository, which is outside of the working directory, so you'll need the full path 
 
-TA_data <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/Titrator/Data/CBLS_Aquarium_TA.csv")
+TA_data <- read.csv("../Data/CBLS_Aquarium_TA.csv")
 TA_data$Date <- ymd(TA_data$Date) # convert 8 digit date into datetime format
 TA_data$Date <-as.character(TA_data$Date)
 
@@ -230,14 +230,14 @@ print(TA)
 library(ggpubr)
 
 # create pdf; change name every day
-pdf(file = "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/20230208_daily_measurements.pdf",
+pdf(file = "../Output/20230717_dailymeasurements.pdf",
     width = 4,
     height = 4)
 
 # combine plots using ggpubr command onto one page
 
-daily <- ggarrange(temp, sal, total_pH_plot, TA, 
-          ncol = 2, nrow = 2)
+daily <- ggarrange(temp, sal, TA, 
+          ncol = 2, nrow = 2) #removed total pH for now
 
 print(daily) # view plot
 
