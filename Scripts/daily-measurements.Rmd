@@ -237,7 +237,7 @@ pdf(file = "../Output/20230717_dailymeasurements.pdf",
 # combine plots using ggpubr command onto one page
 
 daily <- ggarrange(temp, sal, TA, 
-          ncol = 2, nrow = 2) #removed total pH for now
+          ncol = 1, nrow = 3) #removed total pH for now
 
 print(daily) # view plot
 
