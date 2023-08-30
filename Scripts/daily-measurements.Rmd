@@ -36,7 +36,7 @@ daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date i
 # preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
 # for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
 
-month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2023-05-19", ] # use if you would like to subset by month or from certain date range 
+#month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2023-09-01", ] # use if you would like to subset by month or from certain date range 
 no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
 no_qtank[no_qtank == ""] <- NA # replace blanks with NA
 daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
@@ -47,9 +47,10 @@ daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
 
 # temperature plot
 
-temp <- ggplot(month, aes(x=Date, y=Temperature_C, colour = Tank_ID)) + 
+temp <- ggplot(daily_measurements, aes(x=Date, y=Temperature_C, colour = Tank_ID)) + 
     geom_line() + 
-    theme_classic() + 
+    theme_classic() +
+    scale_x_date(date_labels = "%b-%Y", date_breaks = "2 months") +
     geom_point() + 
     ylab("Temperature °C")
 
@@ -63,9 +64,10 @@ print(temp)
 
 ## salinity plot 
 
-sal <- ggplot(month, aes(x=Date, y=Salinity_psu, colour = Tank_ID)) + 
+sal <- ggplot(daily_measurements, aes(x=Date, y=Salinity_psu, colour = Tank_ID)) + 
     geom_line() + 
     theme_classic() + 
+      scale_x_date(date_labels = "%b-%Y", date_breaks = "2 months") +
     geom_point() +
     ylab("Salinity (psu)")
 
@@ -82,7 +84,7 @@ print(sal)
 ## for pH, we need the total pH, which depends on the Tris calibration and the temperature.
 
 getwd() #check working directory
-path <-("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/tris_cal") #set path to calibration files
+path <-("../Data/tris_cal/") #set path to calibration files
 
 file.names<-list.files(path = path, pattern = "csv$") #list all the file names in the folder to get only the .csv files 
 print(file.names)
@@ -174,18 +176,18 @@ total_pH$mvTris <- mvTris
 # updated this script 5/12/23 LZ
 # export the total_pH dataframe as an output csv
 
-write.table(total_pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH_output.csv",sep=",", row.names=FALSE) 
+write.table(total_pH,"../Data/total_pH_output.csv",sep=",", row.names=FALSE) 
 
 # read in cumulative total_pH 
 
-cumu.pH <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv")
+cumu.pH <- read.csv("../Data/total_pH.csv")
 
 update.pH <- rbind(cumu.pH, total_pH) # bind most recent total_pH to cumulative total pH dataframe 
 
 tail(update.pH) #check that most recent total_pH measurements have been appended to the cumu dataframe
 
 # export data as csv file
-write.table(update.pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/total_pH.csv",sep=",", row.names=FALSE)
+write.table(update.pH,"../Data/total_pH.csv",sep=",", row.names=FALSE)
 
 
 
@@ -198,6 +200,7 @@ write.table(update.pH,"/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/tot
 total_pH_plot <- ggplot(total_pH, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
     geom_line() +  
     geom_point()+
+    scale_x_date(date_labels = "%b-%d-%Y") +
     theme_classic()+
     ylab("total pH")
 print(total_pH_plot)
@@ -230,7 +233,7 @@ print(TA)
 library(ggpubr)
 
 # create pdf; change name every day
-pdf(file = "../Output/20230717_dailymeasurements.pdf",
+pdf(file = "../Output/20230830_dailymeasurements.pdf",
     width = 4,
     height = 4)
 
