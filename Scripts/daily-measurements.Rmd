@@ -7,13 +7,39 @@ output:
   html_document: default
 ---
 
+This script plots daily measurements from the CBLS Wet lab for the Putnam lab. Run this script daily after daily measurements are taken and inputted into the datasheet. 
+
+Script updated 10/25/23 by JA. 
+
+## Load packages 
 ```{r setup, include=FALSE}
-library(knitr)
+knitr::opts_chunk$set(echo = TRUE)
+
+library(tidyverse)
+library(lubridate) # used for converting 8 digit date into datetime format for R
+library(RColorBrewer)
 library(rmarkdown)
 library(tinytex)
-knitr::opts_chunk$set(echo = TRUE)
-getwd() # for LZ "/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Scripts"
 ```
+
+## Load data 
+```{r}
+daily <- read.csv("../Data/Daily_measurements_tracking.csv")
+head(daily)
+tail(daily) # check to make sure data from today is there
+```
+
+
+
+
+
+
+
+
+
+
+
+
 
 ```{r}
 # load libraries 
