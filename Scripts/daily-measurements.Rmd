@@ -20,6 +20,12 @@ library(lubridate) # used for converting 8 digit date into datetime format for R
 library(RColorBrewer)
 library(rmarkdown)
 library(tinytex)
+
+## If seacarb needs to be downloaded:
+#packageurl <- "https://cran.r-project.org/src/contrib/Archive/seacarb/seacarb_3.2.tar.gz"
+#install.packages(packageurl, repos = NULL, type = "source")
+#install.packages("seacarb")
+library(seacarb) 
 ```
 
 ## Load data 
@@ -29,251 +35,115 @@ head(daily)
 tail(daily) # check to make sure data from today is there
 ```
 
+Set dates as characters 
+```{r}
+daily$Date <- as.character(daily$Date)
+daily$tris.date <- as.character(daily$tris.date)
+```
 
 
-
-
-
-
-
-
-
-
-
+Remove quarantine_tank from the dataframe (this line can always be commented out if interested in QT values)
 
 ```{r}
-# load libraries 
-
-library(dplyr)
-library(tidyverse)
-
-library(ggplot2)
-library(lubridate) # used for converting 8 digit date into datetime format for R
-library(RColorBrewer)
-setwd("../../CBLS_Wetlab/")
-getwd() # confirm that wd is in CBLS Wetlab Protocol directory
-daily_measurements <- read.csv("../Data/Daily_measurements_tracking.csv")
-daily_measurements$Date <- ymd(daily_measurements$Date) # convert 8 digit date into datetime format
-
+daily <- daily %>%
+  filter(!Tank_ID == "quarantine_tank")
 ```
 
+## Calculate total pH  
+
+Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
 ```{r}
+pHcalib<-read_csv("../Data/Tris_Calibration.csv")
+pHcalib$tris.date<-as.character(pHcalib$tris.date)
 
-# preparing df to plot temperature, salinity, pH or light values for CBLS aquarium daily measurements
-# for scale color manual, values correspond to BT1, BT2, BT3, BT4, HT, QT
+pHSlope<-pHcalib %>%
+  nest_by(tris.date)%>%
+  mutate(fitpH = list(lm(mVTris~TTris, data = pHcalib)))
 
-#month <-daily_measurements[daily_measurements$Date >= "2022-06-01" & daily_measurements$Date <= "2023-09-01", ] # use if you would like to subset by month or from certain date range 
-no_qtank <- subset(month, Tank_ID != "quarantine_tank") # removing quarantine tank from plot            
-no_qtank[no_qtank == ""] <- NA # replace blanks with NA
-daily_measurements$Tank_ID <- as.factor(daily_measurements$Tank_ID)
+# calculating the fitpH as the same for all dates...
 
+%>% # linear regression of mV and temp of the tris
+  reframe(broom::tidy(fitpH)) %>% # make the output tidy
+  dplyr::select(tris.date, term, estimate) 
+
+
+%>%
+  pivot_wider(names_from = term, values_from = estimate) %>%# put slope and intercept in their own column
+  left_join(daily, ., by="tris.date") %>% # join with the pH sample data
+  mutate(mVTris = Temperature_C*TTris + `(Intercept)`) %>%# calculate the mV of the tris at temperature in which the pH of the tanks were measured
+  mutate(pH.total = seacarb::pH(Ex=pH_mv, Etris=mVTris, S=Salinity_psu, T=Temperature_C)) # calculate pH of the tanks using the pH seacarb function
 ```
 
-```{r, echo=FALSE}
+^^^ JA working on pH code as of 10/25/23
 
-# temperature plot
-
-temp <- ggplot(daily_measurements, aes(x=Date, y=Temperature_C, colour = Tank_ID)) + 
-    geom_line() + 
-    theme_classic() +
-    scale_x_date(date_labels = "%b-%Y", date_breaks = "2 months") +
-    geom_point() + 
-    ylab("Temperature °C")
-
-print(temp)
-
-
-
-```
-
-```{r, echo=FALSE}
-
-## salinity plot 
-
-sal <- ggplot(daily_measurements, aes(x=Date, y=Salinity_psu, colour = Tank_ID)) + 
-    geom_line() + 
-    theme_classic() + 
-      scale_x_date(date_labels = "%b-%Y", date_breaks = "2 months") +
-    geom_point() +
-    ylab("Salinity (psu)")
-
-print(sal)
-
-
-
-```
-
+Convert date to ymd for plotting 
 ```{r}
-
-## total pH calculation setup 
-
-## for pH, we need the total pH, which depends on the Tris calibration and the temperature.
-
-getwd() #check working directory
-path <-("../Data/tris_cal/") #set path to calibration files
-
-file.names<-list.files(path = path, pattern = "csv$") #list all the file names in the folder to get only the .csv files 
-print(file.names)
-pH.cals <- data.frame(matrix(NA, nrow=length(file.names), ncol=3, dimnames=list(file.names,c("Date", "Intercept", "Slope")))) #generate a 3 column dataframe with specific column names
-
-for(i in 1:length(file.names)) { # for every file in list start at the first and run this following function
-  Calib.Data <-read.table(file.path(path,file.names[i]), header=TRUE, sep=",", na.string="NA",
-                          as.is=TRUE) #reads in the data files
-  file.names[i]
-  model <-lm(mVTris ~ TTris, data=Calib.Data) #runs a linear regression of mV as a function of temperature
-  coe <- coef(model) #extracts the coeffecients
-  summary(model)$r.squared #extracts the r squared
-  plot(Calib.Data$mVTris, Calib.Data$TTris, main = summary(model)$r.squared) #plots the regression data
-  pH.cals[i,2:3] <- coe #inserts coefficients in the dataframe
-  pH.cals[i,1] <- substr(file.names[i],1,8) #stores the file name in the Date column
-}
-
-colnames(pH.cals) <- c("Date",  "Intercept",  "Slope")#rename columns
-pH.cals$Date <- ymd(pH.cals$Date)
-print(pH.cals) #view data
-
-#constants for use in pH calculation 
-R <- 8.31447215 #gas constant in J mol-1 K-1 
-F <- 96485.339924 #Faraday constant in coulombs mol-1
-
-#merge with Seawater chemistry file
-SW.chem <- full_join(month, pH.cals, by="Date")
-
-
+daily$Date <- ymd(daily$Date) # convert 8 digit date into datetime format
 ```
 
+
+
+## Change to long format
+
+Change data format to long format 
 ```{r}
-# calculate total pH
-
-# select calibration date for the week 
-
-calib.date <- "2023-05-15"
-pH.cals<-pH.cals[pH.cals$Date==calib.date,]
-
-# subset daily measurements for week that pertains to the Tris calibration 
-
-tris <-month[month$Date >= "2023-05-15" & month$Date <= "2023-05-19", ]
-
-#create an empty matrix to put the pH values in
-
-nrows<-nrow(month) #need file length/number of rows
-
-
-total_pH <- data.frame(matrix(nrow = nrows, ncol = 6)) # changed from 4 columns to 5 LZ 20220720
-
-
-colnames(total_pH)<-c("Date","Tank_ID", "Temperature_C",'mvTris','phTris','pH.Total') 
-
-
-# Tris calculations
-
-print(tris$Temperature_C)
-mvTris <- tris$Temperature_C*pH.cals$Slope+pH.cals$Intercept #calculate the mV of the tris standard using the temperature mv relationships in the measured standard curves 
-STris<-35 #salinity of the Tris
-print(mvTris)
-
-phTris<- (11911.08-18.2499*STris-0.039336*STris^2)*(1/(tris$Temperature_C+273.15))-366.27059+ 0.53993607*STris+0.00016329*STris^2+(64.52243-0.084041*STris)*log(tris$Temperature_C+273.15)-0.11149858*(tris$Temperature_C+273.15) #calculate the pH of the tris (Dickson A. G., Sabine C. L. and Christian J. R., SOP 6a)
-print(phTris)
-
-pH.Total<-phTris+(mvTris/1000-tris$pH_mv/1000)/(R*(tris$Temperature_C+273.15)*log(10)/F) #calculate the pH on the total scale (Dickson A. G., Sabine C. L. and Christian J. R., SOP 6a)
-
-print(pH.Total)
-
-library(lubridate)
-# populate empty dataframe with Tris calibrations 
-tris$light1 <- pH.Total
-
-total_pH$pH.Total <- pH.Total
-total_pH$Date <- tris$Date
-Tank_ID <- tris$Tank_ID
-total_pH$Tank_ID <- tris$Tank_ID
-Temperature_C <- month$Temperature_C
-total_pH$Temperature_C <- Temperature_C
-total_pH$pH.Total <- pH.Total
-total_pH$phTris <- phTris
-total_pH$mvTris <- mvTris
-
-# help 
+daily.long <-daily %>% pivot_longer(cols=Temperature_C:Salinity_psu,
+  names_to = "metric",
+  values_to = "value")
 ```
 
-
+Convert date to ymd for plotting 
 ```{r}
-
-# updated this script 5/12/23 LZ
-# export the total_pH dataframe as an output csv
-
-write.table(total_pH,"../Data/total_pH_output.csv",sep=",", row.names=FALSE) 
-
-# read in cumulative total_pH 
-
-cumu.pH <- read.csv("../Data/total_pH.csv")
-
-update.pH <- rbind(cumu.pH, total_pH) # bind most recent total_pH to cumulative total pH dataframe 
-
-tail(update.pH) #check that most recent total_pH measurements have been appended to the cumu dataframe
-
-# export data as csv file
-write.table(update.pH,"../Data/total_pH.csv",sep=",", row.names=FALSE)
-
-
-
+daily.long$Date <- ymd(daily.long$Date) # convert 8 digit date into datetime format
 ```
 
-```{r, echo=FALSE}
+Filter by relevant dates if needed
 
-# plot total pH from the cumulative total pH
+## Plot
 
-total_pH_plot <- ggplot(total_pH, aes(x=Date, y=pH.Total, group = Tank_ID, colour = Tank_ID)) + 
-    geom_line() +  
-    geom_point()+
-    scale_x_date(date_labels = "%b-%d-%Y") +
-    theme_classic()+
-    ylab("total pH")
-print(total_pH_plot)
-
-
-```
-
+First, plot all dates 
 ```{r}
-## import .csv of TA from blue tank titrations from Titration repository, which is outside of the working directory, so you'll need the full path 
+daily_tank<-daily.long %>%
+  ggplot(aes(x=Date, y=value, colour=Tank_ID))+
+  geom_point(size=2)+
+  xlab("Date")+
+  facet_grid(metric ~ ., scales = "free")+
+  theme_bw(); daily_tank
 
-TA_data <- read.csv("../Data/CBLS_Aquarium_TA.csv")
-TA_data$Date <- ymd(TA_data$Date) # convert 8 digit date into datetime format
-TA_data$Date <-as.character(TA_data$Date)
-
-# subset to remove junk samples or CRM
-TA_unknown_only <- TA_data[(TA_data$SampleID == "BT1") | (TA_data$SampleID == "BT2")|(TA_data$SampleID == "BT3") | (TA_data$SampleID == "HT1") | (TA_data$SampleID == "HT2"),]
-
-# plot TA
-
-TA <- ggplot(TA_unknown_only, aes(x=Date, y=TA, group = SampleID, colour = SampleID)) + geom_line() + geom_point() + theme_classic()
-print(TA)
-
-
+# Save plot 
+ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
 ```
 
-```{r, echo=FALSE}
-# combine all plots onto one page using the ggpubr package and save as a pdf 
+It isn't super informative to look at multiple years in one plot. 
 
-#load library
-library(ggpubr)
+Filter and plot by the past month
+```{r}
+# Filter to the past 30 days 
+daily_month <- daily.long %>%
+  filter(Date >= Sys.Date() - 30)  # Adjust 30 to the number of days you want to consider
 
-# create pdf; change name every day
-pdf(file = "../Output/20230830_dailymeasurements.pdf",
-    width = 4,
-    height = 4)
+# Plot data from the past month
+daily_month<-daily_month %>%
+  ggplot(aes(x=Date, y=value, colour=Tank_ID))+
+  geom_point(size=2)+
+  xlab("Date")+
+  facet_grid(metric ~ ., scales = "free")+
+  theme_bw(); daily_month
 
-# combine plots using ggpubr command onto one page
-
-daily <- ggarrange(temp, sal, TA, 
-          ncol = 1, nrow = 3) #removed total pH for now
-
-print(daily) # view plot
-
-# dev.off is used to create the file 
-dev.off()
-
-
-
-
+# Save plot 
+ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
 ```
+
+Summarize daily measurements over the past month (this will use the `daily` df from above instead of the the `daily.long` df)
+```{r}
+daily_month <- daily %>% 
+  filter(Date >= Sys.Date() - 30)  # Adjust 30 to the number of days you want to consider
+
+summary<-daily_month%>%
+  group_by(Tank_ID)%>%
+  #select(!tank)%>%
+  select(!Date)%>%
+  select(!light2:notes)%>%
+  summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE)); summary
+```
+STILL NEED TO MAKE TA PLOTS AND NEED TO GET PH CODE TO WORK
