@@ -35,7 +35,7 @@ head(daily)
 tail(daily) # check to make sure data from today is there
 ```
 
-Set dates as characters 
+Set dates as characters (needs to be done for merging with the tris calibration file)
 ```{r}
 daily$Date <- as.character(daily$Date)
 daily$tris.date <- as.character(daily$tris.date)
@@ -56,32 +56,26 @@ Calculate the calibration curve from the Tris calibration and calculate pH on th
 pHcalib<-read_csv("../Data/Tris_Calibration.csv")
 pHcalib$tris.date<-as.character(pHcalib$tris.date)
 
-pHSlope<-pHcalib %>%
-  nest_by(tris.date)%>%
-  mutate(fitpH = list(lm(mVTris~TTris, data = pHcalib)))
-
-# calculating the fitpH as the same for all dates...
-
-%>% # linear regression of mV and temp of the tris
-  reframe(broom::tidy(fitpH)) %>% # make the output tidy
-  dplyr::select(tris.date, term, estimate) 
-
-
-%>%
-  pivot_wider(names_from = term, values_from = estimate) %>%# put slope and intercept in their own column
-  left_join(daily, ., by="tris.date") %>% # join with the pH sample data
-  mutate(mVTris = Temperature_C*TTris + `(Intercept)`) %>%# calculate the mV of the tris at temperature in which the pH of the tanks were measured
-  mutate(pH.total = seacarb::pH(Ex=pH_mv, Etris=mVTris, S=Salinity_psu, T=Temperature_C)) # calculate pH of the tanks using the pH seacarb function
+pHSlope <- pHcalib %>%
+  group_by(tris.date) %>%
+  nest() %>%
+  mutate(fitpH = map(data, ~ lm(mVTris ~ TTris, data = .x))) %>%
+  mutate(tidy_fit = map(fitpH, broom::tidy)) %>%
+  unnest(tidy_fit) %>%
+  select(tris.date, term, estimate) %>%
+  pivot_wider(names_from = term, values_from = estimate) %>%
+  left_join(daily, ., by = "tris.date") %>%
+  mutate(mVTris = Temperature_C * TTris + `(Intercept)`) %>%
+  filter(!is.na(mVTris) & !is.na(Temperature_C) & !is.na(Salinity_psu) & !is.na(pH_mv)) %>%
+  mutate(pH.total = seacarb::pH(Ex = pH_mv, Etris = mVTris, S=Salinity_psu, T=Temperature_C))
 ```
 
-^^^ JA working on pH code as of 10/25/23
+The code above appears to not want to run when there are so many NAs in the data, but that becomes a problem when there is so many NAs in the temp and salinity columns. 
 
 Convert date to ymd for plotting 
 ```{r}
 daily$Date <- ymd(daily$Date) # convert 8 digit date into datetime format
 ```
-
-
 
 ## Change to long format
 
@@ -90,11 +84,6 @@ Change data format to long format
 daily.long <-daily %>% pivot_longer(cols=Temperature_C:Salinity_psu,
   names_to = "metric",
   values_to = "value")
-```
-
-Convert date to ymd for plotting 
-```{r}
-daily.long$Date <- ymd(daily.long$Date) # convert 8 digit date into datetime format
 ```
 
 Filter by relevant dates if needed
