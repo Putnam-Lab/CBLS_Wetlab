@@ -94,10 +94,11 @@ First, plot all dates
 ```{r}
 daily_tank<-daily.long %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
-  geom_point(size=2)+
+  geom_point(size=4)+
   xlab("Date")+
   facet_grid(metric ~ ., scales = "free")+
-  theme_bw(); daily_tank
+  theme_bw() +
+  theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
 ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
@@ -114,10 +115,11 @@ daily_month <- daily.long %>%
 # Plot data from the past month
 daily_month<-daily_month %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
-  geom_point(size=2)+
+  geom_point(size=4)+
   xlab("Date")+
   facet_grid(metric ~ ., scales = "free")+
-  theme_bw(); daily_month
+  theme_bw() +
+  theme(text = element_text(size = 14)); daily_month
 
 # Save plot 
 ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
@@ -135,4 +137,5 @@ summary<-daily_month%>%
   select(!light2:notes)%>%
   summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE)); summary
 ```
+
 STILL NEED TO MAKE TA PLOTS AND NEED TO GET PH CODE TO WORK
