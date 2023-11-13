@@ -54,7 +54,7 @@ daily <- daily %>%
 ## Filter the daily measurement sheets for BT1/2 
 ```{r}
 BT1_2 <- daily %>%
-  filter(Tank_ID == "blue_tank1" | Tank_ID == "blue_tank2")
+  filter(Tank_ID == "blue_tank1" | Tank_ID == "blue_tank2" | Date == 20231110)
 
 ```
 
@@ -75,7 +75,7 @@ pHSlope <- pHcalib %>%
   unnest(tidy_fit) %>%
   select(tris.date, term, estimate) %>%
   pivot_wider(names_from = term, values_from = estimate) %>%
-  left_join(daily, ., by = "tris.date") %>%
+  left_join(BT1_2, ., by = "tris.date") %>%
   mutate(mVTris = Temperature_C * TTris + `(Intercept)`) %>%
   filter(!is.na(mVTris) & !is.na(Temperature_C) & !is.na(Salinity_psu) & !is.na(pH_mv)) %>%
   mutate(pH.total = seacarb::pH(Ex = pH_mv, Etris = mVTris, S=Salinity_psu, T=Temperature_C))

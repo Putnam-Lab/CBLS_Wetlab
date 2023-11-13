@@ -30,7 +30,8 @@ library(seacarb)
 
 ## Load data 
 ```{r}
-daily <- read.csv("../Data/Daily_measurements_tracking.csv")
+getwd()
+daily <- read.csv("Desktop/Putnam_Lab/CBLS_Wetlab/Data/Daily_measurements_tracking.csv")
 head(daily)
 tail(daily) # check to make sure data from today is there
 ```
@@ -53,7 +54,7 @@ daily <- daily %>%
 
 Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
 ```{r}
-pHcalib<-read_csv("../Data/Tris_Calibration.csv")
+pHcalib<-read_csv("Desktop/Putnam_Lab/CBLS_Wetlab/Data/Tris_Calibration.csv")
 pHcalib$tris.date<-as.character(pHcalib$tris.date)
 
 pHSlope <- pHcalib %>%
