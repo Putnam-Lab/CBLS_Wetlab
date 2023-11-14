@@ -32,7 +32,6 @@ library(seacarb)
 ```{r}
 getwd()
 daily <- read.csv("Desktop/Putnam_Lab/CBLS_Wetlab/Data/Daily_measurements_tracking.csv")
-head(daily)
 tail(daily) # check to make sure data from today is there
 ```
 
@@ -102,7 +101,7 @@ daily_tank<-daily.long %>%
   theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
-ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Plots/20231114_Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
 ```
 
 It isn't super informative to look at multiple years in one plot. 
