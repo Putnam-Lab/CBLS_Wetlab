@@ -48,9 +48,8 @@ Remove quarantine_tank from the dataframe (this line can always be commented out
 ```{r}
 daily <- daily %>%
   filter(!Tank_ID == "quarantine_tank") %>%
-  filter(!Tank_ID == "header_tank") %>%
-  filter(!Tank_ID == "blue_tank3") %>% 
-  filter(!Tank_ID == "blue_tank4")
+  filter(!Tank_ID == "blue_tank1") %>% 
+  filter(!Tank_ID == "blue_tank2")
 
 ```
 
@@ -58,7 +57,7 @@ daily <- daily %>%
 
 Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
 ```{r}
-pHcalib<-read_csv("../Data/Tris_Calibration_BT1_2.csv")
+pHcalib<-read_csv("../Data/Tris_Calibration.csv")
 pHcalib$tris.date<-as.character(pHcalib$tris.date)
 
 pHSlope <- pHcalib %>%
@@ -108,7 +107,7 @@ daily_tank<-pHSlope.long %>%
   theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
-ggsave("../Output/Daily_Measurements_BT1_2.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
 ```
 
 It isn't super informative to look at multiple years in one plot. 
@@ -129,7 +128,7 @@ daily_month<-daily_month %>%
   theme(text = element_text(size = 14)); daily_month
 
 # Save plot 
-ggsave("../Output/Daily_Measurements_Past_Month_BT1_2.pdf", daily_month, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
 ```
 
 Summarize daily measurements over the past month (this will use the `daily` df from above instead of the the `daily.long` df)
