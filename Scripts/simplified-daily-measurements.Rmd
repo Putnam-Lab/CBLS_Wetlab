@@ -104,7 +104,7 @@ daily_tank<-pHSlope.long %>%
   theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
-ggsave("../Output/Daily_Measurements_simplified.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
 ```
 
 It isn't super informative to look at multiple years in one plot. 
@@ -125,7 +125,7 @@ daily_month<-daily_month %>%
   theme(text = element_text(size = 14)); daily_month
 
 # Save plot 
-ggsave("../Output/Daily_Measurements_Past_Month_simplified.pdf", daily_month, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
 ```
 
 Summarize daily measurements over the past month (this will use the `daily` df from above instead of the the `daily.long` df)
@@ -221,7 +221,7 @@ daily_tank<-pHSlope.long %>%
   theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
-ggsave("../Output/Daily_Measurements_simplified.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
 ```
 
 
@@ -241,7 +241,7 @@ daily_month<-daily_month %>%
   theme(text = element_text(size = 14)); daily_month
 
 # Save plot 
-ggsave("../Output/Daily_Measurements_Past_Month_simplified.pdf", daily_month, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
 ```
 
 
