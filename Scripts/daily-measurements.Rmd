@@ -43,14 +43,11 @@ daily$tris.date <- as.character(daily$tris.date)
 ```
 
 
-Remove quarantine_tank from the dataframe (this line can always be commented out if interested in QT values)
+Just keep header tank and blut tank 3 rows
 
 ```{r}
 daily <- daily %>%
-  filter(!Tank_ID == "quarantine_tank") %>%
-  filter(!Tank_ID == "blue_tank1") %>% 
-  filter(!Tank_ID == "blue_tank2")
-
+  filter(Tank_ID == "header_tank" | Tank_ID == "blue_tank3") 
 ```
 
 ## Calculate total pH  
@@ -80,7 +77,8 @@ Convert date to ymd for plotting
 ```{r}
 pHSlope$Date <- ymd(pHSlope$Date) # convert 8 digit date into datetime format
 
-pHSlope <- pHSlope %>% relocate("pH.total", .after = Salinity_psu)
+pHSlope <- pHSlope %>% relocate("pH.total", .after = Salinity_psu) %>%
+  relocate(pH_mv, .after = pH.total)
 ```
 
 ## Change to long format
@@ -96,13 +94,31 @@ Filter by relevant dates if needed
 
 ## Plot
 
-First, plot all dates 
+Make a list of dataframes, each containing a horizontal line that will correspond to the upper and lower threshold of each parameter (temperature, salinity, pH total)
+```{r}
+hlines_data <- list(
+  data.frame(yintercept = 24, metric = "Temperature_C"), # lower threshold for temperature in C°
+  data.frame(yintercept = 27.5, metric = "Temperature_C"), # upper threshold for temperature in C°
+  data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
+  data.frame(yintercept = 36.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
+  data.frame(yintercept = 7.78, metric = "pH.total"), # lower threshold for total pH
+  data.frame(yintercept = 8.1, metric = "pH.total") # upper threshold for total pH
+    )
+```
+
+Plot all dates 
 ```{r}
 daily_tank<-pHSlope.long %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
   geom_point(size=4)+
   xlab("Date")+
   facet_grid(metric ~ ., scales = "free")+
+  geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
+  geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
   theme_bw() +
   theme(text = element_text(size = 14)); daily_tank
 
@@ -124,6 +140,12 @@ daily_month<-daily_month %>%
   geom_point(size=4)+
   xlab("Date")+
   facet_grid(metric ~ ., scales = "free")+
+  geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
+  geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
   theme_bw() +
   theme(text = element_text(size = 14)); daily_month
 
@@ -164,10 +186,7 @@ Remove quarantine_tank from the dataframe (this line can always be commented out
 
 ```{r}
 daily_BT1_2 <- daily %>%
-  filter(!Tank_ID == "quarantine_tank") %>%
-  filter(!Tank_ID == "header_tank") %>%
-  filter(!Tank_ID == "blue_tank3") %>% 
-  filter(!Tank_ID == "blue_tank4")
+  filter(Tank_ID == "blue_tank1")
 
 ```
 
@@ -186,7 +205,7 @@ pHSlope_BT1_2 <- pHcalib_BT1_2 %>%
   unnest(tidy_fit) %>%
   select(tris.date, term, estimate) %>%
   pivot_wider(names_from = term, values_from = estimate) %>%
-  left_join(daily, ., by = "tris.date") %>%
+  left_join(daily_BT1_2, ., by = "tris.date") %>%
   mutate(mVTris = Temperature_C * TTris + `(Intercept)`) %>%
   filter(!is.na(mVTris) & !is.na(Temperature_C) & !is.na(Salinity_psu) & !is.na(pH_mv)) %>%
   mutate(pH.total = seacarb::pH(Ex = pH_mv, Etris = mVTris, S=Salinity_psu, T=Temperature_C))
@@ -195,7 +214,8 @@ pHSlope_BT1_2 <- pHcalib_BT1_2 %>%
 ```{r}
 pHSlope_BT1_2$Date <- ymd(pHSlope_BT1_2$Date) # convert 8 digit date into datetime format
 
-pHSlope_BT1_2 <- pHSlope_BT1_2 %>% relocate("pH.total", .after = Salinity_psu)
+pHSlope_BT1_2 <- pHSlope_BT1_2 %>% relocate("pH.total", .after = Salinity_psu) %>%
+    relocate(pH_mv, .after = pH.total)
 ```
 
 ## Change to long format
@@ -207,21 +227,39 @@ pHSlope_BT1_2.long <- pHSlope_BT1_2 %>% pivot_longer(cols=Temperature_C:pH.total
   values_to = "value")
 ```
 
-
+Combine BT1&2 data with BT3&4 data 
 ```{r}
 pHSlope.long <- rbind(pHSlope.long, pHSlope_BT1_2.long)
 
 pHSlope <- rbind(pHSlope, pHSlope_BT1_2)
 ```
 
+Make a list of dataframes, each containing a horizontal line that will correspond to the upper and lower threshold of each parameter (temperature, salinity, pH total)
+```{r}
+hlines_data <- list(
+  data.frame(yintercept = 24, metric = "Temperature_C"), # lower threshold for temperature in C°
+  data.frame(yintercept = 27.5, metric = "Temperature_C"), # upper threshold for temperature in C°
+  data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
+  data.frame(yintercept = 36.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
+  data.frame(yintercept = 7.78, metric = "pH.total"), # lower threshold for total pH
+  data.frame(yintercept = 8.1, metric = "pH.total") # upper threshold for total pH
+    )
+```
 
-First, plot all dates 
+Plot all dates 
 ```{r}
 daily_tank<-pHSlope.long %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
   geom_point(size=4)+
   xlab("Date")+
   facet_grid(metric ~ ., scales = "free")+
+  geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
+  geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
+  scale_color_discrete(name = "Tank", labels = c("Blue Tank 1&2","Blue Tank 3&4","Header Tank"))+
   theme_bw() +
   theme(text = element_text(size = 14)); daily_tank
 
@@ -241,6 +279,13 @@ daily_month<-daily_month %>%
   geom_point(size=4)+
   xlab("Date")+
   facet_grid(metric ~ ., scales = "free")+
+  geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
+  geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
+  scale_color_discrete(name = "Tank", labels = c("Blue Tank 1&2","Blue Tank 3&4","Header Tank"))+
   theme_bw() +
   theme(text = element_text(size = 14)); daily_month
 
