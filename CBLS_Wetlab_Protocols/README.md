@@ -22,7 +22,7 @@ To ensure accurate results, water quality is assessed within the tanks through v
 ## **Daily measurements:**
 - [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
 - [Daily Measurements of the Past Month](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
-- [CSV]([https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/CBLS_watertables_waterquality_tracking.csv](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv)) of water quality tracking data.
+- [CSV](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv) of water quality tracking data.
 
 ## **Protocols**
 - [Apex Calibration Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Apex-Calibration-Protocols.md) 
@@ -30,6 +30,6 @@ To ensure accurate results, water quality is assessed within the tanks through v
 - All other protocols can be accessed [here](https://github.com/Putnam-Lab/CBLS_Wetlab/tree/main/CBLS_Wetlab_Protocols) 
 
 
-  ## **Google Drive Foler**
+  ## **Google Drive Folder**
 - [CBLS Google Drive](https://drive.google.com/drive/u/0/folders/1ocYxPYi3edLmXBJPu962fU0PFoS6fVF6) includes photos, videos, room maps, and notebook photos.
 
