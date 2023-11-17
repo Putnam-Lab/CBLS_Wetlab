@@ -19,11 +19,10 @@ To ensure accurate results, water quality is assessed within the tanks through v
 
 <img width="892" alt="Screen Shot 2023-11-08 at 4 02 07 PM" src="https://github.com/Putnam-Lab/CBLS_Wetlab/assets/5198996/002bc5dc-806a-4b8b-95d4-de0ea7ceeb95">
 
-## **Some links within the repo**
-Daily measurements:
-    * [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
-    * [Daily Measurements of the Past Month](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
-    * [CSV]([https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/CBLS_watertables_waterquality_tracking.csv](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv)) of water quality tracking data.
+## **Daily measurements:**
+- [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
+- [Daily Measurements of the Past Month](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
+- [CSV]([https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/CBLS_watertables_waterquality_tracking.csv](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv)) of water quality tracking data.
 
 ## **Protocols**
 - [Apex Calibration Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Apex-Calibration-Protocols.md) 
