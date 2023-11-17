@@ -22,7 +22,7 @@ To ensure accurate results, water quality is assessed within the tanks through v
 ## **Daily measurements:**
 - [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
 - [Daily Measurements of the Past Month](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
-- [CSV](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv) of water quality tracking data.
+- [Daily Measurements Tracking CSV](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv) of water quality tracking data.
 
 ## **Protocols**
 - [Apex Calibration Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Apex-Calibration-Protocols.md) 
