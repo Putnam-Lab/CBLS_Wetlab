@@ -3,6 +3,7 @@
 
 Date created: 20210422  
 Date last revised: 20220119 DMBP
+Date revised: 20231117 LZ
 
 Location: University of Rhode Island, Center for Biotechnology and Life Sciences, Aquarium Room 70
 
@@ -16,15 +17,16 @@ To ensure accurate results, water quality is assessed within the tanks through v
 ![](https://raw.githubusercontent.com/Putnam-Lab/Lab_Management/master/images/CBLS_wetlab_map.jpg)
 
 ## **Some links within the repo**
-- [Polyp Bailout Project Water Quality Monitoring](https://github.com/Putnam-Lab/Lab_Management/tree/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/Polyp_Bailout_Project) led by Dr. Hannah Reich, Rosie Bailey, and Alison Thorson
-    - [Rmarkdown file](https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/scripts/20210422_CBLS_WaterTables_WQ_Tracking.Rmd) for plotting Temperature, Salinity, and pH of water tables through time.
+Lab/Lab_Management/blob/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/scripts/20210422_CBLS_WaterTables_WQ_Tracking.Rmd) for plotting Temperature, Salinity, and pH of water tables through time.
     - Folder containing [plots](https://github.com/Putnam-Lab/Lab_Management/tree/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/scripts/figures) (png files) of water table WQ through time.
     - [CSV](https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/CBLS_watertables_waterquality_tracking.csv) of water quality tracking data.
-    
-- [Acropora Sampling Water Quality Monitoring](https://github.com/Putnam-Lab/Lab_Management/tree/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/Acropora_Sampling_Monitoring) led by Dr. Hollie Putnam, Danielle Becker-Polinski, and Pierrick Harnay.
 
-## **Links outside of the repo**
+## **Protocols**
+- [Apex Calibration Protocol]() 
+- [Orion Handheld Sensor Protocol]()
+- All other protocols can be accessed [here]() 
 
-- [Wetlab Protocols](https://github.com/Putnam-Lab/Lab_Management/tree/master/Lab_Resources/CBLS_Wetlab_Protocols) for routine aquarium maintenance, equipment, and measurements. 
+
+  ## **Google Drive Foler**
 - [CBLS Google Drive](https://drive.google.com/drive/u/0/folders/1ocYxPYi3edLmXBJPu962fU0PFoS6fVF6) includes photos, videos, room maps, and notebook photos.
 
