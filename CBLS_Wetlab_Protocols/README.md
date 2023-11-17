@@ -10,12 +10,10 @@ Location: University of Rhode Island, Center for Biotechnology and Life Sciences
 
 The Putnam Lab CBLS tanks are used for dynamic marine invertebrate projects facilitated by Putnam Lab members. The tanks offer a way for students to investigate methodology pertaining to research questions, monitor water quality, learn aquacultural techniques, and conduct vital research in marine invertebrate systems. 
 
-To ensure accurate results, water quality is assessed within the tanks through various measurements that include; salinity, pH, total alkalinity, calcium, and carbonate hardness. Environmental parameters, such as, temperature, light, NH4, NO2, NO3, and PO4 are also measured. 
+To ensure accurate results, water quality is assessed within the tanks through various measurements that include; salinity, pH, and total alkalinity. 
 
 
 **CBLS Wetlab Map**
-
-# CBLS_Wetlab
 
 ## Top View
 
@@ -23,9 +21,9 @@ To ensure accurate results, water quality is assessed within the tanks through v
 
 ## **Some links within the repo**
 Daily measurements:
-    - [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
-    - [Daily Measurements of the Past Month](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
-    - [CSV]([https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/CBLS_watertables_waterquality_tracking.csv](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv)) of water quality tracking data.
+    * [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
+    * [Daily Measurements of the Past Month](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
+    * [CSV]([https://github.com/Putnam-Lab/Lab_Management/blob/master/Lab_Resources/CBLS_Aquarium_WQ_Tracking/CBLS_watertables_waterquality_tracking.csv](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv)) of water quality tracking data.
 
 ## **Protocols**
 - [Apex Calibration Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Apex-Calibration-Protocols.md) 
