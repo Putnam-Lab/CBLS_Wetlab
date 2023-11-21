@@ -10,6 +10,7 @@ output:
 This script plots daily measurements from the CBLS Wet lab for the Putnam lab. Run this script daily after daily measurements are taken and inputted into the datasheet. 
 
 Script updated 11/14/23 by ZD. 
+Script updated 11/16/23 by JA - added upper and lower threshold lines on plots. 
 
 ## Load packages 
 ```{r setup, include=FALSE}
@@ -187,7 +188,6 @@ Remove quarantine_tank from the dataframe (this line can always be commented out
 ```{r}
 daily_BT1_2 <- daily %>%
   filter(Tank_ID == "blue_tank1")
-
 ```
 
 ## Calculate total pH  
