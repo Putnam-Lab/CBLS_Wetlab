@@ -32,7 +32,7 @@ library(seacarb)
 ## Load data 
 ```{r}
 getwd()
-daily <- read.csv("../Data/Daily_measurements_tracking.csv")
+daily <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/Daily_measurements_tracking.csv")
 head(daily)
 tail(daily) # check to make sure data from today is there
 ```
@@ -55,7 +55,7 @@ daily <- daily %>%
 
 Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
 ```{r}
-pHcalib<-read_csv("../Data/Tris_Calibration.csv")
+pHcalib<-read_csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/Tris_Calibration.csv")
 pHcalib$tris.date<-as.character(pHcalib$tris.date)
 
 pHSlope <- pHcalib %>%
@@ -124,7 +124,7 @@ daily_tank<-pHSlope.long %>%
   theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
-ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+ggsave("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
 ```
 
 It isn't super informative to look at multiple years in one plot. 
@@ -151,7 +151,7 @@ daily_month<-daily_month %>%
   theme(text = element_text(size = 14)); daily_month
 
 # Save plot 
-ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
+ggsave("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
 ```
 
 Summarize daily measurements over the past month (this will use the `daily` df from above instead of the the `daily.long` df)
@@ -171,7 +171,7 @@ summary<-daily_month%>%
 
 ```{r}
 getwd()
-daily <- read.csv("../Data/Daily_measurements_tracking.csv")
+daily <- read.csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/Daily_measurements_tracking.csv")
 head(daily)
 tail(daily) # check to make sure data from today is there
 ```
@@ -194,7 +194,7 @@ daily_BT1_2 <- daily %>%
 
 Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
 ```{r}
-pHcalib_BT1_2<-read_csv("../Data/Tris_Calibration_BT1_2.csv")
+pHcalib_BT1_2<-read_csv("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Data/Tris_Calibration_BT1_2.csv")
 pHcalib_BT1_2$tris.date<-as.character(pHcalib_BT1_2$tris.date)
 
 pHSlope_BT1_2 <- pHcalib_BT1_2 %>%
@@ -264,7 +264,7 @@ daily_tank<-pHSlope.long %>%
   theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
-ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+ggsave("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
 ```
 
 
@@ -290,7 +290,7 @@ daily_month<-daily_month %>%
   theme(text = element_text(size = 14)); daily_month
 
 # Save plot 
-ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
+ggsave("/Users/laurenzane/Desktop/Putnam_Lab/CBLS_Wetlab/Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
 ```
 
 
