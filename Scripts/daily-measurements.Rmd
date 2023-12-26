@@ -1,6 +1,6 @@
 ---
 title: "Daily_measurements"
-author: "LaurenZane"
+author: "PutnamLab"
 date: "7/19/2022"
 output:
   pdf_document: default
@@ -31,8 +31,8 @@ library(seacarb)
 
 ## Load data 
 ```{r}
-getwd()
-daily <- read.csv("../Data/Daily_measurements_tracking.csv")
+
+daily <- read.csv("Data/2023_Daily_measurements_tracking.csv")
 head(daily)
 tail(daily) # check to make sure data from today is there
 ```
@@ -44,21 +44,35 @@ daily$tris.date <- as.character(daily$tris.date)
 ```
 
 
-Just keep header tank and blut tank 3 rows
 
+Probe Set 1 (for the header, all corals, and for the non-quarantine tank)
+e.g., BT 3/4 and header tank and salt mixing tank
 ```{r}
-daily <- daily %>%
-  filter(Tank_ID == "header_tank" | Tank_ID == "blue_tank3") 
+daily.probe1 <- daily %>%
+  filter(Probe.Set == "Probe1") 
+
+range(na.omit(daily.probe1$Temperature_C))
+range(na.omit(daily.probe1$pH_mv))
+range(na.omit(daily.probe1$Salinity_psu))
+
+
+daily.probe2 <- daily %>%
+  filter(Probe.Set == "Probe2") 
+
+range(na.omit(daily.probe2$Temperature_C))
+range(na.omit(daily.probe2$pH_mv))
+range(na.omit(daily.probe2$Salinity_psu))
+
 ```
 
-## Calculate total pH  
+## Calculate total pH from Probe Set 1 
 
 Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
 ```{r}
-pHcalib<-read_csv("../Data/Tris_Calibration.csv")
+pHcalib<-read_csv("Data/Tris_Calibration.csv")
 pHcalib$tris.date<-as.character(pHcalib$tris.date)
 
-pHSlope <- pHcalib %>%
+pHSlope.probe1 <- pHcalib %>%
   group_by(tris.date) %>%
   nest() %>%
   mutate(fitpH = map(data, ~ lm(mVTris ~ TTris, data = .x))) %>%
@@ -66,16 +80,90 @@ pHSlope <- pHcalib %>%
   unnest(tidy_fit) %>%
   select(tris.date, term, estimate) %>%
   pivot_wider(names_from = term, values_from = estimate) %>%
-  left_join(daily, ., by = "tris.date") %>%
-  mutate(mVTris = Temperature_C * TTris + `(Intercept)`) %>%
-  filter(!is.na(mVTris) & !is.na(Temperature_C) & !is.na(Salinity_psu) & !is.na(pH_mv)) %>%
+  left_join(daily.probe1, ., by = "tris.date") %>%
+  mutate(mVTris = Temperature_C * TTris + `(Intercept)`)
+
+range(pHSlope.probe1$Temperature_C)
+pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(Temperature_C)) 
+range(pHSlope.probe1$Temperature_C)
+
+range(pHSlope.probe1$pH_mv)
+pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(pH_mv)) 
+range(pHSlope.probe1$pH_mv)
+
+range(pHSlope.probe1$Salinity_psu)
+pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(Salinity_psu)) 
+range(pHSlope.probe1$Salinity_psu)
+
+range(pHSlope.probe1$pH_mv)
+pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(pH_mv)) 
+range(pHSlope.probe1$pH_mv)
+
+range(pHSlope.probe1$mVTris)
+pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(mVTris)) 
+range(pHSlope.probe1$mVTris)
+
+pHSlope.probe1 <- pHSlope.probe1 %>%
   mutate(pH.total = seacarb::pH(Ex = pH_mv, Etris = mVTris, S=Salinity_psu, T=Temperature_C))
+
 ```
 
-The code above appears to not want to run when there are so many NAs in the data, but that becomes a problem when there is so many NAs in the temp and salinity columns. 
+## Calculate total pH from Probe Set 2 
+Probe Set 2 (for the header, all corals, and for the non-quarantine tank)
+e.g., BT 1/2 while HI corals were islotaed and quarantine tank
+
+Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
+```{r}
+pHcalib2<-read_csv("Data/Tris_Calibration_BT1_2.csv")
+pHcalib2$tris.date<-as.character(pHcalib2$tris.date)
+
+pHSlope.probe2 <- pHcalib2 %>%
+  group_by(tris.date) %>%
+  nest() %>%
+  mutate(fitpH = map(data, ~ lm(mVTris ~ TTris, data = .x))) %>%
+  mutate(tidy_fit = map(fitpH, broom::tidy)) %>%
+  unnest(tidy_fit) %>%
+  select(tris.date, term, estimate) %>%
+  pivot_wider(names_from = term, values_from = estimate) %>%
+  left_join(daily.probe2, ., by = "tris.date") %>%
+  mutate(mVTris = Temperature_C * TTris + `(Intercept)`)
+
+range(pHSlope.probe2$Temperature_C)
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(Temperature_C)) 
+range(pHSlope.probe2$Temperature_C)
+
+range(pHSlope.probe2$pH_mv)
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(pH_mv)) 
+range(pHSlope.probe2$pH_mv)
+
+range(pHSlope.probe2$Salinity_psu)
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(Salinity_psu)) 
+range(pHSlope.probe2$Salinity_psu)
+
+range(pHSlope.probe2$pH_mv)
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(pH_mv)) 
+range(pHSlope.probe2$pH_mv)
+
+range(pHSlope.probe2$mVTris)
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(mVTris)) 
+range(pHSlope.probe2$mVTris)
+
+pHSlope.probe2 <- pHSlope.probe2 %>%
+  mutate(pH.total = seacarb::pH(Ex = pH_mv, Etris = mVTris, S=Salinity_psu, T=Temperature_C))
+
+```
+
+Join Probe 1 and Probe 2 Sets
+```{r}
+pHSlope <- rbind(pHSlope.probe1, pHSlope.probe2)
+
+```
 
 Convert date to ymd for plotting 
 ```{r}
+pHSlope <- pHSlope %>%
+  filter(!Tank_ID == "quarantine_tank")
+
 pHSlope$Date <- ymd(pHSlope$Date) # convert 8 digit date into datetime format
 
 pHSlope <- pHSlope %>% relocate("pH.total", .after = Salinity_psu) %>%
@@ -98,8 +186,8 @@ Filter by relevant dates if needed
 Make a list of dataframes, each containing a horizontal line that will correspond to the upper and lower threshold of each parameter (temperature, salinity, pH total)
 ```{r}
 hlines_data <- list(
-  data.frame(yintercept = 24, metric = "Temperature_C"), # lower threshold for temperature in C°
-  data.frame(yintercept = 27.5, metric = "Temperature_C"), # upper threshold for temperature in C°
+  data.frame(yintercept = 25.5, metric = "Temperature_C"), # lower threshold for temperature in C°
+  data.frame(yintercept = 27, metric = "Temperature_C"), # upper threshold for temperature in C°
   data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
   data.frame(yintercept = 36.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
   data.frame(yintercept = 7.78, metric = "pH.total"), # lower threshold for total pH
@@ -111,7 +199,7 @@ Plot all dates
 ```{r}
 daily_tank<-pHSlope.long %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
-  geom_point(size=4)+
+  geom_point(size=2)+
   xlab("Date")+
   facet_grid(metric ~ ., scales = "free")+
   geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
@@ -124,7 +212,7 @@ daily_tank<-pHSlope.long %>%
   theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
-ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+ggsave("Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
 ```
 
 It isn't super informative to look at multiple years in one plot. 
@@ -136,9 +224,9 @@ daily_month <- pHSlope.long %>%
   filter(Date >= Sys.Date() - 30)  # Adjust 30 to the number of days you want to consider
 
 # Plot data from the past month
-daily_month<-daily_month %>%
+daily_month_plot <-daily_month %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
-  geom_point(size=4)+
+  geom_point(size=2)+
   xlab("Date")+
   facet_grid(metric ~ ., scales = "free")+
   geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
@@ -148,10 +236,11 @@ daily_month<-daily_month %>%
   geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
   theme_bw() +
-  theme(text = element_text(size = 14)); daily_month
+  theme(text = element_text(size = 14)) 
+daily_month_plot
 
 # Save plot 
-ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
+ggsave("Output/Daily_Measurements_Past_Month.pdf", daily_month_plot, width = 20, height = 15, units = c("in"))
 ```
 
 Summarize daily measurements over the past month (this will use the `daily` df from above instead of the the `daily.long` df)
@@ -162,146 +251,7 @@ daily_month <- pHSlope %>%
 summary<-daily_month%>%
   group_by(Tank_ID)%>%
   #select(!tank)%>%
-  select(!Date)%>%
-  select(!light2:notes)%>%
+  select(Temperature_C:pH.total) %>%
   summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE)); summary
 ```
 
-## BT 1 and 2 values
-
-```{r}
-getwd()
-daily <- read.csv("../Data/Daily_measurements_tracking.csv")
-head(daily)
-tail(daily) # check to make sure data from today is there
-```
-
-Set dates as characters (needs to be done for merging with the tris calibration file)
-```{r}
-daily$Date <- as.character(daily$Date)
-daily$tris.date <- as.character(daily$tris.date)
-```
-
-
-Remove quarantine_tank from the dataframe (this line can always be commented out if interested in QT values)
-
-```{r}
-daily_BT1_2 <- daily %>%
-  filter(Tank_ID == "blue_tank1")
-```
-
-## Calculate total pH  
-
-Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
-```{r}
-pHcalib_BT1_2<-read_csv("../Data/Tris_Calibration_BT1_2.csv")
-pHcalib_BT1_2$tris.date<-as.character(pHcalib_BT1_2$tris.date)
-
-pHSlope_BT1_2 <- pHcalib_BT1_2 %>%
-  group_by(tris.date) %>%
-  nest() %>%
-  mutate(fitpH = map(data, ~ lm(mVTris ~ TTris, data = .x))) %>%
-  mutate(tidy_fit = map(fitpH, broom::tidy)) %>%
-  unnest(tidy_fit) %>%
-  select(tris.date, term, estimate) %>%
-  pivot_wider(names_from = term, values_from = estimate) %>%
-  left_join(daily_BT1_2, ., by = "tris.date") %>%
-  mutate(mVTris = Temperature_C * TTris + `(Intercept)`) %>%
-  filter(!is.na(mVTris) & !is.na(Temperature_C) & !is.na(Salinity_psu) & !is.na(pH_mv)) %>%
-  mutate(pH.total = seacarb::pH(Ex = pH_mv, Etris = mVTris, S=Salinity_psu, T=Temperature_C))
-```
-
-```{r}
-pHSlope_BT1_2$Date <- ymd(pHSlope_BT1_2$Date) # convert 8 digit date into datetime format
-
-pHSlope_BT1_2 <- pHSlope_BT1_2 %>% relocate("pH.total", .after = Salinity_psu) %>%
-    relocate(pH_mv, .after = pH.total)
-```
-
-## Change to long format
-
-Change data format to long format 
-```{r}
-pHSlope_BT1_2.long <- pHSlope_BT1_2 %>% pivot_longer(cols=Temperature_C:pH.total,
-  names_to = "metric",
-  values_to = "value")
-```
-
-Combine BT1&2 data with BT3&4 data 
-```{r}
-pHSlope.long <- rbind(pHSlope.long, pHSlope_BT1_2.long)
-
-pHSlope <- rbind(pHSlope, pHSlope_BT1_2)
-```
-
-Make a list of dataframes, each containing a horizontal line that will correspond to the upper and lower threshold of each parameter (temperature, salinity, pH total)
-```{r}
-hlines_data <- list(
-  data.frame(yintercept = 24, metric = "Temperature_C"), # lower threshold for temperature in C°
-  data.frame(yintercept = 27.5, metric = "Temperature_C"), # upper threshold for temperature in C°
-  data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
-  data.frame(yintercept = 36.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
-  data.frame(yintercept = 7.78, metric = "pH.total"), # lower threshold for total pH
-  data.frame(yintercept = 8.1, metric = "pH.total") # upper threshold for total pH
-    )
-```
-
-Plot all dates 
-```{r}
-daily_tank<-pHSlope.long %>%
-  ggplot(aes(x=Date, y=value, colour=Tank_ID))+
-  geom_point(size=4)+
-  xlab("Date")+
-  facet_grid(metric ~ ., scales = "free")+
-  geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
-  geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
-  geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
-  geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
-  geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
-  geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
-  scale_color_discrete(name = "Tank", labels = c("Blue Tank 1&2","Blue Tank 3&4","Header Tank"))+
-  theme_bw() +
-  theme(text = element_text(size = 14)); daily_tank
-
-# Save plot 
-ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
-```
-
-
-```{r}
-# Filter to the past 30 days 
-daily_month <- pHSlope.long %>%
-  filter(Date >= Sys.Date() - 30)  # Adjust 30 to the number of days you want to consider
-
-# Plot data from the past month
-daily_month<-daily_month %>%
-  ggplot(aes(x=Date, y=value, colour=Tank_ID))+
-  geom_point(size=4)+
-  xlab("Date")+
-  facet_grid(metric ~ ., scales = "free")+
-  geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
-  geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
-  geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
-  geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
-  geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
-  geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
-  scale_color_discrete(name = "Tank", labels = c("Blue Tank 1&2","Blue Tank 3&4","Header Tank"))+
-  theme_bw() +
-  theme(text = element_text(size = 14)); daily_month
-
-# Save plot 
-ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month, width = 20, height = 15, units = c("in"))
-```
-
-
-```{r}
-daily_month <- pHSlope %>% 
-  filter(Date >= Sys.Date() - 30)  # Adjust 30 to the number of days you want to consider
-
-summary<-daily_month%>%
-  group_by(Tank_ID)%>%
-  #select(!tank)%>%
-  select(!Date)%>%
-  select(!light2:notes)%>%
-  summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE)); summary
-```
