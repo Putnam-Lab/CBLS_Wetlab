@@ -32,7 +32,7 @@ library(seacarb)
 ## Load data 
 ```{r}
 
-daily <- read.csv("Data/2023_Daily_measurements_tracking.csv")
+daily <- read.csv("../Data/2023_Daily_measurements_tracking.csv")
 head(daily)
 tail(daily) # check to make sure data from today is there
 ```
@@ -69,7 +69,7 @@ range(na.omit(daily.probe2$Salinity_psu))
 
 Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
 ```{r}
-pHcalib<-read_csv("Data/Tris_Calibration.csv")
+pHcalib<-read_csv("../Data/Tris_Calibration.csv")
 pHcalib$tris.date<-as.character(pHcalib$tris.date)
 
 pHSlope.probe1 <- pHcalib %>%
@@ -114,7 +114,7 @@ e.g., BT 1/2 while HI corals were islotaed and quarantine tank
 
 Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
 ```{r}
-pHcalib2<-read_csv("Data/Tris_Calibration_BT1_2.csv")
+pHcalib2<-read_csv("../Data/Tris_Calibration_BT1_2.csv")
 pHcalib2$tris.date<-as.character(pHcalib2$tris.date)
 
 pHSlope.probe2 <- pHcalib2 %>%
@@ -189,7 +189,7 @@ hlines_data <- list(
   data.frame(yintercept = 25.5, metric = "Temperature_C"), # lower threshold for temperature in C°
   data.frame(yintercept = 27, metric = "Temperature_C"), # upper threshold for temperature in C°
   data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
-  data.frame(yintercept = 35.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
+  data.frame(yintercept = 36.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
   data.frame(yintercept = 7.9, metric = "pH.total"), # lower threshold for total pH
   data.frame(yintercept = 8.1, metric = "pH.total") # upper threshold for total pH
     )
@@ -212,7 +212,7 @@ daily_tank<-pHSlope.long %>%
   theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
-ggsave("Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
 ```
 
 It isn't super informative to look at multiple years in one plot. 
@@ -240,7 +240,7 @@ daily_month_plot <-daily_month %>%
 daily_month_plot
 
 # Save plot 
-ggsave("Output/Daily_Measurements_Past_Month.pdf", daily_month_plot, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month_plot, width = 20, height = 15, units = c("in"))
 ```
 
 Summarize daily measurements over the past month (this will use the `daily` df from above instead of the the `daily.long` df)
