@@ -12,6 +12,8 @@ This script plots daily measurements from the CBLS Wet lab for the Putnam lab. R
 Script updated 11/14/23 by ZD. 
 Script updated 11/16/23 by JA - added upper and lower threshold lines on plots. 
 
+Script updated 1/2/24 by JA. Added probe set to daily df so that pH is calculated based on the probe set. The data is then merged back together for the plots.
+
 ## Load packages 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -31,10 +33,16 @@ library(seacarb)
 
 ## Load data 
 ```{r}
-
-daily <- read.csv("../Data/2023_Daily_measurements_tracking.csv")
+## Read in data
+daily <- read.csv("../Data/Daily_measurements_tracking.csv")
 head(daily)
 tail(daily) # check to make sure data from today is there
+
+## Swap blue_tank1 and 2 for BT 1/2
+daily$Tank_ID <- ifelse(daily$Tank_ID == "blue_tank1" | daily$Tank_ID == "blue_tank2", "BT 1/2", daily$Tank_ID)
+
+## Swap blue_tank3 and 4 for BT 3/4
+daily$Tank_ID <- ifelse(daily$Tank_ID == "blue_tank3" | daily$Tank_ID == "blue_tank4", "BT 3/4", daily$Tank_ID)
 ```
 
 Set dates as characters (needs to be done for merging with the tris calibration file)
@@ -42,7 +50,6 @@ Set dates as characters (needs to be done for merging with the tris calibration 
 daily$Date <- as.character(daily$Date)
 daily$tris.date <- as.character(daily$tris.date)
 ```
-
 
 
 Probe Set 1 (for the header, all corals, and for the non-quarantine tank)
@@ -243,7 +250,7 @@ daily_month_plot
 ggsave("../Output/Daily_Measurements_Past_Month.pdf", daily_month_plot, width = 20, height = 15, units = c("in"))
 ```
 
-Summarize daily measurements over the past month (this will use the `daily` df from above instead of the the `daily.long` df)
+Summarize daily measurements over the past month
 ```{r}
 daily_month <- pHSlope %>% 
   filter(Date >= Sys.Date() - 30)  # Adjust 30 to the number of days you want to consider
