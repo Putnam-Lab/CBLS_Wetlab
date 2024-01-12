@@ -233,7 +233,7 @@ daily_month <- pHSlope.long %>%
 # Plot data from the past month
 daily_month_plot <-daily_month %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
-  geom_point(size=2)+
+  geom_point(size=4)+
   xlab("Date")+
   facet_grid(metric ~ ., scales = "free")+
   geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
