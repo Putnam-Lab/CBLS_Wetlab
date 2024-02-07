@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Water Table Light Protocol
-date: '2021-05-27'
+date: '2023-02-07'
 categories: Protocols
 tags: protocol, water quality, CBLS Aquarium Room, Light, AI Lights
 ---
@@ -33,19 +33,21 @@ tags: protocol, water quality, CBLS Aquarium Room, Light, AI Lights
 
 # Parameters-Ramp-Schedule
 
-- Morning Ramp: 6am-10am
-- Peak: 10am-2pm
-- Evening Ramp: 2pm-6pm
+We are currently using 4-hour ramps
+
+- Morning Ramp: 8am-12pm
+- Peak: 12pm-4pm
+- Evening Ramp: 4pm-8pm
 
 # Light-Settings-During-Peak-AI-app
 
 |Type of light | Percent |
 | --- | --- |
-| UV | 10% |
-| Violet | 11% |
-| Royal | 10% |
-| Blue | 10% |
-| Green | 10% |
-| Deep Red | 10% |
-| Cool Light | 10% |
-| Moon Light | 10% |
+| UV | 0% |
+| Violet | 30% |
+| Royal | 30% |
+| Blue | 30% |
+| Green | 2% |
+| Deep Red | 2% |
+| Moonlight | 0% |
+| Cool White | 15% |
