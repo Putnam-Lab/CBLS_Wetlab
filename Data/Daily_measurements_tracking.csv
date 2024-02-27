@@ -1939,4 +1939,3 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,O
 20240220,header_tank,17:00,,JA,22.8,-61.4,35.32,NA,NA,NA,NA,20240222,Probe1,system shut off from 3pm 20240226 to 2pm 20240227
 20240220,BT 1/2,17:00,,JA,22.90,-62.0,35.34,NA,NA,NA,NA,20240222,Probe1,system shut off from 3pm 20240226 to 2pm 20240227
 20240220,BT 3/4,17:00,,JA,22.83,-62.4,35.32,NA,NA,NA,NA,20240222,Probe1,system shut off from 3pm 20240226 to 2pm 20240227
-20240223,BT 3/4,11:00,,"ZD, EA",26.3,-63.4,35.2,NA,NA,NA,NA,20240222,Probe1,
