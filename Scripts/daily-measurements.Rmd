@@ -197,8 +197,8 @@ hlines_data <- list(
   data.frame(yintercept = 27, metric = "Temperature_C"), # upper threshold for temperature in C°
   data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
   data.frame(yintercept = 36.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
-  data.frame(yintercept = 7.9, metric = "pH.total"), # lower threshold for total pH
-  data.frame(yintercept = 8.1, metric = "pH.total") # upper threshold for total pH
+  data.frame(yintercept = 8.05, metric = "pH.total"), # lower threshold for total pH
+  data.frame(yintercept = 8.2, metric = "pH.total") # upper threshold for total pH
     )
 ```
 
