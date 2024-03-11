@@ -14,6 +14,8 @@ Script updated 11/16/23 by JA - added upper and lower threshold lines on plots.
 
 Script updated 1/2/24 by JA. Added probe set to daily df so that pH is calculated based on the probe set. The data is then merged back together for the plots.
 
+Script updated 3/11/24 by DMB. Added total alkalinity plots and upper and lower threshold lines for TA.
+
 ## Load packages 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -43,12 +45,36 @@ daily$Tank_ID <- ifelse(daily$Tank_ID == "blue_tank1" | daily$Tank_ID == "blue_t
 
 ## Swap blue_tank3 and 4 for BT 3/4
 daily$Tank_ID <- ifelse(daily$Tank_ID == "blue_tank3" | daily$Tank_ID == "blue_tank4", "BT 3/4", daily$Tank_ID)
+
+# Load TA measurements data
+TA <- read.csv("../Data/CBLS_Aquarium_TA.csv")
+
+# Rename the "SampleID" column to "Tank_ID"
+TA.mod <- TA %>%
+  rename(Tank_ID = SampleID)
+
+# Filter rows for specific Tank_ID values ("header_tank", "BT 1/2", "BT 3/4")
+selected_tanks <- c("header_tank", "BT 1/2", "BT 3/4")
+filtered_data <- TA.mod %>%
+  filter(Tank_ID %in% selected_tanks)
+
+# Select only the desired columns
+filtered_data_subset <- filtered_data %>%
+  select(Date, Tank_ID, TA)
+
 ```
 
 Set dates as characters (needs to be done for merging with the tris calibration file)
 ```{r}
 daily$Date <- as.character(daily$Date)
+filtered_data_subset$Date <- as.character(filtered_data_subset$Date)
 daily$tris.date <- as.character(daily$tris.date)
+```
+
+Combine TA data frame and daily measurments
+```{r}
+daily <- merge(daily, filtered_data_subset, by = c("Date", "Tank_ID"), all.x = TRUE)
+
 ```
 
 
@@ -175,13 +201,20 @@ pHSlope$Date <- ymd(pHSlope$Date) # convert 8 digit date into datetime format
 
 pHSlope <- pHSlope %>% relocate("pH.total", .after = Salinity_psu) %>%
   relocate(pH_mv, .after = pH.total)
+
+view(pHSlope)
+
+# Move "TA" after "pH.total"
+pHSlope <- pHSlope %>%
+  select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C, Salinity_psu, pH.total, TA, pH_mv, Orion_Temp, light2, light3, light4, tris.date, Probe.Set, notes, `(Intercept)`, TTris, mVTris)
+
 ```
 
 ## Change to long format
 
 Change data format to long format 
 ```{r}
-pHSlope.long <-pHSlope %>% pivot_longer(cols=Temperature_C:pH.total,
+pHSlope.long <-pHSlope %>% pivot_longer(cols=Temperature_C:TA,
   names_to = "metric",
   values_to = "value")
 ```
@@ -198,7 +231,9 @@ hlines_data <- list(
   data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
   data.frame(yintercept = 36.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
   data.frame(yintercept = 8.05, metric = "pH.total"), # lower threshold for total pH
-  data.frame(yintercept = 8.2, metric = "pH.total") # upper threshold for total pH
+  data.frame(yintercept = 8.2, metric = "pH.total"), # upper threshold for total pH
+  data.frame(yintercept = 2200.000, metric = "TA"), # lower threshold for TA
+  data.frame(yintercept = 2500.000, metric = "TA") # upper threshold for total pH
     )
 ```
 
@@ -215,6 +250,8 @@ daily_tank<-pHSlope.long %>%
   geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
+    geom_hline(data = hlines_data[[7]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[8]], aes(yintercept = yintercept), linetype = "dashed") +
   theme_bw() +
   theme(text = element_text(size = 14)); daily_tank
 
@@ -242,6 +279,8 @@ daily_month_plot <-daily_month %>%
   geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
+    geom_hline(data = hlines_data[[7]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[8]], aes(yintercept = yintercept), linetype = "dashed") +
   theme_bw() +
   theme(text = element_text(size = 14)) 
 daily_month_plot
@@ -258,7 +297,7 @@ daily_month <- pHSlope %>%
 summary<-daily_month%>%
   group_by(Tank_ID)%>%
   #select(!tank)%>%
-  select(Temperature_C:pH.total) %>%
+  select(Temperature_C:TA) %>%
   summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE)); summary
 ```
 
