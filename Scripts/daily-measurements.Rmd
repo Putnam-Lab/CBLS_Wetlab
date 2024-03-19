@@ -202,7 +202,7 @@ pHSlope$Date <- ymd(pHSlope$Date) # convert 8 digit date into datetime format
 pHSlope <- pHSlope %>% relocate("pH.total", .after = Salinity_psu) %>%
   relocate(pH_mv, .after = pH.total)
 
-view(pHSlope)
+head(pHSlope)
 
 # Move "TA" after "pH.total"
 pHSlope <- pHSlope %>%
