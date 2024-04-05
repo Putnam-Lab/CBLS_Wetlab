@@ -30,7 +30,7 @@ Contents
 -  Kimwipes
 -  DI water
 - [Digital Thermometer Cat 150778](https://www.fishersci.com/shop/products/fisher-scientific-traceable-digital-thermometers-11/150778#?keyword=digital%20thermometer)
--  [Orion Star User Manual](https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLED%2Fmanuals%2FOrion-Star-A220-Series-Portable-Meter-User-Manual-EN.pdf&title=T3Jpb24gU3RhciBBMjIwIFNlcmllcyBQb3J0YWJsZSBNZXRlciBVc2VyIE1hbnVhbCBbRU5d)
+-  [Orion Star User Manual](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Orion-Star-A320-Series-Portable-Meter-User-Manual-EN.pdf)
 
 ***
 
