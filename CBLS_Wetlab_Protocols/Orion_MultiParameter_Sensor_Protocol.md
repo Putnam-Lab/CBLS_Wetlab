@@ -3,26 +3,26 @@
 
 Created By: Silbiger Lab - 20200304
 
-Revised: Putnam Lab - DM Becker - 20210219
+Revised: Putnam Lab - DM Becker - 20210219, Zoe Dellaert 20240405 to correct model number for Orion Star
 
 Salinity Calibration Protocol added - Putnam Lab - Lauren Zane - 20220726
 
 
 Contents
 - [**Materials**](#Materials)  
-- [**Set_Up**](#Set_Up)
+- [**Setup**](#Setup)
 - [**Protocol**](#Protocol)
     - [**NBS Protocol**](#NBS)
     - [**Tris Calibration**](#Tris)
     - [**Conductivity Calibration**](#Conductivity)
-    - [**Salinity Calibration**](#Salinity)
+    - [**One-Point Conductivity Calibration, 53 mS/cm**](#One-Point_Conductivity_Calibration)
 - [**Cleaning and Storage**](#Cleaning_and_Storage)
 - [**References**](#References)
 
 ***
 
 <a name="Materials"></a> **Materials**
--  [Thermo Scientific Orion Star™ A221 Portable pH Meter](https://www.thermofisher.com/order/catalog/product/STARA2210#/STARA2210)
+-  [Orion Star™ A325 pH/Conductivity Portable Multiparameter Meter](https://www.thermofisher.com/order/catalog/product/STARA3255?SID=srch-srp-STARA3255)
         - measures pH, mV, ORP, conductivity, total dissolved solids (TDS), salinity, resistivity, and temperature
 -  3-point pH calibration solutions (4, 7, and 10 at 25 &deg; C)
 - Tris buffer 
@@ -119,12 +119,12 @@ Contents
 1. Press the f1 (meas) key to proceed to the measurement mode. 
 
 ***
-<a name="Salinity"></a> **Salinity Calibration** 
-- the conductivity probe is used to measure salinity and must be calibrated once weekly at 25°C
+<a name="One-Point_Conductivity_Calibration"></a> **Conductivity Calibration, 53.00 mS/cm** 
+- the conductivity probe is used to measure salinity and must be calibrated bi-weekly at 25°C
 1. Gently use a Kim wipe to dry the tip of the conductivity probe 
 1. Press the f3 (channel) key to navigate to the salinity measurement channel start the calibration
 1. While still on the salinity measurement channel, press the f1 (cal) key
-1. hold salinity standard (50,000us/cm) by the top of the Falcon tube to minimize heat transfer to the calibration standard and using the temperature probe measure temperature
+1. hold salinity standard (53,000us/cm) by the top of the Falcon tube to minimize heat transfer to the calibration standard and using the temperature probe measure temperature
 1. adjust temperature of the salinity calibration fluid to 25°C by *slowly* applying heat from your hands by holding and lightly squeezing the tube to increase the temperature or cupping the tube with ice pack to decrease the temperature
 1. at 25°C, place probe into conductivity fluid and allow measurement to stablize 
 1. record first reading in binder
@@ -132,10 +132,6 @@ Contents
 1. if first reading is not 50.00 ms/cm, press f3 (edit) and enter 50.00 for the standard and record average cell calibration factor in binder
         - for example: "calibrated to 50.00ms/cm at 25°C; avg. cell cal. factor = 0.477"
 1. Optional: to check if the conductivity probe may need replacement or fixing, you can also measure the salinity of clean DI water (psu = ~0)
-
-
-
-
 
 ***
 
