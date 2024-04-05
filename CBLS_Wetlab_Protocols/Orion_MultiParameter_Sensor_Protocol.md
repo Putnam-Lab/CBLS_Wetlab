@@ -78,25 +78,23 @@ Contents
 1. **Do not** try to force the sensor tip further into the solution while the cap is screwed on or you may damage the probe.
 
 <a name="Tris"></a> **Tris Calibration**  
-1. Calibrating pH
 1. pH should be calibrated <48 hours before use.
 1. Fill a small clean beaker with DI water and fill about half of a 50mL falcon tube with fresh Tris Buffer (from Scripps CO2 Lab). 
 1. If a tris buffer has already been allocated within the previous 3 weeks and properly sealed and stored in the fume hood, you may use this solution for the calibration.
-1. Place the sealed falcon tube in a container to keep it mostly  upright.
-1. place the electrode into the tris tube.
-1. Place the Traceable Thermometer probe tip into the small hole of the cap and slide down to the same level as the pH electrode.  Turn on the Thermometer.
+1. Place the tris falcon tube in a container to keep it mostly upright.
+1. Rinse with DI, wipe with kimwipe, and then place the pH electrode into the tris falcon tube.
+1. Rinse with DI, wipe with kimwipe, and then place the temperature probe into the tris falcon tube to the same level as the pH electrode.  Turn on the Thermometer.
 1. Turn on the meter and wait for the measurement screen to appear.
 1. Make sure the current measurement is for mV.  If not, either change the Channel (press F3 to swap between probe inputs) or Mode (pressing the Mode button on the meter to swap between measurements using the current Channel's probe) until the instrument is reading mV.
-1. Plan to record the temperature and mV values for every temperature spanning one degree Ceclius above and below the temperature range you expect to record in situ.
-1. Record mV and temperature for at least 5 temperatures to create a best fit curve.
+1. Plan to record the temperature and mV values for every temperature spanning one degree Celcius above and below the temperature range you expect to record in situ.
+    - Record mV and temperature for at least 5 temperatures to create a best fit curve.
 1. Fill the container in which the falcon tube of tris is sitting with sink water.
-1. Move the pH electrode and thermometer with cap to the falcon tube containing tris, wiping both probes before placing in the falcon tube and screwing the cap on. 
-1. If your highest planned temperature value is greater than the ambient tris temperature, warm up the container of sink water in the microwave and then place the tris falcon tube into this water bath.
-1. If your highest planned temperature value is lower than the ambient tris temperature, place a few ice chips into the water bath.
+    - If your highest planned temperature value is greater than the ambient tris temperature, warm up the container of sink water in the microwave or use warm sink water and then place the tris falcon tube into this water bath.
+    - If your highest planned temperature value is lower than the ambient tris temperature, place a few ice chips into the water bath.
 1. Watch the thermometer temperature as it rises or falls, and when the temperature is near your target upper temperature, press Measure on the Orion and wait for the value to stabilize (attempt to time the mV reading stabilization as close to a rounded temperature value on the thermometer as possible).
 1. As soon as the Orion value has stabilized, record the thermometer temperature first, then the mV value (note that mV values should be negative).
 1. To lower the temperature to each subsequent temperature in your calibration, place a few ice chips at a time in the water bath and record each temperature with its paired mV value.
-1. Once you have recorded the lowest temperature and its paired mV value, unscrew the cap with probes from the tris falcon tube and place the probes back into the DI falcon tube, screwing the cap back on if you intend to record your in situ values immediately.  If you will not be recording your in situ values yet, remove the pH probe from the cap and place the electrode tip back in its storage solution until ready to record.
+1. Once you have recorded the lowest temperature and its paired mV value, remove the pH probe from the tube and place the electrode tip back in its storage solution until ready to record. Dry off and properly store the temperaure probe.
 1. Save your temperature and mV values as a .csv file with the following column headings (without quotes): "date", "TTris", and "mVTris"
 1. Measurements
 1. When recording your values in situ, always record the temperature first from the Traceable Thermometer before the stabilized mV value from the Orion.
@@ -159,4 +157,4 @@ Contents
 
 <a name="References"></a> **References**
 
-*  [Orion Star User Manual](https://www.thermofisher.com/document-connect/document-connect.html?url=https%3A%2F%2Fassets.thermofisher.com%2FTFS-Assets%2FLED%2Fmanuals%2FOrion-Star-A220-Series-Portable-Meter-User-Manual-EN.pdf&title=T3Jpb24gU3RhciBBMjIwIFNlcmllcyBQb3J0YWJsZSBNZXRlciBVc2VyIE1hbnVhbCBbRU5d)
+*  [Orion Star User Manual](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Orion-Star-A320-Series-Portable-Meter-User-Manual-EN.pdf)
