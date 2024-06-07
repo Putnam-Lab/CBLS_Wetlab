@@ -2144,5 +2144,8 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,O
 20240604,BT 1/2,13:10,,SS,26.36,-68.5,34.13,NA,NA,NA,NA,20240522,Probe1,
 20240604,BT 3/4,13:10,,SS,26.37,-68.9,35.25,NA,NA,NA,NA,20240522,Probe1,
 20240605,header_tank,14:30,,JA,26.26,-67.5,35.22,NA,NA,NA,NA,20240605,Probe1,
-20240605,BT 1/2,14:30,,JA,26.30,-68.0,35.60,NA,NA,NA,NA,20240605,Probe1,
+20240605,BT 1/2,14:30,,JA,26.3,-68,35.6,NA,NA,NA,NA,20240605,Probe1,
 20240605,BT 3/4,14:30,,JA,26.31,-68.6,35.61,NA,NA,NA,NA,20240605,Probe1,
+20240606,header_tank,17:00,,SS,26.29,,35.44,NA,NA,NA,NA,20240605,Probe1,pH probe wasn't working (only reading 0.0)
+20240606,BT 1/2,17:00,,SS,26.28,,35.46,NA,NA,NA,NA,20240605,Probe1,pH probe wasn't working (only reading 0.0)
+20240606,BT 3/4,17:00,,SS,26.27,,35.42,NA,NA,NA,NA,20240605,Probe1,pH probe wasn't working (only reading 0.0)
