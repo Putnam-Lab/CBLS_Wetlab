@@ -46,6 +46,9 @@ daily$Tank_ID <- ifelse(daily$Tank_ID == "blue_tank1" | daily$Tank_ID == "blue_t
 ## Swap blue_tank3 and 4 for BT 3/4
 daily$Tank_ID <- ifelse(daily$Tank_ID == "blue_tank3" | daily$Tank_ID == "blue_tank4", "BT 3/4", daily$Tank_ID)
 
+## Swap quarantine_tank for QT
+daily$Tank_ID <- ifelse(daily$Tank_ID == "quarantine_tank", "QT", daily$Tank_ID)
+
 # Load TA measurements data
 TA <- read.csv("../Data/CBLS_Aquarium_TA.csv")
 
@@ -61,7 +64,6 @@ filtered_data <- TA.mod %>%
 # Select only the desired columns
 filtered_data_subset <- filtered_data %>%
   select(Date, Tank_ID, TA)
-
 ```
 
 Set dates as characters (needs to be done for merging with the tris calibration file)
@@ -74,9 +76,7 @@ daily$tris.date <- as.character(daily$tris.date)
 Combine TA data frame and daily measurments
 ```{r}
 daily <- merge(daily, filtered_data_subset, by = c("Date", "Tank_ID"), all.x = TRUE)
-
 ```
-
 
 Probe Set 1 (for the header, all corals, and for the non-quarantine tank)
 e.g., BT 3/4 and header tank and salt mixing tank
@@ -138,7 +138,6 @@ range(pHSlope.probe1$mVTris)
 
 pHSlope.probe1 <- pHSlope.probe1 %>%
   mutate(pH.total = seacarb::pH(Ex = pH_mv, Etris = mVTris, S=Salinity_psu, T=Temperature_C))
-
 ```
 
 ## Calculate total pH from Probe Set 2 
@@ -189,7 +188,6 @@ pHSlope.probe2 <- pHSlope.probe2 %>%
 Join Probe 1 and Probe 2 Sets
 ```{r}
 pHSlope <- rbind(pHSlope.probe1, pHSlope.probe2)
-
 ```
 
 Convert date to ymd for plotting 
@@ -207,7 +205,6 @@ head(pHSlope)
 # Move "TA" after "pH.total"
 pHSlope <- pHSlope %>%
   select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C, Salinity_psu, pH.total, TA, pH_mv, Orion_Temp, light2, light3, light4, tris.date, Probe.Set, notes, `(Intercept)`, TTris, mVTris)
-
 ```
 
 ## Change to long format
