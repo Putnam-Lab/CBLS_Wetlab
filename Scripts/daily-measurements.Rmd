@@ -146,7 +146,7 @@ e.g., BT 1/2 while HI corals were islotaed and quarantine tank
 
 Calculate the calibration curve from the Tris calibration and calculate pH on the total scale from pH.mV. 
 ```{r}
-pHcalib2<-read_csv("../Data/Tris_Calibration_BT1_2.csv")
+pHcalib2<-read_csv("../Data/Tris_Calibration_ProbeSet_2.csv")
 pHcalib2$tris.date<-as.character(pHcalib2$tris.date)
 
 pHSlope.probe2 <- pHcalib2 %>%
