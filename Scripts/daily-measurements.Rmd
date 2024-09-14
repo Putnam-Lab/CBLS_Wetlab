@@ -16,6 +16,8 @@ Script updated 1/2/24 by JA. Added probe set to daily df so that pH is calculate
 
 Script updated 3/11/24 by DMB. Added total alkalinity plots and upper and lower threshold lines for TA.
 
+Script updated 9/14/24 by ZD to set Probe Set #2 as probe set for QT.
+
 ## Load packages 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
