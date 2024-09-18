@@ -59,7 +59,7 @@ TA.mod <- TA %>%
   rename(Tank_ID = SampleID)
 
 # Filter rows for specific Tank_ID values ("header_tank", "BT 1/2", "BT 3/4")
-selected_tanks <- c("header_tank", "BT 1/2", "BT 3/4")
+selected_tanks <- c("header_tank", "BT 1/2", "BT 3/4", "QT")
 filtered_data <- TA.mod %>%
   filter(Tank_ID %in% selected_tanks)
 
