@@ -2525,3 +2525,6 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,O
 20241125,header_tank,11:00,,SS,26.14,-66.6,35,NA,NA,NA,NA,20241115,Probe1,
 20241125,BT 1/2,11:00,,SS,26.19,-66.8,35.03,NA,NA,NA,NA,20241115,Probe1,
 20241125,BT 3/4,11:00,,SS,26.19,-67,35.03,NA,NA,NA,NA,20241115,Probe1,
+20241126,header_tank,10:20,,EA,25.82,-63.4,34,NA,NA,NA,NA,20241115,Probe1,DI water was added to QT tank before DMs were taken
+20241126,BT 1/2,10:20,,EA,25.92,-65.8,33.82,NA,NA,NA,NA,20241115,Probe1,DI water was added to QT tank before DMs were taken
+20241126,BT 3/4,10:20,,EA,25.83,-64.8,34.33,NA,NA,NA,NA,20241115,Probe1,DI water was added to QT tank before DMs were taken
