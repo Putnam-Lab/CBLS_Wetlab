@@ -120,25 +120,25 @@ pHSlope.probe1 <- pHcalib %>%
   left_join(daily.probe1, ., by = "tris.date") %>%
   mutate(mVTris = Temperature_C * TTris + `(Intercept)`)
 
-range(pHSlope.probe1$Temperature_C)
-pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(Temperature_C)) 
-range(pHSlope.probe1$Temperature_C)
-
-range(pHSlope.probe1$pH_mv)
-pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(pH_mv)) 
-range(pHSlope.probe1$pH_mv)
-
-range(pHSlope.probe1$Salinity_psu)
-pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(Salinity_psu)) 
-range(pHSlope.probe1$Salinity_psu)
-
-range(pHSlope.probe1$pH_mv)
-pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(pH_mv)) 
-range(pHSlope.probe1$pH_mv)
-
-range(pHSlope.probe1$mVTris)
-pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(mVTris)) 
-range(pHSlope.probe1$mVTris)
+# range(pHSlope.probe1$Temperature_C)
+# pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(Temperature_C)) 
+# range(pHSlope.probe1$Temperature_C)
+# 
+# range(pHSlope.probe1$pH_mv)
+# pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(pH_mv)) 
+# range(pHSlope.probe1$pH_mv)
+# 
+# range(pHSlope.probe1$Salinity_psu)
+# pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(Salinity_psu)) 
+# range(pHSlope.probe1$Salinity_psu)
+# 
+# range(pHSlope.probe1$pH_mv)
+# pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(pH_mv)) 
+# range(pHSlope.probe1$pH_mv)
+# 
+# range(pHSlope.probe1$mVTris)
+# pHSlope.probe1 <- pHSlope.probe1 %>% filter(!is.na(mVTris)) 
+# range(pHSlope.probe1$mVTris)
 
 pHSlope.probe1 <- pHSlope.probe1 %>%
   mutate(pH.total = seacarb::pH(Ex = pH_mv, Etris = mVTris, S=Salinity_psu, T=Temperature_C))
@@ -165,23 +165,23 @@ pHSlope.probe2 <- pHcalib2 %>%
   mutate(mVTris = Temperature_C * TTris + `(Intercept)`)
 
 range(pHSlope.probe2$Temperature_C)
-pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(Temperature_C)) 
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(Temperature_C))
 range(pHSlope.probe2$Temperature_C)
 
 range(pHSlope.probe2$pH_mv)
-pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(pH_mv)) 
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(pH_mv))
 range(pHSlope.probe2$pH_mv)
 
 range(pHSlope.probe2$Salinity_psu)
-pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(Salinity_psu)) 
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(Salinity_psu))
 range(pHSlope.probe2$Salinity_psu)
 
 range(pHSlope.probe2$pH_mv)
-pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(pH_mv)) 
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(pH_mv))
 range(pHSlope.probe2$pH_mv)
 
 range(pHSlope.probe2$mVTris)
-pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(mVTris)) 
+pHSlope.probe2 <- pHSlope.probe2 %>% filter(!is.na(mVTris))
 range(pHSlope.probe2$mVTris)
 
 pHSlope.probe2 <- pHSlope.probe2 %>%
