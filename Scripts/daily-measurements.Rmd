@@ -18,6 +18,8 @@ Script updated 3/11/24 by DMB. Added total alkalinity plots and upper and lower 
 
 Script updated 9/14/24 by ZD to set Probe Set #2 as probe set for QT.
 
+Script updated 1/30/25 by ZD to add Calcium DMs.
+
 ## Load packages 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -206,7 +208,7 @@ head(pHSlope)
 
 # Move "TA" after "pH.total"
 pHSlope <- pHSlope %>%
-  select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C, Salinity_psu, pH.total, TA, pH_mv, Orion_Temp, light2, light3, light4, tris.date, Probe.Set, notes, `(Intercept)`, TTris, mVTris)
+  select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C, Salinity_psu, pH.total,Calcium_ppm, TA, pH_mv, Orion_Temp, light2, light3, light4, tris.date, Probe.Set, notes, `(Intercept)`, TTris, mVTris)
 ```
 
 ## Change to long format
@@ -230,9 +232,11 @@ hlines_data <- list(
   data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
   data.frame(yintercept = 36, metric = "Salinity_psu"), # upper threshold for salinity in psu
   data.frame(yintercept = 8.05, metric = "pH.total"), # lower threshold for total pH
+  data.frame(yintercept = 450, metric = "Calcium_ppm"), # upper threshold for Calcium_ppm
+  data.frame(yintercept = 300, metric = "Calcium_ppm"), # lower threshold for Calcium_ppm
   data.frame(yintercept = 8.2, metric = "pH.total"), # upper threshold for total pH
   data.frame(yintercept = 2200.000, metric = "TA"), # lower threshold for TA
-  data.frame(yintercept = 2500.000, metric = "TA") # upper threshold for total pH
+  data.frame(yintercept = 2500.000, metric = "TA") # upper threshold for TA
     )
 ```
 
@@ -249,8 +253,10 @@ daily_tank<-pHSlope.long %>%
   geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
-    geom_hline(data = hlines_data[[7]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[7]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[8]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[9]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[10]], aes(yintercept = yintercept), linetype = "dashed") +
   theme_bw() +
   theme(text = element_text(size = 14)); daily_tank
 
@@ -259,6 +265,36 @@ ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, 
 ```
 
 It isn't super informative to look at multiple years in one plot. 
+
+Filter and plot by the past six months
+```{r}
+# Filter to the past 180 days 
+daily_6month <- pHSlope.long %>%
+  filter(Date >= Sys.Date() - 180)  # Adjust 30 to the number of days you want to consider
+
+# Plot data from the past month
+daily_6month_plot <- daily_6month %>%
+  ggplot(aes(x=Date, y=value, colour=Tank_ID))+
+  geom_point(size=4)+
+  xlab("Date")+
+  facet_grid(metric ~ ., scales = "free")+
+  geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
+  geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[7]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[8]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[9]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[10]], aes(yintercept = yintercept), linetype = "dashed") +
+  theme_bw() +
+  theme(text = element_text(size = 14)) 
+daily_6month_plot
+
+# Save plot 
+ggsave("../Output/Daily_Measurements_Past_6Months.pdf", daily_6month_plot, width = 20, height = 15, units = c("in"))
+```
 
 Filter and plot by the past month
 ```{r}
@@ -278,8 +314,10 @@ daily_month_plot <-daily_month %>%
   geom_hline(data = hlines_data[[4]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[5]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[6]], aes(yintercept = yintercept), linetype = "dashed") +
-    geom_hline(data = hlines_data[[7]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[7]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[8]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[9]], aes(yintercept = yintercept), linetype = "dashed") +
+  geom_hline(data = hlines_data[[10]], aes(yintercept = yintercept), linetype = "dashed") +
   theme_bw() +
   theme(text = element_text(size = 14)) 
 daily_month_plot
