@@ -19,6 +19,7 @@ Script updated 3/11/24 by DMB. Added total alkalinity plots and upper and lower 
 Script updated 9/14/24 by ZD to set Probe Set #2 as probe set for QT.
 
 Script updated 1/30/25 by ZD to add Calcium DMs.
+Script updated 3/6/25 by ZD to add Alkalinity dkH measurements.
 
 ## Load packages 
 ```{r setup, include=FALSE}
@@ -208,7 +209,7 @@ head(pHSlope)
 
 # Move "TA" after "pH.total"
 pHSlope <- pHSlope %>%
-  select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C, Salinity_psu, pH.total,Calcium_ppm, TA, pH_mv, Orion_Temp, light2, light3, light4, tris.date, Probe.Set, notes, `(Intercept)`, TTris, mVTris)
+  select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C, Salinity_psu, pH.total,Calcium_ppm, TA_dKH, TA, pH_mv, Orion_Temp, light2, light3, light4, tris.date, Probe.Set, notes, `(Intercept)`, TTris, mVTris)
 ```
 
 ## Change to long format
@@ -232,9 +233,9 @@ hlines_data <- list(
   data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
   data.frame(yintercept = 35.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
   data.frame(yintercept = 8.05, metric = "pH.total"), # lower threshold for total pH
+  data.frame(yintercept = 8.2, metric = "pH.total"), # upper threshold for total pH
   data.frame(yintercept = 450, metric = "Calcium_ppm"), # upper threshold for Calcium_ppm
   data.frame(yintercept = 300, metric = "Calcium_ppm"), # lower threshold for Calcium_ppm
-  data.frame(yintercept = 8.2, metric = "pH.total"), # upper threshold for total pH
   data.frame(yintercept = 2200.000, metric = "TA"), # lower threshold for TA
   data.frame(yintercept = 2500.000, metric = "TA") # upper threshold for TA
     )
@@ -242,11 +243,20 @@ hlines_data <- list(
 
 Plot all dates 
 ```{r}
+facet_labels <- unique(pHSlope.long$metric)
+names(facet_labels) = facet_labels
+facet_labels <- replace(facet_labels, which(facet_labels == "TA"), "TA (µmol kg-1)")
+facet_labels <- replace(facet_labels, which(facet_labels == "TA_dKH"), "TA (dKH)")
+facet_labels <- replace(facet_labels, which(facet_labels == "Calcium_ppm"), "Calcium (ppm)")
+facet_labels <- replace(facet_labels, which(facet_labels == "pH.total"), "pH")
+facet_labels <- replace(facet_labels, which(facet_labels == "Salinity_psu"), "Salinity (psu)")
+facet_labels <- replace(facet_labels, which(facet_labels == "Temperature_C"), "Temperature (ºC)")
+
 daily_tank<-pHSlope.long %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
   geom_point(size=2)+
   xlab("Date")+
-  facet_grid(metric ~ ., scales = "free")+
+  facet_grid(metric ~ ., scales = "free", labeller = as_labeller(facet_labels))+
   geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
   geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
@@ -259,6 +269,7 @@ daily_tank<-pHSlope.long %>%
   geom_hline(data = hlines_data[[10]], aes(yintercept = yintercept), linetype = "dashed") +
   theme_bw() +
   theme(text = element_text(size = 14)); daily_tank
+
 
 # Save plot 
 ggsave("../Output/Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
@@ -277,7 +288,7 @@ daily_6month_plot <- daily_6month %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
   geom_point(size=4)+
   xlab("Date")+
-  facet_grid(metric ~ ., scales = "free")+
+  facet_grid(metric ~ ., scales = "free", labeller = as_labeller(facet_labels))+
   geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
   geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
@@ -307,7 +318,7 @@ daily_month_plot <-daily_month %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
   geom_point(size=4)+
   xlab("Date")+
-  facet_grid(metric ~ ., scales = "free")+
+  facet_grid(metric ~ ., scales = "free", labeller = as_labeller(facet_labels))+
   geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
   geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
