@@ -35,7 +35,7 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,C
 20220125,blue_tank2,,,,25.85,NA,35.01,,,,59,57,61,20210816,,
 20220125,blue_tank3,,,,25.84,NA,35.03,,,,45,48,40,20210816,,
 20220125,blue_tank4,,,,25.84,NA,35,,,,44,46,45,20210816,,
-20220126,header_tank,,,,NA,NA,NA,,,,NA,NA,NA,20210816,,"five of 13 corals exhibit signs of stress, put on bottom row in case there is too much light "
+20220126,header_tank,,,,NA,NA,NA,,,,NA,NA,NA,20210816,,"five of 13 corals exhibit signs of stress, put on bottom row in case there is too much light"
 20220126,quarantine_tank,,,,24.34,NA,34.93,,,,71,59,62,20210816,,
 20220126,blue_tank1,,,,25.66,NA,35.19,,,,40,39,42,20210816,,
 20220126,blue_tank2,,,,25.67,NA,35.15,,,,36,41,42,20210816,,
@@ -2840,3 +2840,6 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,C
 20250528,header_tank,9:00,,TJW,25.6,-53.9,35.66,,,NA,NA,NA,NA,20250513,Probe1,
 20250528,BT 1/2,9:00,,TJW,25.63,-55.2,35.69,354.8,5,NA,NA,NA,NA,20250513,Probe1,
 20250528,BT 3/4,9:00,,TJW,25.6,-55.1,35.67,,,NA,NA,NA,NA,20250513,Probe1,
+20250529,header_tank,12:15,,JH,25.63,-55.3,35.31,,,NA,NA,NA,NA,20250513,Probe1,
+20250529,BT 1/2,12:15,,JH,25.67,-54.7,35.35,346.7,5.3,NA,NA,NA,NA,20250513,Probe1,
+20250529,BT 3/4,12:15,,JH,25.66,-55.2,35.35,,,NA,NA,NA,NA,20250513,Probe1,
