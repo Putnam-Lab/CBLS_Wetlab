@@ -349,3 +349,37 @@ summary<-daily_month%>%
   summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE)); summary
 ```
 
+```{r}
+library(ggrepel)
+library(ggpmisc)
+
+pHSlope %>% group_by(Tank_ID,Date,TA_dKH) %>% drop_na(TA) %>% summarize(TA = mean(TA)) %>%
+  ggplot(aes(x = TA, y = TA_dKH)) +
+  geom_point(size = 2) + geom_text_repel(aes(label=TA_dKH)) + 
+  geom_smooth(method = "lm", se = FALSE) +  # use linear model (lm) and remove shaded error band
+  theme_minimal() 
+
+pHSlope$Date <- as.factor(pHSlope$Date)
+
+TA_plot <- pHSlope %>% 
+  group_by(Tank_ID, Date, TA_dKH) %>% 
+  drop_na(TA) %>% 
+  summarize(TA = mean(TA), .groups = "drop") %>% drop_na %>% droplevels() %>%
+  ggplot(aes(x = TA, y = TA_dKH, color=Date)) +
+  geom_point(size = 2) + geom_smooth(method = "lm", se = FALSE, color = "blue") +
+  geom_text_repel(aes(label = paste0("TA=", round(TA, 1), "\nTA_dKH=", round(TA_dKH, 1)))) +
+  stat_poly_eq(aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")),
+               formula = y ~ x,
+               parse = TRUE,
+               label.x = "left",
+               label.y = "top",color="black") +
+  theme_minimal()+
+  labs(
+    title = "Relationship Between TA and TA_dKH in Blue Tanks",
+    x = "Total Alkalinity (TA)",
+    y = "TA in dKH"
+  )
+
+ggsave("../Output/TA_dKH_relationship.pdf", TA_plot, width = 7, height = 5, units = c("in"))
+```
+
