@@ -1,4 +1,4 @@
-#Daily Wetlab Checklist#
+#Daily Wetlab Checklist
 -
 Details on daily tasks in the wetlab
 
