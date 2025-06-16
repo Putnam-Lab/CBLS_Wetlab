@@ -31,7 +31,7 @@ Details on daily tasks in the wetlab
 - Place in first bucket of bleach and water mixture
 - The following day, items in bleach bucket should be moved to the second bucket containing water
 - For more infor refer to protocol below:
-	- [Sock Filter Cleaning Protocol]
+	- [Sock Filter Cleaning Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/70235821f3dfe66586ca7323a696411b7f28c893/CBLS_Wetlab_Protocols/Filter_Cleaning.md)
 
 *Check DI RO System*
 -
