@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: Filter Cleaning Protocol
