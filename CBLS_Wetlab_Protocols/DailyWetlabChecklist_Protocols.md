@@ -37,7 +37,7 @@ Details on daily tasks in the wetlab
 -
 - Check to see how much DI water and salt water are in the large tanks
 - If low, create time to fill DI water and do salt mixing, refer to protocol below
-	- [Salt Mixing Protocol] (https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/20220510_CBLS_Salt_Mixing_Protocol.md#standard-protocol-for-mixing-di-and-salt-to-make-saltwater-mix-for-header-and-cbls-tanks) 
+	- [Salt Mixing Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/0491f7fb9fa878fd7c521b7e5143846c740b659e/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md)
 
 *Check Filters*
 -
