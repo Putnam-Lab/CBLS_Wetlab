@@ -352,13 +352,6 @@ summary<-daily_month%>%
 ```{r}
 library(ggrepel)
 library(ggpmisc)
-
-pHSlope %>% group_by(Tank_ID,Date,TA_dKH) %>% drop_na(TA) %>% summarize(TA = mean(TA)) %>%
-  ggplot(aes(x = TA, y = TA_dKH)) +
-  geom_point(size = 2) + geom_text_repel(aes(label=TA_dKH)) + 
-  geom_smooth(method = "lm", se = FALSE) +  # use linear model (lm) and remove shaded error band
-  theme_minimal() 
-
 pHSlope$Date <- as.factor(pHSlope$Date)
 
 TA_plot <- pHSlope %>% 
@@ -381,5 +374,6 @@ TA_plot <- pHSlope %>%
   )
 
 ggsave("../Output/TA_dKH_relationship.pdf", TA_plot, width = 7, height = 5, units = c("in"))
+TA_plot
 ```
 
