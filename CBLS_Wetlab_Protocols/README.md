@@ -57,20 +57,65 @@ Here's a map to understand the setup better:
 
 [<img width="892" alt="Screen Shot 2023-11-08 at 4 02 07 PM" src="https://github.com/Putnam-Lab/CBLS_Wetlab/assets/5198996/002bc5dc-806a-4b8b-95d4-de0ea7ceeb95">]: #
 
-Other supporting equipments like the pumps, prime lights and filtration systems are an individual component of each tanks. Equipments currently not in use or in excess are stored either in the storage area of aquarium space or in the loading dock storage room. If and when needed, the loading dock storage room could be accessed via a key present in the lab. 
+Other supporting equipments like the pumps, prime lights and filtration systems are an individual component of each tanks. Equipments currently not in use or in excess are stored either in the storage area in the aquarium space or in the loading dock storage room. If and when needed, the loading dock storage room could be accessed via a key present in the lab. If you do not know where you can find the loading dock storage, you can take a look at the map below.
+
+[Add map for directions to loading dock storage]: #
 
 For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at the respective components for detailed information. 
 
 **<a name="Tank_Descriptions_and_Designated_Uses"></a> Tank Descriptions and Designated Uses**
 
-1. DI (Deionized) Tank
+**1. DI (Deionized) Tank**
 - One of the main uses of the DI tank is to supply water for salt mixing, especially during the initial setup phase.
 - This tank is connected to both the mixing tank as well as the header tank connected through pumps and valves. 
-- The tank has a freshwater input source which brings the water every time into the filter system.
-- Before the DI water enters either of the tanks, it goes through a complex filtering system 
-[Add image of the filter system here]: #
+- Before the DI water enters either of the tanks, it goes through a complex filtering system. 
+    
+    [Add image of the filter system here]: #
+   
+   #### A. Working of the DI Tank System
+   The tank has a freshwater input from the wall behind the blue tanks 3 and 4. It opens into a valve which when turned on, lets the water go through the filteration system.
+   
+   - The filteration system comprises of the four filters: Two of the DI Resin Filters (#1 and #2), Carbon Filter (#3) and Sediment Filters(#4).
+
+   ![Filtering System of DI Tank:(from left to right) Resin Filters (#1 and #2, ), Carbon Filter (#3) and Sediment Filter(#4).]()
+
+   - [Add details about the tube and after talking to ZD]: #
+
+   - The filtered water is then set to enter the DI tank through the black tube that needs to be connected at the top of the DI tank. **Make sure the black tube/hose entering the system is plugged in whenever you try to fill up the DI tank.**
+
+   - <ins> DI Usage Tracking</ins>: The tank has a write-on tape where you want to track and write the start time and date for when you started the DI system. Additionally, please also track the usage on the [DI Usage Tracking List](https://docs.google.com/spreadsheets/d/1DfGLbhAiS6tukkbXZKDrpdcE7gNNn-d_7p-FiyXCfZA/edit?gid=102907495#gid=102907495) to access it anytime.
+
+   #### B. Filter System: Cleaning, Working and Tracking 
+  
+   - <ins>Filter Changes Tracking List</ins>: The Resin Filters are set to change whenever the resin turns dark brown or you no longer see the blue beads. The Carbon Filter should be changed ~every 6 months while the sediment filter need to change every 100 gallons of water use/every time you start the DI system.
+
+     *Whenever you change any filters in the DI system make sure to track that on the [tracking list](https://docs.google.com/spreadsheets/d/1DfGLbhAiS6tukkbXZKDrpdcE7gNNn-d_7p-FiyXCfZA/edit?gid=102907495#gid=102907495) and update the inventory accordingly.*
+
+   - All the excess filters and resin beads are stored in a box or under the table, closer to the wall opposite blue tank 1 and 2. 
 
 
+
+   - **Cleaning of the filters**:
+     1. <ins> Resin Filters </ins>- Before cleaning: Make sure you were gloves as the microplastic beads could stick to your hands possibily leading to enter the tank system if you are under cleaning duties. You should also have a trash can to dump the resin beads off as well as a small container and cloth that you can throw off after cleaning.
+     - During cleaning: 
+       1. Clean filters one by one (as there are two resin filters #1 and #2). Take out the filter housing with the help of the wrench placed near the system. 
+       2. Once you have successfully taken out the housing which has the filters inside, empty access water into the container near you and empty it in the drainage hole near the fridge.
+       3. Once emptied, take out the resin filter container outside take off the cap to get rid of the inside resin.
+       4. The filter inside would first have a sponge so carefully take the beads off the sponge and with the help of the kim wipe/cloth take it off carefully in the trash can. 
+       5. Empty all the used resin in the trash can till you can take most of it off and fill it up with the resin from the bag. 
+       6. Please make sure you fill up the beads till the *fill line* as you still need to house the sponge into the container. Once ensured, make sure you take any beads off on and between the cap for a successful seal.
+       7. After the above steps are done, follow the arrow on the container and ensure that you follow the UP arrow before placing it in the filter housing and complete cleaning.
+       8. **Follow the same process for the #2 and make sure you clean both of them at the same time**.
+
+   
+      
+ 
+ 
+ 
+ 
+ 
+ **4. Display Tank**
+ 
  In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
 
 
