@@ -26,7 +26,7 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 ## <ins> **Contents** </ins>
 
 - [Introduction](#Introduction)
-- [Room Layout and Equipment Overview](#2.Room_Layout_and_Equipment_Overview)
+- [Room_Layout_and_Equipment_Overview](#2.Room_Layout_and_Equipment_Overview)
 - [Tank Descriptions and Designated Uses](#3.Tank_Descriptions_and_Designated_Uses)
 - Electrical System ||
 - Plumbing System ||
