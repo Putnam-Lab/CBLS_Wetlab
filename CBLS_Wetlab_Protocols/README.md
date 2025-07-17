@@ -28,16 +28,16 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 - [**Introduction**](#Introduction)
 - [**Room Layout and Equipment Overview**](#Room_Layout_and_Equipment_Overview)
 - [**Tank Descriptions and Designated Uses**](#Tank_Descriptions_and_Designated_Uses)
-- [**Electrical System**]||
-- Plumbing System ||
-- Water Quality Testing and Maintenance Protocols||
-- Access and Key Control ||
-- Safety Guidelines and Emergency Procedures||
-- Marine Organism Care and Handling||
-- Preparing tanks for usage: DI and Salt Mixing Procedures||
-- Data logging and Recordkeeping||
-- Troubleshooting and FAQs ||
-- Appendices and Other information ||
+- [**Electrical System**]
+- Plumbing System 
+- Water Quality Testing and Maintenance Protocols
+- Access and Key Control
+- Safety Guidelines and Emergency Procedures
+- Marine Organism Care and Handling
+- Preparing tanks for usage: DI and Salt Mixing Procedures
+- Data logging and Recordkeeping
+- Troubleshooting and FAQs 
+- Appendices and Other information 
 
 
 **<a name="Room_Layout_and_Equipment_Overview"></a> Room Layout and Equipment Overview**
@@ -65,16 +65,14 @@ For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at 
 
 
  In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
- 
- **<a name="Electrical_System"**></a> Electrical System
 
-**5.Plumbing_System**
+**<a name="Electrical_System"></a> Electrical System**
 
-**6.Water_Quality_Testing_and_Maintenance_Protocols**
+**<a name="Plumbing_System"></a> Plumbing System**
 
+**<a name="Water_Quality_Testing_and_Maintenance_Protocols"></a> Water Quality Testing and Maintenance Protocols**
 
-
-**7. Access and Key Control**
+**<a name="Access_and_Control_to_the_Wetlab"></a> Access and Control to the Wetlab**
 
 The aquarium room is located on basement floor closer to the loading dock in Room 70. Access to the Aquarium Room requires a key, which can be found in the PPP Research Lab (Rooms 188 and 190). The key is located on the cabinets positioned at the center of the seating area. 
 
@@ -82,18 +80,17 @@ In order to have access to the PPP lab and loading dock please contact Hollie Pu
 
 *Please note: There are two keys in the PPP lab for accessing the aquarium room. Kindly only use Putnam Lab assigned key for access and make sure to return it back at the end of the day.*
 
-**8. Access and Key Control**
+**<a name="Safety_Guidelines_and_Emergency_Procedures"></a> Safety Guidelines and Emergency Procedures**
 
-**9. Access and Key Control**
+**<a name="Marine_Organism_Care_and_Handling"></a> Marine Organism Care and Handling**
 
-**10. Access and Key Control**
+**<a name="Preparing_tanks_for_usage:_DI_and_Salt_Mixing_Procedures"></a> Preparing tanks for usage: DI and Salt Mixing Procedures**
 
-**11. Access and Key Control**
+**<a name="Data_logging_and_Recordkeeping"></a> Data logging and Recordkeeping**
 
-**12. Access and Key Control**
+**<a name="Troubleshooting_and_FAQs"></a> Troubleshooting and FAQs**
 
-**13. Access and Key Control**
-
+**<a name="Appendices_and_Other_Information"></a> Appendices and Other information**
 
 
 ## **Components of the Wetlab**
