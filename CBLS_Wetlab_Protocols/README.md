@@ -14,7 +14,7 @@ Location: University of Rhode Island, Center for Biotechnology and Life Sciences
 
 ### <font color="brown">**PUTNAM LAB: WETLAB AQUARIUM INTRODUCTION AND SETUP**</font>
 
-**1. Introduction**
+**<a name="1. Introduction"></a> 1. Introduction**
 
 The Putnam Lab CBLS tanks are used for dynamic marine invertebrate projects facilitated by Putnam Lab members. The tanks offer a way for students to investigate methodology pertaining to research questions, monitor water quality, learn aquacultural techniques, and conduct vital research in marine invertebrate systems. 
 
