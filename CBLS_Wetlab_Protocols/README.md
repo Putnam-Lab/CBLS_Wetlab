@@ -66,11 +66,15 @@ For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at 
 
  In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
 
+
 **<a name="Electrical_System"></a> Electrical System**
+
 
 **<a name="Plumbing_System"></a> Plumbing System**
 
+
 **<a name="Water_Quality_Testing_and_Maintenance_Protocols"></a> Water Quality Testing and Maintenance Protocols**
+
 
 **<a name="Access_and_Control_to_the_Wetlab"></a> Access and Control to the Wetlab**
 
@@ -80,15 +84,21 @@ In order to have access to the PPP lab and loading dock please contact Hollie Pu
 
 *Please note: There are two keys in the PPP lab for accessing the aquarium room. Kindly only use Putnam Lab assigned key for access and make sure to return it back at the end of the day.*
 
+
 **<a name="Safety_Guidelines_and_Emergency_Procedures"></a> Safety Guidelines and Emergency Procedures**
+
 
 **<a name="Marine_Organism_Care_and_Handling"></a> Marine Organism Care and Handling**
 
+
 **<a name="Preparing_tanks_for_usage:_DI_and_Salt_Mixing_Procedures"></a> Preparing tanks for usage: DI and Salt Mixing Procedures**
+
 
 **<a name="Data_logging_and_Recordkeeping"></a> Data logging and Recordkeeping**
 
+
 **<a name="Troubleshooting_and_FAQs"></a> Troubleshooting and FAQs**
+
 
 **<a name="Appendices_and_Other_Information"></a> Appendices and Other information**
 
