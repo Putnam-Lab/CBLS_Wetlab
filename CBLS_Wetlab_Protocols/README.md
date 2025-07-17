@@ -26,8 +26,8 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 ## <ins> **Table of Contents** </ins>
 
 | Sr. No. | Title | Notes |
-
-| 1 | [Introduction](#1.Introduction) | |
+|--------|----------|----------|
+| 1 | [Introduction](#Introduction) | |
 |2  | [Room Layout and Equipment Overview](#2.Room_Layout_and_Equipment_Overview)||
 |3| [Tank Descriptions and Designated Uses](#Tank) ||
 |4| Electrical System ||
