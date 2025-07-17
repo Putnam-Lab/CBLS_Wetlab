@@ -27,8 +27,8 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 
 - [**Introduction**](#Introduction)
 - [**Room Layout and Equipment Overview**](#Room_Layout_and_Equipment_Overview)
-- [**Tank_Descriptions_and_Designated_Uses**](#Tank_Descriptions_and_Designated_Uses)
-- Electrical System ||
+- [**Tank Descriptions and Designated Uses**](#Tank_Descriptions_and_Designated_Uses)
+- [**Electrical System**]||
 - Plumbing System ||
 - Water Quality Testing and Maintenance Protocols||
 - Access and Key Control ||
@@ -61,12 +61,12 @@ Other supporting equipments like the pumps, prime lights and filtration systems 
 
 For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at the respective components for detailed information. 
 
-**3.Tank_Descriptions_and_Designated_Uses**
+**<a name="Tank_Descriptions_and_Designated_Uses"></a> Tank Descriptions and Designated Uses**
 
 
  In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
  
- **4.Electrical_System**
+ **<a name="Electrical_System"**></a> Electrical System
 
 **5.Plumbing_System**
 
