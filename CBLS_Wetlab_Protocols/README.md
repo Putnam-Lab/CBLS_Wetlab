@@ -70,7 +70,7 @@ Here's a map to understand the setup better:
 
 The aquarium room is located on basement floor closer to the loading dock in Room 70. Access to the Aquarium Room requires a key, which can be found in the PPP Research Lab (Rooms 188 and 190). The key is located on the cabinets positioned at the center of the seating area. 
 
-In order to have access to the PPP lab and loading dock please contact Hollie Putnam at <ins> hputnam@uri.edu </ins> for assistance. 
+In order to have access to the PPP lab and loading dock please contact Hollie Putnam at hputnam@uri.edu for assistance. 
 
 *Please note: There are two keys in the PPP lab for accessing the aquarium room. Kindly only use Putnam Lab assigned key for access and make sure to return it back at the end of the day.*
 
