@@ -6,13 +6,13 @@ Date last revised:20250716
 
 Location: University of Rhode Island, Center for Biotechnology and Life Sciences, Aquarium Room 70
 
-*This specific page serves as a user manual to things pertaining only to the Putnam Lab. This aquarium room is a shared space between different labs hence be mindful while utilizing this resource.*
+*This specific page serves as a user manual to Wetlab pertaining only to the Putnam Lab. This aquarium room is a shared space between different labs hence be mindful while utilizing this space and resource.*
 
 ## **CBLS Wetlab Map** 
 
-[Add Map 1 of the general lab including all spaces]: # 
+[Add Map 1 of the general lab including all spaces]: #
 
-### <font color="brown">**PUTNAM LAB: WETLAB AQUARIUM INTRODUCTION AND SETUP**</font>
+**PUTNAM LAB: WETLAB AQUARIUM INTRODUCTION AND SETUP**
 
 **<a name="Introduction"></a> Introduction**
 
@@ -64,7 +64,11 @@ For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at 
 **<a name="Tank_Descriptions_and_Designated_Uses"></a> Tank Descriptions and Designated Uses**
 
 1. DI (Deionized) Tank
-- 
+- One of the main uses of the DI tank is to supply water for salt mixing, especially during the initial setup phase.
+- This tank is connected to both the mixing tank as well as the header tank connected through pumps and valves. 
+- The tank has a freshwater input source which brings the water every time into the filter system.
+- Before the DI water enters either of the tanks, it goes through a complex filtering system 
+[Add image of the filter system here]: #
 
 
  In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
