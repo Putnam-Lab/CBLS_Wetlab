@@ -1,7 +1,9 @@
 
 # Welcome to the GitHub Repository for the Center for Biotechnology and Life Sciences (CBLS) Aquarium Water Quality Monitoring!
 
-Date last revised:20250716  
+Original: 20210422
+
+Last revised:20250717  
 
 
 Location: University of Rhode Island, Center for Biotechnology and Life Sciences, Aquarium Room 70
@@ -70,11 +72,23 @@ For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at 
 - This tank is connected to both the mixing tank as well as the header tank by pumps and valves. 
 - Before the DI water enters either of the tanks, it goes through a complex filtering system. 
 
-Note: For more information about the cleaning, working and troubleshooting of the DI Tank System look [here](https://github.com/ppednekar25/Pednekar_Putnam_Lab_Notebook/blob/524330bf475993a2244d6becd09b7eaa77840a3f/_posts/2025-07-17-CBLS-Tank-Systems.md)
+Note: For more information about the cleaning, working and troubleshooting of the DI Tank System look [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
     
-  
+**2. Salt Mixing Tank/Mixing Tank**
+- The salt mixing tank is used to make the salt water. We do not source our salt water into the system from anywhere but instead make it by ourself using the FritzProMax Salt along with the DI water present in the DI tank. 
+- For information about making the saltwater take look at the [salt mixing protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md).
+- The mixing tanks is connected to both, the header and DI tank through pumps that open through the valves.
+
+  **Make sure you always check the salinity of the mixing tank and the other tank that you want to add the saltwater into. If the salinity of mixing tank is >35.5 psu look at the troubleshooting information in the link below.**  
+
+Note: For more information about the working and troubleshooting of the Mixing Tank System look [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
+
+
+**3. Header Tank**
+
+**4. Blue Tanks**
  
- **4. Display Tank**
+ **5. Display Tank**
  
  In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
 
