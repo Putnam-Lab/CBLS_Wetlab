@@ -64,7 +64,7 @@ For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at 
 **<a name="Tank_Descriptions_and_Designated_Uses"></a> Tank Descriptions and Designated Uses**
 
 
- In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
+ -In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
 
 
 **<a name="Electrical_System"></a> Electrical System**
