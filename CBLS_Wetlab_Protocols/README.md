@@ -41,7 +41,7 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 
 
 
-**2.Room_Layout_and_Equipment_Overview**
+**Room_Layout_and_Equipment_Overview**
 
 When you enter the Aquarium Room, one side of the doors houses the tanks and storage area, while the other side is used by other labs for experimental work and includes a sink for freshwater use and everyday laundry tasks. 
 
