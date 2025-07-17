@@ -10,28 +10,26 @@ Location: University of Rhode Island, Center for Biotechnology and Life Sciences
 
 ## **CBLS Wetlab Map** 
 
-[Add Introduction & Map 1 of the general lab including everything]: # 
+[Add Map 1 of the general lab including all spaces]: # 
 
 ### <font color="brown">**PUTNAM LAB: WETLAB AQUARIUM INTRODUCTION AND SETUP**</font>
 
-*<font color="#3D9970">**1. Introduction**</font>*
+**1. Introduction**
 
 The Putnam Lab CBLS tanks are used for dynamic marine invertebrate projects facilitated by Putnam Lab members. The tanks offer a way for students to investigate methodology pertaining to research questions, monitor water quality, learn aquacultural techniques, and conduct vital research in marine invertebrate systems. 
 
 To ensure accurate results, water quality is assessed within the tanks through various measurements that include; salinity, pH, and total alkalinity.
 
-The Putnam Lab features five main tanks: the DI (Deionized Water) Tank, the Salt Mixing Tank, the Header Tank, and two long blue tanks. In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
-
 This manual serves as a baseline for lab members, interns, visiting scholars. 
 
 
-## <center> <ins> **Table of Contents** </ins> </center>
+## <ins> **Table of Contents** </ins>
 
 | Sr. No. | Title | Notes |
 |-------------|------------------------|-----------|
-| 1 | Introduction | |
-|2|Room Layout and Equipment Overview ||
-|3| Tank Descriptions and Designated Uses ||
+| 1 | [Introduction](#1.Introduction) | |
+|2  | [Room Layout and Equipment Overview](#2.Room_Layout_and_Equipment_Overview)||
+|3| [Tank Descriptions and Designated Uses](#Tank) ||
 |4| Electrical System ||
 |5| Plumbing System ||
 |6| Water Quality Testing and Maintenance Protocols||
@@ -45,28 +43,41 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 
 
 
-*<font color="#3D9970">**2. Room Layout and Equipment Overview**</font>*
+**2.Room_Layout_and_Equipment_Overview**
 
 When you enter the Aquarium Room, one side of the doors houses the tanks and storage area, while the other side is used by other labs for experimental work and includes a sink for freshwater use and everyday laundry tasks. 
 
+The Putnam Lab features below tanks: 
+1. DI (Deionized Water) Tank
+2. Salt Mixing Tank
+3. Header Tank
+4. Blue Tanks (2)
+5. Display Tank 
+
 Here's a map to understand the setup better: 
 
-
-[Top View Add image of Map 2 and Map 3]: #
+[Top View Add image of Map 2- Specific Map of Putnam Lab tanks and design]: #
 
 [<img width="892" alt="Screen Shot 2023-11-08 at 4 02 07 PM" src="https://github.com/Putnam-Lab/CBLS_Wetlab/assets/5198996/002bc5dc-806a-4b8b-95d4-de0ea7ceeb95">]: #
 
-*<font color="#3D9970">**3. Tank Descriptions and Designated Uses**</font>*
+Other supporting equipments like the pumps, prime lights and filtration systems are an individual component of each tanks. Equipments currently not in use or in excess are stored either in the storage area of aquarium space or in the loading dock storage room. If and when needed, the loading dock storage room could be accessed via a key present in the lab. 
 
-*<font color="#3D9970">**4. Electrical System**</font>*
+For [Electrical]() and [Plumbing]() overview and troubleshooting read through the designated information. 
 
-*<font color="#3D9970">**5. Plumbing System**</font>*
-
-*<font color="#3D9970">**6. Water Quality Testing and Maintenance Protocols**</font>*
+**3.Tank_Descriptions_and_Designated_Uses**
 
 
+ In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
+ 
+ **4.Electrical_System**
 
-*<font color="#3D9970">**7. Access and Key Control**</font>*
+**5.Plumbing_System**
+
+**6.Water_Quality_Testing_and_Maintenance_Protocols**
+
+
+
+**7. Access and Key Control**
 
 The aquarium room is located on basement floor closer to the loading dock in Room 70. Access to the Aquarium Room requires a key, which can be found in the PPP Research Lab (Rooms 188 and 190). The key is located on the cabinets positioned at the center of the seating area. 
 
@@ -74,17 +85,17 @@ In order to have access to the PPP lab and loading dock please contact Hollie Pu
 
 *Please note: There are two keys in the PPP lab for accessing the aquarium room. Kindly only use Putnam Lab assigned key for access and make sure to return it back at the end of the day.*
 
-*<font color="#3D9970">**8. Access and Key Control**</font>*
+**8. Access and Key Control**
 
-*<font color="#3D9970">**9. Access and Key Control**</font>*
+**9. Access and Key Control**
 
-*<font color="#3D9970">**10. Access and Key Control**</font>*
+**10. Access and Key Control**
 
-*<font color="#3D9970">**11. Access and Key Control**</font>*
+**11. Access and Key Control**
 
-*<font color="#3D9970">**12. Access and Key Control**</font>*
+**12. Access and Key Control**
 
-*<font color="#3D9970">**13. Access and Key Control**</font>*
+**13. Access and Key Control**
 
 
 
