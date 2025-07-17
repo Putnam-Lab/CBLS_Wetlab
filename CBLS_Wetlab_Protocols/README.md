@@ -14,7 +14,7 @@ Location: University of Rhode Island, Center for Biotechnology and Life Sciences
 
 ### <font color="brown">**PUTNAM LAB: WETLAB AQUARIUM INTRODUCTION AND SETUP**</font>
 
-**<a name="Introduction"></a> Introduction**
+**<a name="1. Introduction"></a> Introduction**
 
 The Putnam Lab CBLS tanks are used for dynamic marine invertebrate projects facilitated by Putnam Lab members. The tanks offer a way for students to investigate methodology pertaining to research questions, monitor water quality, learn aquacultural techniques, and conduct vital research in marine invertebrate systems. 
 
@@ -23,23 +23,21 @@ To ensure accurate results, water quality is assessed within the tanks through v
 This manual serves as a baseline for lab members, interns, visiting scholars. 
 
 
-## <ins> **Table of Contents** </ins>
+## <ins> **Contents** </ins>
 
-| Sr. No. | Title | Notes |
-|--------|----------|----------|
-| 1 | [Introduction](#Introduction) | |
-|2  | [Room Layout and Equipment Overview](#2.Room_Layout_and_Equipment_Overview)||
-|3| [Tank Descriptions and Designated Uses](#Tank) ||
-|4| Electrical System ||
-|5| Plumbing System ||
-|6| Water Quality Testing and Maintenance Protocols||
-|7| Access and Key Control ||
-|8| Safety Guidelines and Emergency Procedures||
-|9| Marine Organism Care and Handling||
-|10| Preparing tanks for usage: DI and Salt Mixing Procedures||
-|11| Data logging and Recordkeeping||
-|12| Troubleshooting and FAQs ||
-|13| Appendices and Other information ||
+- [Introduction](#Introduction)
+- [Room Layout and Equipment Overview](#2.Room_Layout_and_Equipment_Overview)
+- [Tank Descriptions and Designated Uses](#3.Tank_Descriptions_and_Designated_Uses)
+- Electrical System ||
+- Plumbing System ||
+- Water Quality Testing and Maintenance Protocols||
+- Access and Key Control ||
+- Safety Guidelines and Emergency Procedures||
+- Marine Organism Care and Handling||
+- Preparing tanks for usage: DI and Salt Mixing Procedures||
+- Data logging and Recordkeeping||
+- Troubleshooting and FAQs ||
+- Appendices and Other information ||
 
 
 
@@ -62,7 +60,7 @@ Here's a map to understand the setup better:
 
 Other supporting equipments like the pumps, prime lights and filtration systems are an individual component of each tanks. Equipments currently not in use or in excess are stored either in the storage area of aquarium space or in the loading dock storage room. If and when needed, the loading dock storage room could be accessed via a key present in the lab. 
 
-For [Electrical]() and [Plumbing]() overview and troubleshooting read through the designated information. 
+For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at the respective components for detailed information. 
 
 **3.Tank_Descriptions_and_Designated_Uses**
 
