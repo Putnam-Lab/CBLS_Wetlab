@@ -77,7 +77,7 @@ Note: For more information about the cleaning, working and troubleshooting of th
 **2. Salt Mixing Tank/Mixing Tank**
 - The salt mixing tank is used to make the salt water. We do not source our salt water into the system from anywhere but instead make it by ourself using the FritzProMax Salt along with the DI water present in the DI tank. 
 - For information about making the saltwater take look at the [salt mixing protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md).
-- The mixing tanks is connected to both, the header and DI tank through pumps that open through the valves.
+- The mixing tanks is connected to both, the header and DI tank through pumps that open through the valves.s
 
   **Make sure you always check the salinity of the mixing tank and the other tank that you want to add the saltwater into. If the salinity of mixing tank is >35.5 psu look at the troubleshooting information in the link below.**  
 

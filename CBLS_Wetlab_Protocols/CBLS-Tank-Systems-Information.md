@@ -7,11 +7,12 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
 ---
 
 
-*Created by Pooja Pednekar 2025-07-17*
+*Last edited on 2025-07-17 by Pooja Pednekar*
 
 #### The protocol is created to give detailed information about the tank systems, its maintenance, cleaning and troubleshooting. The tanks included in this protocol are DI Tank, Salt Mixing Tank, Header Tank, Two Blue Tanks as well as the display tank managed by the Putnam Lab.
 
-## 1. DI TANK SYSTEM 
+## 1. DI TANK SYSTEM
+  *Serves as the only source of DI in the Wetlab.*
 
    #### A. Working of the DI Tank System
    The tank has a freshwater input from the wall behind the blue tanks 3 and 4. It opens into a valve which when turned on, lets the water go through the filteration system.
@@ -20,9 +21,9 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
 
    ![Filtering System of DI Tank:(from left to right) Resin Filters (#1 and #2, ), Carbon Filter (#3) and Sediment Filter(#4).]()
 
-   - General tube system working: The blue tube connected to the main valve gets the water into the sediment filter. The sediment filter is connected to the carbon filter internally and pushes the water into it. The carbon filter is connected to the DI dual-stage RO (two-row reverse osmosis) which helps to get rid of any water impurities. The blue tubes coming out from the RO system continues to channel water finally into the resin filters. There is an additional, yellow-black tubes coming out of both the RO systems which is the discarded water from the system that drains out of the system. Once the water enters the resin filters, it gets deionized before entering the DI tank for storage via another black tube.
+   - General filter system working: The blue tube connected to the main valve gets the water into the sediment filter. The sediment filter is connected to the carbon filter internally and pushes the water into it. The carbon filter is connected to the DI dual-stage RO (two-row reverse osmosis) which helps to get rid of any water impurities. The blue tubes coming out from the RO system continues to channel water finally into the resin filters. There is an additional, yellow-black tubes coming out of both the RO systems which expels the discarded water from the system that drains out of the system. Both the resin filters are connected to each other internally. Once the water enters the resin filters, it gets deionized before entering the DI tank for storage via another black tube connected to the DI tank.
 
-   **Make sure the black tube entering the DI Tank is plugged in whenever you try to fill up the DI tank.**
+   **Make sure the black tube entering the DI Tank is plugged in whenever you try to fill up the DI tank. If the tube is not connected to the storage tank, the water would be expelled in the area around the system. It is necessary to be careful as there is a electrical system underneath the blue tanks which could be compromised.**
    
    [Add image of the filter system here]: #
 
@@ -52,3 +53,51 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
      2. <ins> Carbon Filter </ins>: The process is simple by taking the filter housing off with the wrench and just inserting a new carbon filter in the housing. This filter is changed almost every month. 
 
      3. <ins> Sediment Filter </ins>: The sediment filter change is similar as cleaning the carbon filter. 
+
+     -Other components related to the filter system:
+
+      A. <ins> Pressure gauge</ins>: The pressure gauge is connected at a junction between the water entering RO system that mesaure the pressure of the water and ideally should be closer to ~65 psi and not greater or way to less than the expected. If the pressure is lower/higher than the expected, it means there are some issues either with how the system is working. 
+
+       **Troubleshooting tips with the pressure gauge**: The pressure gauge tubing is internally covered by a tape which then connects to the system. Sometimes the tape could be torn off leading to abnormal reading by the gauge. In that case, make sure to take off that tubing carefully and retaping the internal connectors.
+
+      [Include a pciture about the pressure guage]: #
+
+      B. <ins>Dual TDS (Total Dissolved Solids) Meter</ins>: The Dual TDS Meter (picture below) is helpful to monitor the effectiveness of the Reverse Osmosis (RO) or the DI water system. There is a power button which activates the meter and a button that moves between red and blue to measure the quality of the water before and after filteration. 
+
+      There are mainly two modes which are red and blue colored. The red cord connects and measures the TDS level at the earlier point after the water is filtered through the carbon filter and entering the RO system next. The blue cord however measures the TDS before the water enters finally to the resin filters.
+      
+       *The ideal measurement of the blue side should always read <12 ppm and that for the red side should be around ~200 ppm. In case of any abnormalities, report to the PI or the person in-charge of the wetlab.* 
+
+       **Troubleshooting tips with the tubing system**: Make sure the tubes going through or meeting at any junction are tightened up and properly fits into each other to avoid any leaks in the whole system. Additionally, sometimes the red and blue tubes connecting the TDS meter, could be closed internally, avoiding water flow through them. In that case, gently pull out the tubes and open valves (the inside pieces in the junction) for shift flow and detection.
+      
+     [Include details about the guage and the TDS system on the DI system]: #
+
+
+
+## 2. SALT MIXING TANK/MIXING TANK SYSTEM 
+  *Salt water needed for any experiments as well as running the aquarium room for the Putnam Lab comes only through this tank.*
+
+   #### A. Working of the Saltwater Mixing Tank
+
+  - The tank pulls in water from the DI tank. The salt combined with the DI makes the saltwater for the wetlab system. 
+ 
+  - We use the standard measuring scale present in the PPP labs above the shelves where all the physical laboratory notebook are stored.
+ 
+  - The mixing tank is connected to the header tank as well as DI tank.
+
+  [Add details about pump open and closing and connections to the HT]: #
+
+
+   
+  #### B. Salt mixing and usage tracking
+
+   For saltwater making, look at the protocol [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) for a brief overview of the process.
+
+   Whenever you make new saltwater in the mixing tank, make sure you track the salt added in the amount of DI, on the [Saltwater Usage Tracking List](https://docs.google.com/spreadsheets/d/1DfGLbhAiS6tukkbXZKDrpdcE7gNNn-d_7p-FiyXCfZA/edit?gid=141050809#gid=141050809). Indicate any notes under any unforseen circumstances. After adding the salt, let the water mix overnight and check the salinity of the water periodically.
+
+   
+
+  #### C. Connecting Mixing tank with other tanks
+
+  1. ss
+
