@@ -190,6 +190,4 @@ The following protocols are used by the team to maintain and operate the equipme
 
 For immediate issues or questions, please contact the following through slack or email: 
  
-Hollie Putnam at hputnam@uri.edu 
-Zoe Dellaert at zdellaert@uri.edu
-Pooja Pednekar at pooja.pednekar@uri.edu
+Hollie Putnam at hputnam@uri.edu, Zoe Dellaert at zdellaert@uri.edu and Pooja Pednekar at pooja.pednekar@uri.edu
