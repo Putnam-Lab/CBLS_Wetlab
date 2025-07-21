@@ -30,16 +30,18 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 - [**Introduction**](#Introduction)
 - [**Room Layout and Equipment Overview**](#Room_Layout_and_Equipment_Overview)
 - [**Tank Descriptions and Designated Uses**](#Tank_Descriptions_and_Designated_Uses)
-- [**Electrical System**]
-- Plumbing System 
-- Water Quality Testing and Maintenance Protocols
-- Access and Key Control
-- Safety Guidelines and Emergency Procedures
-- Marine Organism Care and Handling
-- Preparing tanks for usage: DI and Salt Mixing Procedures
-- Data logging and Recordkeeping
-- Troubleshooting and FAQs 
-- Appendices and Other information 
+- [**Electrical System**](#Electrical_System)
+- [**Plumbing System**](#Plumbing_System)
+- [**Water Quality Testing and Maintenance Protocols**](#Water_Quality_Testing_and_Maintenance_Protocols)
+- [**Access and Key Control**](#Access_and_Control_to_the_Wetlab)
+- [**Safety Guidelines and Emergency Procedures**](#Safety_Guidelines_and_Emergency_Procedures)
+- [**Marine Organism Care and Handling**](Marine_Organism_Care_and_Handling)
+- [**Preparing tanks for usage: DI and Salt Mixing Procedures**](#Preparing_tanks_for_usage:_DI_and_Salt_Mixing_Procedures)
+- [**Data logging and Recordkeeping**](#Data_logging_and_Recordkeeping)
+- [**Protocols frequently used by the Wetlab team**](#Protocols_frequently_used_by_the_Wetlab_team)
+- [**Troubleshooting and FAQs**](#Troubleshooting_and_FAQs)
+- [**Appendices and other Information**](#Appendices_and_Other_Information)
+- [**Contact Information**](#Contact_Information)
 
 
 **<a name="Room_Layout_and_Equipment_Overview"></a> Room Layout and Equipment Overview**
@@ -158,6 +160,25 @@ In order to carry out any experiments or managing the aquarium systems, always m
 
 **<a name="Data_logging_and_Recordkeeping"></a> Data logging and Recordkeeping**
 
+Here are some frequently used data logging links which are useful to the wetlab team.
+
+- [DI Water Usage Tracking]()- Helps you track your DI water usage along with cleaning track of the DI system. 
+- [Salt Mixing Tank Usage]()- Enables you to track your mixing tank usage.
+- [CBLS Google Drive](https://drive.google.com/drive/u/0/folders/1ocYxPYi3edLmXBJPu962fU0PFoS6fVF6) includes photos, videos, room maps, and notebook photos which you might need to either access or upload wetlab notebook pictures into.
+- [Daily Measurements Tracking CSV](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv) of water quality tracking data. This is also where you would be updating daily measurements from the wetlab.
+- [Putnam Lab Inventory]()- Gives you recently updated inventory list of all the different spaces of the Putnam Lab. 
+- [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
+- [Daily Measurements of the Past Month](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
+
+**<a name="Protocols_frequently_used_by_the_Wetlab_team"></a> Protocols frequently used by the Wetlab team**
+
+The following protocols are used by the team to maintain and operate the equipment and components in the aquarium room.
+
+- - [Salt Mixing Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) useful for salt mixing.
+- [Titrator Protocol](https://github.com/Putnam-Lab/Lab_Management/blob/38b9de1048283ff04b2e4904cff500ecb7b5c525/Lab_Resources/Equipment_Protocols/Titrator_Protocols/Titrator_Protocol.md) for carrying out titrations from the blue tanks.
+- [Orion Handheld Sensor Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Orion_MultiParameter_Sensor_Protocol.md) to calibrate the Orion Star pH/conductivity portable multiparameter meter that we use for daily measurements.
+-[Apex Calibration Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Apex-Calibration-Protocols.md) which us used for calibrating the apex probes present in the header tank and the blue tanks.
+- All other protocols can be accessed [here](https://github.com/Putnam-Lab/CBLS_Wetlab/tree/main/CBLS_Wetlab_Protocols) 
 
 **<a name="Troubleshooting_and_FAQs"></a> Troubleshooting and FAQs**
 
@@ -165,17 +186,10 @@ In order to carry out any experiments or managing the aquarium systems, always m
 **<a name="Appendices_and_Other_Information"></a> Appendices and Other information**
 
 
-## **Daily measurements:**
-- [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
-- [Daily Measurements of the Past Month](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
-- [Daily Measurements Tracking CSV](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv) of water quality tracking data.
+**<a name="Contact_Information"></a> Contact Information**
 
-## **Protocols**
-- [Apex Calibration Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Apex-Calibration-Protocols.md) 
-- [Orion Handheld Sensor Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Orion_MultiParameter_Sensor_Protocol.md)
-- All other protocols can be accessed [here](https://github.com/Putnam-Lab/CBLS_Wetlab/tree/main/CBLS_Wetlab_Protocols) 
-
-
-  ## **Google Drive Folder**
-- [CBLS Google Drive](https://drive.google.com/drive/u/0/folders/1ocYxPYi3edLmXBJPu962fU0PFoS6fVF6) includes photos, videos, room maps, and notebook photos.
-
+For immediate issues or questions, please contact the following through slack or email: 
+ 
+Hollie Putnam at hputnam@uri.edu 
+Zoe Dellaert at zdellaert@uri.edu
+Pooja Pednekar at pooja.pednekar@uri.edu
