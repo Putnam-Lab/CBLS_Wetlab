@@ -174,7 +174,7 @@ Here are some frequently used data logging links which are useful to the wetlab 
 
 The following protocols are used by the team to maintain and operate the equipment and components in the aquarium room.
 
-- - [Salt Mixing Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) useful for salt mixing.
+- [Salt Mixing Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) useful for salt mixing.
 - [Titrator Protocol](https://github.com/Putnam-Lab/Lab_Management/blob/38b9de1048283ff04b2e4904cff500ecb7b5c525/Lab_Resources/Equipment_Protocols/Titrator_Protocols/Titrator_Protocol.md) for carrying out titrations from the blue tanks.
 - [Orion Handheld Sensor Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Orion_MultiParameter_Sensor_Protocol.md) to calibrate the Orion Star pH/conductivity portable multiparameter meter that we use for daily measurements.
 -[Apex Calibration Protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/CBLS_Wetlab_Protocols/Apex-Calibration-Protocols.md) which us used for calibrating the apex probes present in the header tank and the blue tanks.
