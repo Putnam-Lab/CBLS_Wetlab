@@ -35,7 +35,7 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 - [**Water Quality Testing and Maintenance Protocols**](#Water_Quality_Testing_and_Maintenance_Protocols)
 - [**Access and Key Control**](#Access_and_Control_to_the_Wetlab)
 - [**Safety Guidelines and Emergency Procedures**](#Safety_Guidelines_and_Emergency_Procedures)
-- [**Marine Organism Care and Handling**](Marine_Organism_Care_and_Handling)
+- [**Marine Organism Care and Handling**](#Marine_Organism_Care_and_Handling)
 - [**Preparing tanks for usage: DI and Salt Mixing Procedures**](#Preparing_tanks_for_usage:_DI_and_Salt_Mixing_Procedures)
 - [**Data logging and Recordkeeping**](#Data_logging_and_Recordkeeping)
 - [**Protocols frequently used by the Wetlab team**](#Protocols_frequently_used_by_the_Wetlab_team)
