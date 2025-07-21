@@ -162,11 +162,11 @@ In order to carry out any experiments or managing the aquarium systems, always m
 
 Here are some frequently used data logging links which are useful to the wetlab team.
 
-- [DI Water Usage Tracking]()- Helps you track your DI water usage along with cleaning track of the DI system. 
-- [Salt Mixing Tank Usage]()- Enables you to track your mixing tank usage.
+- [DI Water Usage Tracking](https://docs.google.com/spreadsheets/d/1DfGLbhAiS6tukkbXZKDrpdcE7gNNn-d_7p-FiyXCfZA/edit?gid=102907495#gid=102907495)- Helps you track your DI water usage along with cleaning track of the DI system. 
+- [Salt Mixing Tank Usage](https://docs.google.com/spreadsheets/d/1DfGLbhAiS6tukkbXZKDrpdcE7gNNn-d_7p-FiyXCfZA/edit?gid=141050809#gid=141050809)- Enables you to track your mixing tank usage.
 - [CBLS Google Drive](https://drive.google.com/drive/u/0/folders/1ocYxPYi3edLmXBJPu962fU0PFoS6fVF6) includes photos, videos, room maps, and notebook photos which you might need to either access or upload wetlab notebook pictures into.
 - [Daily Measurements Tracking CSV](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Data/Daily_measurements_tracking.csv) of water quality tracking data. This is also where you would be updating daily measurements from the wetlab.
-- [Putnam Lab Inventory]()- Gives you recently updated inventory list of all the different spaces of the Putnam Lab. 
+- [Putnam Lab Inventory](https://docs.google.com/spreadsheets/d/1_0Qe9gYnuqSAA0Lr24fjMHW3b2HDtKML87l29piD6uM/edit?gid=1400338624#gid=1400338624)- Gives you recently updated inventory list of all the different spaces of the Putnam Lab. 
 - [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
 - [Daily Measurements of the Past Month](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
 
