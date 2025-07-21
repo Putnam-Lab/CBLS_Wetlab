@@ -36,7 +36,7 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 - [**Access and Key Control**](#Access_and_Control_to_the_Wetlab)
 - [**Safety Guidelines and Emergency Procedures**](#Safety_Guidelines_and_Emergency_Procedures)
 - [**Marine Organism Care and Handling**](#Marine_Organism_Care_and_Handling)
-- [**Preparing tanks for usage: DI and Salt Mixing Procedures**](#Preparing_tanks_for_usage:_DI_and_Salt_Mixing_Procedures)
+- [**Preparing tanks for usage DI and Salt Mixing Procedures**](#Preparing_tanks_for_usage_DI_and_Salt_Mixing_Procedures)
 - [**Data logging and Recordkeeping**](#Data_logging_and_Recordkeeping)
 - [**Protocols frequently used by the Wetlab team**](#Protocols_frequently_used_by_the_Wetlab_team)
 - [**Troubleshooting and FAQs**](#Troubleshooting_and_FAQs)
@@ -154,7 +154,7 @@ Proper handling and care is crucial for the marine organisms in order to avoid t
 8. Make sure your hands are dry before touching any electrical equipment, and avoid letting water drip or spill between tanks to prevent electrical hazards or malfunctions.”
 
 
-**<a name="Preparing_tanks_for_usage:_DI_and_Salt_Mixing_Procedures"></a> Preparing tanks for usage: DI and Salt Mixing Procedures**
+**<a name="Preparing_tanks_for_usage_DI_and_Salt_Mixing_Procedures"></a> Preparing tanks for usage DI and Salt Mixing Procedures**
 
 In order to carry out any experiments or managing the aquarium systems, always make sure before that there is enough DI and saltwater avaliable for your use and some reserve for the tanks. If you think, the avaliable reserve is not sufficient, please reach out to the person managing the wetlab if you are not sure about the working of the tanks. If you have been trained on that, you can go through the [tank information](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md) and [salt mixing protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) to proceed. 
 
