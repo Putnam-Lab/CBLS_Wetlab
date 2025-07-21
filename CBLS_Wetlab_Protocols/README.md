@@ -67,10 +67,10 @@ For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at 
 
 **<a name="Tank_Descriptions_and_Designated_Uses"></a> Tank Descriptions and Designated Uses**
 
-The system we acquire in the wetlab is a closed loop aquarium system wherein the water is circulated within our blue tanks and drawn originally from the source tank which is our header tank. 
+The system we acquire in the wetlab is a closed loop aquarium system wherein the water is circulated within our blue tanks and drawn originally from the source tank which is our header tank. The water for these two kind of tanks comes from the mixing tank where in we make salt water by using artifical salt and DI water sourced from the DI tank.
 
 **1. DI (Deionized) Tank**
-- One of the main uses of the DI tank is to supply water for salt mixing, especially during the initial setup phase.
+- One of the main uses of the DI tank is to supply water for salt mixing, especially during the initial setup phase. Additionally, all the DI needed for the aquarium space apart from the mixing tank is also sourced through this tank.
 - This tank is connected to both the mixing tank as well as the header tank by pumps and valves. 
 - Before the DI water enters either of the tanks, it goes through a complex filtering system. 
 
@@ -99,7 +99,7 @@ In the wetlab, the tanks which houses the marine invertebrates are these two big
 
 The blue tanks houses the corals which needs regular feeding and maintenance. The corals are fed every week and the tanks are cleaned along with the corals.
 
-Note: For more information about the tanks, its working, cleaning and troubleshooting look [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
+Note: For more detailed information about all the tanks, its working, cleaning and troubleshooting look [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
  
  **5. Display Tank**
  
@@ -135,13 +135,26 @@ In order to have access to the PPP lab and loading dock please contact Hollie Pu
 
 Every member of the lab goes through the lab safety training before starting to work in the lab. The information about the trainings could be found [here](https://github.com/Putnam-Lab/Lab_Management/wiki/Lab-Safety) and additonal information about the laboratory resources [here](https://github.com/Putnam-Lab/Lab_Management/wiki/Laboratory-Resources).
 
+[Ask and write details about emergency procedures for the wetlab]: #
+
 
 **<a name="Marine_Organism_Care_and_Handling"></a> Marine Organism Care and Handling**
+
+Proper handling and care is crucial for the marine organisms in order to avoid threat and minimizing stress. It is also necessary to handle them carefully for their overall health and maintenance of the tanks. Below are some of the things to be considerate about:
+
+1. Always rinse your hands thoroughly and ensure they are free of any chemicals before placing them in the aquarium tanks.
+2. Daily wet lab duties often involve the use of chemicals for tasks such as equipment or laundry cleaning and nutrient testing. These substances can potentially enter the aquarium system, so always exercise caution and be mindful when handling any chemicals.
+3. Whenever you are handling organisms, handle them underwater to minimize stress and potential harm.
+4. Be gentle while moving things around and in the aquarium system to avoid disrupting smooth operations of the tanks.
+5. Familiarize yourself with the daily requirements of the aquarium system, including proper lighting, target salinity, pH, temperature, and adequate water flow. If any of these parameters appear abnormal, promptly contact the PI or lab manager for troubleshooting procedures.
+6. Be mindful of spacing within and between coral crates and plugs to ensure adequate room for coral growth, and to prevent overgrowth and aggressive interactions.
+7. Some of the corals or invertebrates we work with produce more mucus when handled. If you'd prefer to minimize direct contact, you’re welcome to wear protective gear such as gloves.
+8. Make sure your hands are dry before touching any electrical equipment, and avoid letting water drip or spill between tanks to prevent electrical hazards or malfunctions.”
 
 
 **<a name="Preparing_tanks_for_usage:_DI_and_Salt_Mixing_Procedures"></a> Preparing tanks for usage: DI and Salt Mixing Procedures**
 
-In order to carry out any experiments or managing the aquarium systems, always make sure before that there is DI and saltwater avaliable for your use and some reserve. If you think, the avaliable reserve is not sufficient, please reach out to the person managing the wetlab if you are not sure about the working of the tanks. If you have been trained on that, you can go through the [tank information](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md) and [salt mixing protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) to proceed. 
+In order to carry out any experiments or managing the aquarium systems, always make sure before that there is enough DI and saltwater avaliable for your use and some reserve for the tanks. If you think, the avaliable reserve is not sufficient, please reach out to the person managing the wetlab if you are not sure about the working of the tanks. If you have been trained on that, you can go through the [tank information](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md) and [salt mixing protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) to proceed. 
 
 **<a name="Data_logging_and_Recordkeeping"></a> Data logging and Recordkeeping**
 
