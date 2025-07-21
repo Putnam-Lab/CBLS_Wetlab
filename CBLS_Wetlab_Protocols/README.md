@@ -3,7 +3,7 @@
 
 Original: 20210422
 
-Last revised:20250717  
+Last revised:20250720  
 
 
 Location: University of Rhode Island, Center for Biotechnology and Life Sciences, Aquarium Room 70
@@ -67,30 +67,43 @@ For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at 
 
 **<a name="Tank_Descriptions_and_Designated_Uses"></a> Tank Descriptions and Designated Uses**
 
+The system we acquire in the wetlab is a closed loop aquarium system wherein the water is circulated within our blue tanks and drawn originally from the source tank which is our header tank. 
+
 **1. DI (Deionized) Tank**
 - One of the main uses of the DI tank is to supply water for salt mixing, especially during the initial setup phase.
 - This tank is connected to both the mixing tank as well as the header tank by pumps and valves. 
 - Before the DI water enters either of the tanks, it goes through a complex filtering system. 
 
-Note: For more information about the cleaning, working and troubleshooting of the DI Tank System look [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
     
 **2. Salt Mixing Tank/Mixing Tank**
 - The salt mixing tank is used to make the salt water. We do not source our salt water into the system from anywhere but instead make it by ourself using the FritzProMax Salt along with the DI water present in the DI tank. 
 - For information about making the saltwater take look at the [salt mixing protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md).
-- The mixing tanks is connected to both, the header and DI tank through pumps that open through the valves.s
+- The mixing tanks is connected to both, the header and DI tank through pumps that open through the valves.
 
-  **Make sure you always check the salinity of the mixing tank and the other tank that you want to add the saltwater into. If the salinity of mixing tank is >35.5 psu look at the troubleshooting information in the link below.**  
-
-Note: For more information about the working and troubleshooting of the Mixing Tank System look [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
+  **Make sure you always check the salinity of the mixing tank and the other tank that you want to add the saltwater into. If the salinity of mixing tank is >35.3 psu, add some DI to the mixing tank and let it mix for some time and take a reading for the salinity of the tank after two-three hours.**  
 
 
 **3. Header Tank**
 
+The header tank is a rectangular black tank placed on the ground in our aquarium room, that serves to supply water and acts as a reservoir for replenishing water lost to evaporation or used in the system and helps maintain a stable water level. 
+
+The water always firsts enter the header tank, after the desired salinity is obtained in the mixing tank which is then ready to use for the blue tanks. 
+
+The header tank is the only tank which is dosed by different components like the alkanity reagent, calcium, nitrogen, phosphorous as well as DI which is then circulated through our closed-loop aquarium systems.
+
+The header tank has two additonal components like the protein skimmer and the sock filter. The Protein Skimmer is a filteration device needed to get rid of the dissolved organic compounds present in the water. The sock filter takes out the debris and big particles thus also filtering the system. 
+
 **4. Blue Tanks**
+
+In the wetlab, the tanks which houses the marine invertebrates are these two big blue rectangular tanks which are divided into the blue tanks 1, 2, 3 and 4. Each blue tank had additional components like the pumps, apex probes which measures the salinity, temperature and the pH.
+
+The blue tanks houses the corals which needs regular feeding and maintenance. The corals are fed every week and the tanks are cleaned along with the corals.
+
+Note: For more information about the tanks, its working, cleaning and troubleshooting look [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
  
  **5. Display Tank**
  
- In addition, a small display tank has been installed for educational and outreach purposes. Among these, only the blue tanks and the display tank currently house marine invertebrates, primarily corals.
+ In addition to all the major tanks, a small display tank has been installed for educational and outreach purposes. Among all of the tanks, only the blue tanks and the display tank currently house marine invertebrates.
 
 
 **<a name="Electrical_System"></a> Electrical System**
@@ -100,6 +113,13 @@ Note: For more information about the working and troubleshooting of the Mixing T
 
 
 **<a name="Water_Quality_Testing_and_Maintenance_Protocols"></a> Water Quality Testing and Maintenance Protocols**
+
+We use various ways to test the quality of the water in our systems and different tanks. 
+
+In general, everyday we take daily measurements of the header and blue tanks to check if the expected quality is attained. For that, we take measurements like salinity, temperature and pH. 
+To know the process of taking the daily measurements go through [this](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/b128631f6e7346a03ac953c6fcd9b4f6b916bc6f/CBLS_Wetlab_Protocols/DailyWetlabChecklist_Protocols.md) protocol.
+
+Additionally, there are extra test kits to test the levels of nutrients and other parameters which can be utilized as a resource to cross reference the probes or protocols which we test in the lab.
 
 
 **<a name="Access_and_Control_to_the_Wetlab"></a> Access and Control to the Wetlab**
@@ -113,12 +133,15 @@ In order to have access to the PPP lab and loading dock please contact Hollie Pu
 
 **<a name="Safety_Guidelines_and_Emergency_Procedures"></a> Safety Guidelines and Emergency Procedures**
 
+Every member of the lab goes through the lab safety training before starting to work in the lab. The information about the trainings could be found [here](https://github.com/Putnam-Lab/Lab_Management/wiki/Lab-Safety) and additonal information about the laboratory resources [here](https://github.com/Putnam-Lab/Lab_Management/wiki/Laboratory-Resources).
+
 
 **<a name="Marine_Organism_Care_and_Handling"></a> Marine Organism Care and Handling**
 
 
 **<a name="Preparing_tanks_for_usage:_DI_and_Salt_Mixing_Procedures"></a> Preparing tanks for usage: DI and Salt Mixing Procedures**
 
+In order to carry out any experiments or managing the aquarium systems, always make sure before that there is DI and saltwater avaliable for your use and some reserve. If you think, the avaliable reserve is not sufficient, please reach out to the person managing the wetlab if you are not sure about the working of the tanks. If you have been trained on that, you can go through the [tank information](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md) and [salt mixing protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) to proceed. 
 
 **<a name="Data_logging_and_Recordkeeping"></a> Data logging and Recordkeeping**
 
@@ -128,13 +151,6 @@ In order to have access to the PPP lab and loading dock please contact Hollie Pu
 
 **<a name="Appendices_and_Other_Information"></a> Appendices and Other information**
 
-
-## **Components of the Wetlab**
-- [Full User Manual]()
-- [System Components]()
-- [Electical Map]()
-- [Plumbing Map]()
-- [Salt Mixing]()
 
 ## **Daily measurements:**
 - [Cumulative Daily Measurements](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/main/Output/Daily_Measurements_Past_Month.pdf)
