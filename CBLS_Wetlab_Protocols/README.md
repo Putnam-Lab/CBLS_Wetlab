@@ -1,5 +1,5 @@
 
-# Welcome to the GitHub Repository for the Center for Biotechnology and Life Sciences (CBLS) Aquarium Water Quality Monitoring!
+# Welcome to the Putnam Lab Tropical Coral Aquarium
 
 Original: 20210422
 
