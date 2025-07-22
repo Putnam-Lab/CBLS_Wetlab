@@ -19,13 +19,13 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
    
    - The filteration system comprises of the four filters: Two of the DI Resin Filters (#1 and #2), Carbon Filter (#3) and Sediment Filters(#4).
 
-   - ![Filtering System of DI Tank:(from left to right) Resin Filters (#1 and #2, ), Carbon Filter (#3) and Sediment Filter(#4).](https://github.com/ppednekar25/Pednekar_Putnam_Lab_Notebook/blob/9a58dc41b6929143892fea56ebe19962345d653e/images/Filter_System.JPG?raw=true)
+   ![Filtering System of DI Tank:(from left to right) Resin Filters (#1 and #2, ), Carbon Filter (#3) and Sediment Filter(#4).](https://github.com/ppednekar25/Pednekar_Putnam_Lab_Notebook/blob/9a58dc41b6929143892fea56ebe19962345d653e/images/Filter_System.JPG?raw=true)
 
    - General filter system working: The blue tube connected to the main valve gets the water into the sediment filter. The sediment filter is connected to the carbon filter internally and pushes the water into it. The carbon filter is connected to the DI dual-stage RO (two-row reverse osmosis) which helps to get rid of any water impurities. The blue tubes coming out from the RO system continues to channel water finally into the resin filters. There is an additional, yellow-black tubes coming out of both the RO systems which expels the discarded water from the system that drains out of the system. Both the resin filters are connected to each other internally. Once the water enters the resin filters, it gets deionized before entering the DI tank for storage via another black tube connected to the DI tank.
 
    **Make sure the black tube entering the DI Tank is plugged in whenever you try to fill up the DI tank. If the tube is not connected to the storage tank, the water would be expelled in the area around the system. It is necessary to be careful as there is a electrical system underneath the blue tanks which could be compromised.**
    
-   - ![DI Tank System: Reservior Tank and Filter System](https://github.com/ppednekar25/Pednekar_Putnam_Lab_Notebook/blob/9a58dc41b6929143892fea56ebe19962345d653e/images/DI_Tank_System.png?raw=true)
+   ![DI Tank System: Reservior Tank and Filter System](https://github.com/ppednekar25/Pednekar_Putnam_Lab_Notebook/blob/9a58dc41b6929143892fea56ebe19962345d653e/images/DI_Tank_System.png?raw=true)
 
    - <ins> DI Usage Tracking</ins>: The tank has a write-on tape where you want to track and write the start time and date for when you started the DI system. Additionally, please also track the usage on the [DI Usage Tracking List](https://docs.google.com/spreadsheets/d/1DfGLbhAiS6tukkbXZKDrpdcE7gNNn-d_7p-FiyXCfZA/edit?gid=102907495#gid=102907495) to access it anytime.
 
