@@ -17,7 +17,7 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
    #### A. Working of the DI Tank System
    The tank has a freshwater input from the wall behind the blue tanks 3 and 4. It opens into a valve which when turned on, lets the water go through the filteration system.
    
-   - The filteration system comprises of the four filters: Two of the DI Resin Filters (#1 and #2), Carbon Filter (#3) and Sediment Filters(#4).
+   - The filteration system comprises of the four filters (from left to right): Two of the DI Resin Filters (#1 and #2), Carbon Filter (#3) and Sediment Filters(#4).
 
    ![Filtering System of DI Tank:(from left to right) Resin Filters (#1 and #2, ), Carbon Filter (#3) and Sediment Filter(#4).](https://github.com/ppednekar25/Pednekar_Putnam_Lab_Notebook/blob/9a58dc41b6929143892fea56ebe19962345d653e/images/Filter_System.JPG?raw=true)
 
