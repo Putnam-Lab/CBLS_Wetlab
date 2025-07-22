@@ -25,7 +25,7 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
 
    **Make sure the black tube entering the DI Tank is plugged in whenever you try to fill up the DI tank. If the tube is not connected to the storage tank, the water would be expelled in the area around the system. It is necessary to be careful as there is a electrical system underneath the blue tanks which could be compromised.**
    
-   [Add image of the filter system here]: #
+   ![DI Tank System: Reservior Tank and Filter System](https://github.com/ppednekar25/Pednekar_Putnam_Lab_Notebook/blob/9a58dc41b6929143892fea56ebe19962345d653e/images/DI_Tank_System.png)
 
    - <ins> DI Usage Tracking</ins>: The tank has a write-on tape where you want to track and write the start time and date for when you started the DI system. Additionally, please also track the usage on the [DI Usage Tracking List](https://docs.google.com/spreadsheets/d/1DfGLbhAiS6tukkbXZKDrpdcE7gNNn-d_7p-FiyXCfZA/edit?gid=102907495#gid=102907495) to access it anytime.
 
@@ -60,8 +60,6 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
 
        **Troubleshooting tips with the pressure gauge**: The pressure gauge tubing is internally covered by a tape which then connects to the system. Sometimes the tape could be torn off leading to abnormal reading by the gauge. In that case, make sure to take off that tubing carefully and retaping the internal connectors.
 
-      [Include a pciture about the pressure guage]: #
-
       B. <ins>Dual TDS (Total Dissolved Solids) Meter</ins>: The Dual TDS Meter (picture below) is helpful to monitor the effectiveness of the Reverse Osmosis (RO) or the DI water system. There is a power button which activates the meter and a button that moves between red and blue to measure the quality of the water before and after filteration. 
 
       There are mainly two modes which are red and blue colored. The red cord connects and measures the TDS level at the earlier point after the water is filtered through the carbon filter and entering the RO system next. The blue cord however measures the TDS before the water enters finally to the resin filters.
@@ -70,7 +68,6 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
 
        **Troubleshooting tips with the tubing system**: Make sure the tubes going through or meeting at any junction are tightened up and properly fits into each other to avoid any leaks in the whole system. Additionally, sometimes the red and blue tubes connecting the TDS meter, could be closed internally, avoiding water flow through them. In that case, gently pull out the tubes and open valves (the inside pieces in the junction) for shift flow and detection.
       
-     [Include details about the guage and the TDS system on the DI system]: #
 
 
 
@@ -99,5 +96,6 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
 
   #### C. Connecting Mixing tank with other tanks
 
-  1. The mixing tank 
+  1. The mixing tank connects with the header tank by means of three valves in the pump system. 
+  2. Look at the diagram below for information about the valve connections. 
 
