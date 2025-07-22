@@ -101,7 +101,7 @@ In the wetlab, the tanks which houses the marine invertebrates are these two big
 
 The blue tanks houses the corals which needs regular feeding and maintenance. The corals are fed every week and the tanks are cleaned along with the corals.
 
-Note: For more detailed information about all the tanks, its working, cleaning and troubleshooting look [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
+### Note: For more detailed information about all the tanks, its working, cleaning and troubleshooting look [here.](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
  
  **5. Display Tank**
  
