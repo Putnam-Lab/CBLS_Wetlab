@@ -12,7 +12,7 @@ Location: University of Rhode Island, Center for Biotechnology and Life Sciences
 
 ## **CBLS Wetlab Map** 
 
-[Add Map 1 of the general lab including all spaces]: #
+
 
 **PUTNAM LAB: WETLAB AQUARIUM INTRODUCTION AND SETUP**
 
@@ -58,6 +58,7 @@ The Putnam Lab features below tanks:
 Here's a map to understand the setup better: 
 
 [Top View Add image of Map 2- Specific Map of Putnam Lab tanks and design]: #
+<img src="https://github.com/Putnam-Lab/CBLS_Wetlab/blob/d02b6c3f4bbd9529c08cf56517120ef37b86783c/images/General_Map.jpg?raw=true"/>
 
 [<img width="892" alt="Screen Shot 2023-11-08 at 4 02 07 PM" src="https://github.com/Putnam-Lab/CBLS_Wetlab/assets/5198996/002bc5dc-806a-4b8b-95d4-de0ea7ceeb95">]: #
 
