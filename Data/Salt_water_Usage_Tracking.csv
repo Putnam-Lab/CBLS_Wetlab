@@ -14,6 +14,6 @@ Date,Time,Salt_Added_(lb),DI_Added(in_gal),Person,Salinity(in_psu),Notes
 20250714,15:30,5 lbs,,JH,33.72,	
 20250724,11:30,23lbs,80 gal,JH/TJW,27.75, 
 20250724,13:30,7 lbs,,JH,32.24, Added salt to maintain salinity
-20250725,8:45,,PP,33.89,
-20250725,11:00,0.5 lbs,TJW,34.52,
+20250725,8:45,,,PP,33.89,
+20250725,11:00,0.5 lbs,,TJW,34.52,
 
