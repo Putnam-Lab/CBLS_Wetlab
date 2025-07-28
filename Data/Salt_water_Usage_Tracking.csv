@@ -1,7 +1,7 @@
 Date,Time,Salt_Added_(lb),DI_Added(in_gal),Person,Salinity(in_psu),Notes
 20250617,10:00,17 lbs,55 gal,TJW/NB,,		
-20250623,9:00,27 lbs,100 gal,ZD,		
-20250623,,,31 gal, ZD,	Higher salinity hence added DI for lowering down
+20250623,9:00,27 lbs,100 gal,ZD,,	
+20250623,,,31 gal, ZD,,Higher salinity hence added DI for lowering down
 20250624,8:30,,,,35.01,good to use
 202507027,12:30,,,ZD,34.49,	
 20250701,9:30 ,,,NB,34.43, checking salinity before use	
