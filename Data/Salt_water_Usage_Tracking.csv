@@ -5,7 +5,7 @@ Date,Time,Salt_Added_(lb),DI_Added(in_gal),Person,Salinity(in_psu),Notes
 20250624,8:30,,,,35.01,good to use
 202507027,12:30,,,ZD,34.49,	
 20250701,9:30 ,,,NB,34.43, checking salinity before use	
-20250701,13:30,	28 lbs,	90 gal,	PP,	
+20250701,13:30,	28 lbs,	90 gal,	PP,	,
 20250702,9:15 ,,,PP,33.48,Left for mixing again after salinity check
 20250702,13:30 ,1.0 lbs,,PP,Salinity was same at 13:30 hence added salt and left for mixing overnight
 20250708,10:00,28.5 lbs,90 gal,	NB/PP,,	
