@@ -1,12 +1,12 @@
 Date,Tank_ID,Day,Initials,Bottle_Opened_Date,Calcium_mL,Bottle_Opened_Date,Alkalinity_mL,Bottle_Opened_Date,Nitrogen_mL,Bottle_Opened_Date,Phosphorous_mL,Notes on Test Kits, Other Notes
-20250604,Header_Tank,Wednesday, JH,,,,,20250609,30 mL,20250609,15mL, ,Started dosing the system with Nitrogen and Phosphorous 
-20250609,Header_Tank,Monday, JH,,,,,20250609,30 mL,,,,
-20250612,Header_Tank,Thursday,JH,,,,,20250609,30 mL,20250609,15 mL,,
-20250616,Header_Tank,Monday,PP,,,,,20250609, 30 mL,,,,
-20250619,Header_Tank,Thursday,JH,,,,,20250609,30 mL, 20250609, 15 mL,,
-20250624,Header_Tank,Tuesday,JH,,,,,20250609,30 mL,,,,
-20250626,Header_Tank,Thursday,JH,,,,,20250609, 30 mL,20250609, 15 mL, Checked the levels of nutrients with Test kits and for Nitrogen the results showed levels between 10-20ppm. Hence after talking with ZD we decided to dose the system once a week for Nitrogen,
-20250703,Header_Tank,Thursday,ZD,,,,,20250609,30 mL, 20250609, 15 mL,, Ran out of Nitrogen on 20250703
-20250709,Header_Tank,Wednesday, PP,,,,,20250709,30 mL, 20250609, 15 m L,,
-20250717, Header_Tank,Thursday,PP,,,,,20250709, 30 mL, 20250609, 15 mL,,
-20250724,Header_Tank,Thursday, JH,,,,,20250709, 30 mL, 20250609, 15 mL,,
+20250604,Header_Tank,Wednesday, JH,20250525,,20250525,,20250609,30 mL,20250609,15mL, ,Started dosing the system with Nitrogen and Phosphorous 
+20250609,Header_Tank,Monday, JH,20250525,,,,20250609,30 mL,,,,
+20250612,Header_Tank,Thursday,JH,20250525,,,,20250609,30 mL,20250609,15 mL,,
+20250616,Header_Tank,Monday,PP,20250525,,,,20250609, 30 mL,,,,
+20250619,Header_Tank,Thursday,JH,20250525,,,,20250609,30 mL, 20250609, 15 mL,,
+20250624,Header_Tank,Tuesday,JH,20250525,,,,20250609,30 mL,,,,
+20250626,Header_Tank,Thursday,JH,20250626,,,,20250626, 30 mL,20250609, 15 mL, Checked the levels of nutrients with Test kits and for Nitrogen the results showed levels between 10-20ppm. Hence after talking with ZD we decided to dose the system once a week for Nitrogen,
+20250703,Header_Tank,Thursday,ZD,20250626,,20250626,,20250609,30 mL, 20250609, 15 mL,, Ran out of Nitrogen on 20250703
+20250709,Header_Tank,Wednesday, PP,20250626,,20250626,,20250709,30 mL, 20250609, 15 m L,,
+20250717, Header_Tank,Thursday,PP,20250626,,20250626,,20250709, 30 mL, 20250609, 15 mL,,
+20250724,Header_Tank,Thursday,JH,20250723,,20250626,,20250709, 30 mL, 20250609, 15 mL,,
