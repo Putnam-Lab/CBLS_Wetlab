@@ -11,7 +11,7 @@ Date,Time,Salt_Added_(lb),DI_Added(in_gal),Person,Salinity(in_psu),Notes
 20250708,10:00,28.5 lbs,90 gal,	NB/PP,,	
 20250709,8:52,,5 gal,PP,35.9,Salinity checked and was higher. Added DI and Left for mixing
 20250709,12:43,,,NB,34.7,
-20250714,15:30,5 lbs,J,33.72,	
+20250714,15:30,5 lbs,,JH,33.72,	
 20250724,11:30,23lbs,80 gal,JH/TJW,27.75, 
 20250724,13:30,5 lbs,,JH,32.24, Added salt to maintain salinity,
-20250724,13:45,2 lbs,80 gal,JH,		
+20250724,13:45,2 lbs,80 gal,JH,	,	
