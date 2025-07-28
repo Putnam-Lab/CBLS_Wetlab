@@ -11,6 +11,8 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
 
 #### The protocol is created to give detailed information about the tank systems, its maintenance, cleaning and troubleshooting. The tanks included in this protocol are DI Tank, Salt Mixing Tank, Header Tank, Two Blue Tanks as well as the display tank managed by the Putnam Lab.
 
+[Add image of the wetlab arrangement]: #
+
 ## 1. DI TANK SYSTEM
   *Serves as the only source of DI in the Wetlab.*
 
@@ -85,8 +87,7 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
   [Add details about pump open and closing and connections to the HT]: #
 
 
-   
-  #### B. Salt mixing and usage tracking
+   #### B. Salt mixing and usage tracking
 
    For saltwater making, look at the protocol [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) for a brief overview of the process.
 
@@ -98,4 +99,5 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
 
   1. The mixing tank connects with the header tank by means of three valves in the pump system. 
   2. Look at the diagram below for information about the valve connections. 
+
 
