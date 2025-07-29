@@ -66,7 +66,7 @@ Other supporting equipments like the pumps, prime lights and filtration systems 
 
 [Add map for directions to loading dock storage]: #
 
-For [Electrical]() and [Plumbing]() overview and troubleshooting take a look at the respective components for detailed information. 
+For [Electrical System](#Electrical_System) and [Plumbing System](#Plumbing_System) overview and troubleshooting take a look at the respective components for detailed information. 
 
 **<a name="Tank_Descriptions_and_Designated_Uses"></a> Tank Descriptions and Designated Uses**
 
