@@ -113,5 +113,7 @@ daily_tank <- daily_plot_data_filtered %>%
   theme(text = element_text(size = 14))
 
 print(daily_tank)
-
+# Save plot 
+ggsave("../Output/Display_Tank_Daily_Measurements.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+```
 ```
