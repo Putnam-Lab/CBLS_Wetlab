@@ -20,7 +20,7 @@ Location: University of Rhode Island, Center for Biotechnology and Life Sciences
 
 The Putnam Lab CBLS tanks are used for dynamic marine invertebrate projects facilitated by Putnam Lab members. The tanks offer a way for students to investigate methodology pertaining to research questions, monitor water quality, learn aquacultural techniques, and conduct vital research in marine invertebrate systems. 
 
-To ensure accurate results, water quality is assessed within the tanks through various measurements that include; salinity, pH, and total alkalinity.
+To ensure accurate results, water quality is assessed within the tanks through various measurements that include; temperature, salinity, pH, and total alkalinity.
 
 This manual serves as a baseline for lab members, interns, visiting scholars. 
 
@@ -62,7 +62,7 @@ Here's a map to understand the setup better:
 
 [<img width="892" alt="Screen Shot 2023-11-08 at 4 02 07 PM" src="https://github.com/Putnam-Lab/CBLS_Wetlab/assets/5198996/002bc5dc-806a-4b8b-95d4-de0ea7ceeb95">]: #
 
-Other supporting equipments like the pumps, prime lights and filtration systems are an individual component of each tanks. Equipments currently not in use or in excess are stored either in the storage area in the aquarium space or in the loading dock storage room. If and when needed, the loading dock storage room could be accessed via a key present in the lab. If you do not know where you can find the loading dock storage, you can take a look at the map below.
+Other supporting equipment like the pumps, LED lights and filtration systems are an individual component of each tanks. Equipment currently not in use, or in excess, is stored either in the storage area in the aquarium space or in the loading dock storage room. If and when needed, the loading dock storage room could be accessed via a key present in the lab. If you do not know where you can find the loading dock storage, you can take a look at the map below.
 
 [Add map for directions to loading dock storage]: #
 
@@ -70,18 +70,20 @@ For [Electrical System](#Electrical_System) and [Plumbing System](#Plumbing_Syst
 
 **<a name="Tank_Descriptions_and_Designated_Uses"></a> Tank Descriptions and Designated Uses**
 
-The system we acquire in the wetlab is a closed loop aquarium system wherein the water is circulated within our blue tanks and drawn originally from the source tank which is our header tank. The water for these two kind of tanks comes from the mixing tank where in we make salt water by using artifical salt and DI water sourced from the DI tank.
+The system we built in the wetlab is a closed loop aquarium system wherein the water is circulated within our blue tanks and filtered in our header tank. The artificial seawater for this system comes from DI water mixed with a special salt in a salt water mixing tank.
 
 **1. DI (Deionized) Tank**
-- One of the main uses of the DI tank is to supply water for salt mixing, especially during the initial setup phase. Additionally, all the DI needed for the aquarium space apart from the mixing tank is also sourced through this tank.
-- This tank is connected to both the mixing tank as well as the header tank by pumps and valves. 
+- The main uses of the DI tank is to supply clean water for salt mixing and DI water dosing for evaporation.
+- The DI tank is connected to the mixing tank, as well as the header tank and can be pumped to either by a pump and valves. 
 - Before the DI water enters either of the tanks, it goes through a complex filtering system. 
 
     
 **2. Salt Mixing Tank/Mixing Tank**
-- The salt mixing tank is used to make the salt water. We do not source our salt water into the system from anywhere but instead make it by ourself using the FritzProMax Salt along with the DI water present in the DI tank. 
-- For information about making the saltwater take look at the [salt mixing protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md).
-- The mixing tanks is connected to both, the header and DI tank through pumps that open through the valves.
+- The salt mixing tank is used to make the salt water using the [Fritz Reef Pro Mix Salt](https://fritzaquatics.com/products/fritz-rpm-reef-pro-mix) mixed with DI water. 
+- For information about making the saltwater take look at the [salt mixing protocol](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a76b1daa0496a1519f671ba8c47e95aadaaa959f/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) and the [Fritz salinity calculator](https://fritzaquatics.com/products/fritz-rpm-reef-pro-mix).
+- Pump the desired amount of DI water from the DI tank to the mixing tank and add the necessary amount of salt to obtain 35psu   
+- For example: Adjusting the salinity of 150 gallons of water to 35 ppt will require 47.4 Lbs of Fritz Reef Pro Mix Salt   
+- Mix the salt and water in the mixing tank for ~24h and check salinity before use   
 
   **Make sure you always check the salinity of the mixing tank and the other tank that you want to add the saltwater into. If the salinity of mixing tank is >35.3 psu, add some DI to the mixing tank and let it mix for some time and take a reading for the salinity of the tank after two-three hours.**  
 
