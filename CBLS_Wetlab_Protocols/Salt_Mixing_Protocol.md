@@ -64,6 +64,7 @@ Contents
       - Desired salinity = 35 psu
       - Volume of water = 125 gallons
       - RPM Salt = 39.5 lbs
+      
   2. The [Fritz Pro Aquatics Reef Pro Mix](https://www.amazon.com/Fritz-Aquatics-80243-Complete-Marine/dp/B01K4YY8HM) boxes come with 55 lbs of reef pro mix in each box so do your best to estimate the total lbs you need and add in to the DI water.
   3. Before slowly adding in the salt mix with the plastic beaker, you will first need to rearrange the blue valves so that the pump will only be mixing the water in the salt mixing tank.
   4. The blue valve towards the bottom of the header tanks can always be left open. It is in between the two bottom blue valves and is slightly above the floor level closest to the yellow pump.
