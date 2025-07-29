@@ -123,13 +123,25 @@ There are few main components of the header tank like,
 
  [Alkalinity and Calcium Dosage Units used for our Aquarium System](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/86c14b02c47c3b96b253d57cda866825c9a1071c/images/Dosage_Bottles.jpg)
 
-4. Apex Monitors
+4. APEX Monitors
 
-We also have a Apex Unit in the header tank which currently hosts the Temperature and pH probes so we can monitor them regularly in our Apex Fusion App.
+We also have a APEX Unit in the header tank which currently hosts the Temperature and pH probes so we can monitor them regularly in our APEX Fusion App.
 
 ## 4. BLUE TANKS
 
-The Blue tanks hosts our corals. We have two rectangular blue colums 
+The Blue tanks hosts our corals. We have two rectangular blue columns with each tank divided into a approximate half. Hence we have Blue tank 1, 2, 3 and 4. 
+
+Each column have apex monitors similar to the header tank that gives us daily readings for the tanks for temperature, pH and salinity. This information can be viewed from the APEX Fusion App. As it gives us readings at any given point, we could also monitor it when we are away and take a look if everything if functioning.
+
+We also have a PAR (Photosynthetic Available Radiation) logger in the blue tank 1/2. We have lights above the tanks which helps to maintain the temperature of the aquarium. The PAR logger is useful to know the amount / intensity of light that is in the proper spectrum for corals to utilize. 
+
+The blue column tanks have about 13 crates each that holds up the corals on plugs. We [clean](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/53ee2a194978ac7f4613dc66f3f6ed03f939b347/CBLS_Wetlab_Protocols/Coral_Plug_Cleaning_Protocol.md) the crates and plugs every week as our feeding and cleaning tasks. 
+
+
+## 5. DISPLAY TANK
+
+Display tank is still in process of coming up together for outreach and education purposes. 
+
 
 
 
