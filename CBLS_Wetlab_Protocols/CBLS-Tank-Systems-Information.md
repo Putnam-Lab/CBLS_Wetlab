@@ -7,7 +7,7 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
 ---
 
 
-*Last edited on 2025-07-20 by Pooja Pednekar*
+*Last edited on 2025-07-29 by Pooja Pednekar*
 
 #### The protocol is created to give detailed information about the tank systems, its maintenance, cleaning and troubleshooting. The tanks included in this protocol are DI Tank, Salt Mixing Tank, Header Tank, Two Blue Tanks as well as the display tank managed by the Putnam Lab.
 
