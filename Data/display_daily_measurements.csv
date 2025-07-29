@@ -1,0 +1,3 @@
+Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA_dKH
+20250728,12:30,display,TJW,25.33,-67.1,34.2,380.2,5.4
+20250729,8:11,display,NB,25.59,-68.5,34.31,436,5.2

@@ -1,0 +1,117 @@
+---
+title: "Display-daily-measurements"
+author: "Thatcher Johnstone-Wright"
+date: "2025-07-28"
+output: html_document
+---
+## Load packages 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+install.packages("fuzzyjoin")
+library(tidyverse)
+library(lubridate) # used for converting 8 digit date into datetime format for R
+library(RColorBrewer)
+library(rmarkdown)
+library(tinytex)
+library(fuzzyjoin)
+
+## If seacarb needs to be downloaded:
+#packageurl <- "https://cran.r-project.org/src/contrib/Archive/seacarb/seacarb_3.2.tar.gz"
+#install.packages(packageurl, repos = NULL, type = "source")
+#install.packages("seacarb")
+library(seacarb) 
+```
+
+## Load data 
+```{r}
+## Read in data
+daily <- read.csv("../Data/display_daily_measurements.csv")
+head(daily)
+tail(daily) # check to make sure data from today is there# Read daily probe data
+daily$Date <- as.character(daily$Date)
+pHcalib<-read_csv("../Data/Tris_Calibration.csv")
+pHcalib$tris.date <- as.numeric(pHcalib$tris.date)
+```
+
+
+## Use Tris Cal to calculate total pH
+```{r}
+# Create the pHSlope model data from TRIS calibration file
+pHSlope <- pHcalib %>%
+  group_by(tris.date) %>%
+  nest() %>%
+  mutate(fitpH = map(data, ~ lm(mVTris ~ TTris, data = .x))) %>%
+  mutate(tidy_fit = map(fitpH, broom::tidy)) %>%
+  unnest(tidy_fit) %>%
+  select(tris.date, term, estimate) %>%
+  pivot_wider(names_from = term, values_from = estimate)
+pHSlope$tris.date <- as.numeric(pHSlope$tris.date)
+
+# Fuzzy join where calibration date is before or equal to measurement date
+daily_calibrated <- fuzzy_left_join(
+  daily, pHSlope,
+  by = c("Date" = "tris.date"),
+  match_fun = list(`>=`)  # Will reverse this below
+) %>%
+  group_by(Date) %>%
+  slice_max(tris.date) %>%  # Keep latest calibration before that date
+  ungroup() %>%
+  mutate(mVTris = Temperature_C * TTris + `(Intercept)`,
+         pH.total = seacarb::pH(Ex = pH_mv, Etris = mVTris,
+                                S = Salinity_psu, T = Temperature_C))
+head(daily_calibrated)
+```
+
+```{r}
+# Convert Date to proper date format
+daily_calibrated$Date <- ymd(daily_calibrated$Date)
+
+# Reorganize for plotting
+daily_plot_data <- daily_calibrated %>%
+  relocate(pH.total, .after = Salinity_psu) %>%
+  relocate(pH_mv, .after = pH.total) %>%
+  pivot_longer(cols = c(Temperature_C, Salinity_psu, pH_mv, pH.total, Calcium_ppm, TA_dKH),
+               names_to = "metric",
+               values_to = "value")
+# Filter out pH_mv from the long-format data
+daily_plot_data_filtered <- daily_plot_data %>%
+  filter(metric != "pH_mv")
+
+#Make a list of dataframes, each containing a horizontal line that will correspond to the upper and lower threshold of each parameter (temperature, salinity, pH total)
+hlines_data <- bind_rows(
+  data.frame(yintercept = 24.0, metric = "Temperature_C"),
+  data.frame(yintercept = 26.5, metric = "Temperature_C"),
+  data.frame(yintercept = 34.0, metric = "Salinity_psu"),
+  data.frame(yintercept = 35.5, metric = "Salinity_psu"),
+  data.frame(yintercept = 8.0, metric = "pH.total"),
+  data.frame(yintercept = 8.4, metric = "pH.total"),
+  data.frame(yintercept = 450, metric = "Calcium_ppm"),
+  data.frame(yintercept = 300, metric = "Calcium_ppm"),
+  data.frame(yintercept = 4.0, metric = "TA_dKH"),
+  data.frame(yintercept = 12.0, metric = "TA_dKH"))
+
+# Set clean labels for facets
+facet_labels <- c(
+  "pH.total" = "pH (total)",
+  "pH_mv" = "pH (mV)",
+  "Salinity_psu" = "Salinity (psu)",
+  "Temperature_C" = "Temperature (ºC)",
+  "Calcium_ppm" = "Calcium (ppm)",
+  "TA_dKH" = "TA (dKH)"
+)
+# Plot data
+daily_tank <- daily_plot_data_filtered %>%
+  ggplot(aes(x = Date, y = value, colour = Tank)) +
+  geom_point(size = 2) +
+  xlab("Date") +
+  facet_grid(factor(metric, c("Calcium_ppm", "TA_dKH", "pH.total", "Salinity_psu", "Temperature_C")) ~ .,
+             scales = "free",
+             labeller = as_labeller(facet_labels)) +
+  geom_hline(data = hlines_data, aes(yintercept = yintercept),
+             linetype = "dashed", color = "black", inherit.aes = FALSE) +
+  theme_bw() +
+  theme(text = element_text(size = 14))
+
+print(daily_tank)
+
+```
