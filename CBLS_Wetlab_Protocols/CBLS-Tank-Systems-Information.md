@@ -97,8 +97,40 @@ tags: [Wetlab, Aquarium Room, CBLS Wetlab,Tank Systems, Putnam Lab]
   #### C. Connecting Mixing tank with other tanks
 
   1. The mixing tank connects with the header tank by means of three valves in the pump system. 
-  2. Look at the diagram below for information about the valve connections. 
+  2. Look [here](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/2282888a874e68d0ad25928815c837d14f53d92e/CBLS_Wetlab_Protocols/Salt_Mixing_Protocol.md) for information about the valve connections. 
 
-  Adding data
+
+## 3. HEADER TANK
+
+*The header tank is our main tank that helps us to dose the system as well as serve as the recepient of the water first. It helps to maintain the water level of the tanks and ensures steady supply for our blue tanks.*
+
+There are few main components of the header tank like,
+
+1. Protein Skimmer: It is a filteration device needed to get rid of the dissolved organic compounds present in the water. 
+
+2. Sock Filter: Sock filter takes out the debris and big particles thus also filtering the system. 
+
+*We clean and change the protein skimmer and sock filter respectively everyday as one of our task for daily management of the aquarium system.*
+
+3. Dosing Outlets: The header tank in order to maintain at expected conditions needed for good health of the system is dosed with different things.
+ a. DI Water & Salt Water: Everyday some amount of DI water and Salt Water (based on the tanks conditions) from the both reservior tanks is dosed in the header tank to maintain the salinity of the water circulating in the blue tanks. This is done to avoid increased salinity due to evaporation. 
+
+ *We also started to dose the systems with Alkanlinity and Calcium as recently our water reports demonstarted low levels of necessaru nutrients.*
+
+ b. Alkalinity Dosage: The header tank is also dosed with some Calcium/Buffer System Part 1 Alkalinity to raise and stabilize carbonate alkalinity (dKH) in aquarium to support healthy coral growth and buffering aganist pH fluctuations. 
+
+ c. Calcium Dosage: The tank is dosed with Calcium/Buffer System Part 2 Calcium to maintain proper calcium levels in marine aquariums like ours. 
+
+ [Alkalinity and Calcium Dosage Units used for our Aquarium System](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/86c14b02c47c3b96b253d57cda866825c9a1071c/images/Dosage_Bottles.jpg)
+
+4. Apex Monitors
+
+We also have a Apex Unit in the header tank which currently hosts the Temperature and pH probes so we can monitor them regularly in our Apex Fusion App.
+
+## 4. BLUE TANKS
+
+The Blue tanks hosts our corals. We have two rectangular blue colums 
+
+
 
 
