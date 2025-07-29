@@ -48,7 +48,7 @@ This manual serves as a baseline for lab members, interns, visiting scholars.
 
 When you enter the Aquarium Room, one side of the doors houses the tanks and storage area, while the other side is used by other labs for experimental work and includes a sink for freshwater use and everyday laundry tasks. 
 
-The Putnam Lab features below tanks: 
+The Putnam Lab features the folloiwng [Tanks](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/48d532ffb0cfedda3b897babae8ae9f3447340da/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md): 
 1. DI (Deionized Water) Tank
 2. Salt Mixing Tank
 3. Header Tank
@@ -73,6 +73,7 @@ For [Electrical System](#Electrical_System) and [Plumbing System](#Plumbing_Syst
 The system we built in the wetlab is a closed loop aquarium system wherein the water is circulated within our blue tanks and filtered in our header tank. The artificial seawater for this system comes from DI water mixed with a special salt in a salt water mixing tank.
 
 **1. DI (Deionized) Tank**
+- [DI Tanks](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/48d532ffb0cfedda3b897babae8ae9f3447340da/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
 - The main uses of the DI tank is to supply clean water for salt mixing and DI water dosing for evaporation.
 - The DI tank is connected to the mixing tank, as well as the header tank and can be pumped to either by a pump and valves. 
 - Before the DI water enters either of the tanks, it goes through a complex filtering system. 
