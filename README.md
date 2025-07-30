@@ -91,19 +91,15 @@ The system we built in the wetlab is a closed loop aquarium system wherein the w
 
 **3. Header Tank**
 
-The header tank is a rectangular black tank placed on the ground in our aquarium room, that serves to supply water and acts as a reservoir for replenishing water lost to evaporation or used in the system and helps maintain a stable water level. 
+The header tank is a rectangular black tank on the floor next to the blue coral tanks in aquarium room. It holds live rock and a protein skimmer and acts to filter water. Here saltwater and DI water can be added to replace water lost to evaporation or used in the system. The water in the header tank continuously mixes with the blue coral tanks
 
-The water always firsts enter the header tank, after the desired salinity is obtained in the mixing tank which is then ready to use for the blue tanks. 
-
-The header tank is the only tank which is dosed by different components like the alkanity reagent, calcium, nitrogen, phosphorous as well as DI which is then circulated through our closed-loop aquarium systems.
+The header tank is the only tank which is dosed by different components like the alkanity reagent, calcium, nitrogen, phosphorous as well as DI which is then circulated through the blue coral tanks.
 
 The header tank has two additonal components like the protein skimmer and the sock filter. The Protein Skimmer is a filteration device needed to get rid of the dissolved organic compounds present in the water. The sock filter takes out the debris and big particles thus also filtering the system. 
 
-**4. Blue Tanks**
+**4. Blue Coral Tanks**
 
-In the wetlab, the tanks which houses the marine invertebrates are these two big blue rectangular tanks which are divided into the blue tanks 1, 2, 3 and 4. Each blue tank had additional components like the pumps, apex probes which measures the salinity, temperature and the pH.
-
-The blue tanks houses the corals which needs regular feeding and maintenance. The corals are fed every week and the tanks are cleaned along with the corals.
+In the wetlab, the tanks that house the corals are these two big blue rectangular tanks which are divided into the blue tanks 1, 2, 3 and 4. Each blue tank had additional components like the lights, pumps, and apex probes which measure the salinity, temperature and the pH.
 
 ### Note: For more detailed information about all the tanks, its working, cleaning and troubleshooting look [here.](https://github.com/Putnam-Lab/CBLS_Wetlab/blob/a1f1c11a7e67a65b3d51d5bcb837b07c02263785/CBLS_Wetlab_Protocols/CBLS-Tank-Systems-Information.md)
  
