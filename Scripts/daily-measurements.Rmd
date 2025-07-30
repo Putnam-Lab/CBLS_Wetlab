@@ -236,7 +236,7 @@ hlines_data <- list(
   data.frame(yintercept = 8.2, metric = "pH.total"), # upper threshold for total pH
   data.frame(yintercept = 450, metric = "Calcium_ppm"), # upper threshold for Calcium_ppm
   data.frame(yintercept = 300, metric = "Calcium_ppm"), # lower threshold for Calcium_ppm
-  data.frame(yintercept = 2200.000, metric = "TA"), # lower threshold for TA
+  data.frame(yintercept = 1800.000, metric = "TA"), # lower threshold for TA
   data.frame(yintercept = 2500.000, metric = "TA") # upper threshold for TA
     )
 ```
