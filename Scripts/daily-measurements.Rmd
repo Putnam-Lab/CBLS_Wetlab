@@ -330,7 +330,7 @@ daily_month_plot <-daily_month %>%
   geom_hline(data = hlines_data[[9]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[10]], aes(yintercept = yintercept), linetype = "dashed") +
   theme_bw() +
-  theme(text = element_text(size = 14)) 
+  theme(text = element_text(size = 14)) + scale_x_date(date_breaks = "1 day", date_labels = "%a\n%b %d")
 daily_month_plot
 
 # Save plot 
