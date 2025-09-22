@@ -3125,3 +3125,6 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,C
 20250922,header_tank,8:32,,JM,25.55,-64.8,35.82,,,NA,NA,NA,NA,20250915,Probe1,
 20250922,BT 1/2,8:32,,JM,25.58,-65.4,35.79,354.8,5.7,NA,NA,NA,NA,20250915,Probe1,
 20250922,BT 3/4,8:32,,JM,25.58,-65.4,35.78,354.8,5.7,NA,NA,NA,NA,20250915,Probe1,
+20250922,header_tank,11:31,,JM,25.29,-69.0,35.57,,,NA,NA,NA,NA,20250902,Probe1,DMs in the afternoon after adding ~3 gal of DI into HT
+20250922,BT 1/2,11:31,,JM,25.32,-69.3,35.53,,,NA,NA,NA,NA,20250902,Probe1,DMs in the afternoon after adding ~3 gal of DI into HT
+20250922,BT 3/4,11:31,,JM,25.29,-69.5,35.54,,,NA,NA,NA,NA,20250902,Probe1,DMs in the afternoon after adding ~3 gal of DI into HT
