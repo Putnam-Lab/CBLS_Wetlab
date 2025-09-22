@@ -229,7 +229,7 @@ Make a list of dataframes, each containing a horizontal line that will correspon
 ```{r}
 hlines_data <- list(
   data.frame(yintercept = 25.5, metric = "Temperature_C"), # lower threshold for temperature in C°
-  data.frame(yintercept = 27, metric = "Temperature_C"), # upper threshold for temperature in C°
+  data.frame(yintercept = 26.5, metric = "Temperature_C"), # upper threshold for temperature in C°
   data.frame(yintercept = 34.5, metric = "Salinity_psu"), # lower threshold for salinity in psu
   data.frame(yintercept = 35.5, metric = "Salinity_psu"), # upper threshold for salinity in psu
   data.frame(yintercept = 8.05, metric = "pH.total"), # lower threshold for total pH
