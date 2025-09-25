@@ -29,7 +29,7 @@ Date,Time,Salt_Added_(lb),DI_Added(in_gal),Person,Salinity(in_psu),Notes
 20250908,13:00,35.0,8.0,PP,,
 20250908,15:00,2.0,,PP,31.72,Added some more salt
 20250918,9:33,19.5,65.0,PP,,
-20250918,15:00,2.0,,PP,32.30,Added salt as the salinity was lower,
+20250918,15:00,2.0,,PP,32.30,Added salt as the salinity was lower
 20250925,14:00,,PP,32.44, Salinity check before adding water to the HT after feeding 
 
 
