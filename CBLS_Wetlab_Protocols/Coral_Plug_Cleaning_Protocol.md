@@ -7,7 +7,7 @@ tags: coral, CBLS_aquarium
 projects: CBLS, Putnam Lab
 ---
 
-#Protocol procedure for cleaning coral plugs
+# Protocol procedure for cleaning coral plugs
 
 Contents
 - [**Materials**](#Materials)
