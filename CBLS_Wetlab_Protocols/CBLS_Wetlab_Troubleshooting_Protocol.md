@@ -63,3 +63,10 @@ While you are following the steps assess any possible reasons and be vigilant ab
 #### STEP 6: Report it in the notebook 
 
   Write a report of the incident in the Physical Lab notebook which might contain all the observations you did throughout this incident and the steps you did to restore the normal operations of the tanks. 
+
+
+
+
+
+
+  ### Some challenges that you might come across
