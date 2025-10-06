@@ -49,7 +49,17 @@ While you are following the steps assess any possible reasons and be vigilant ab
  
 #### STEP 5: Reset and testing
 
+ - Now that you had made sure everything is dry, we are now going to begin with the reset and testing of the electricals. 
+
+ - Put the black cable into the electrical socket onto the wall and click the *RESET* button. This will help you to identify if there's any cause to the trip due to potential equipments connected through the cables. If it works fine, now put the tan cable in and observe the same making sure ther eis no trip anywhere. 
+
+ - Once both the cables are reintroduced into the socket, now turn the lswitches for the ights on one by one to establish that they are working fine.
+
+ - If no abnormalities are observed, proceed to turn on the pumps one by one from eirther of the tanks. Proceed to the other tank. 
+
+ - Lastly, if you proceed to get everything back working now look at all the switched on the other black board near the header tank which has switches for the Protein skimmer, the Header Tank Pumps and Chillers. 
 
 
 #### STEP 6: Report it in the notebook 
 
+  Write a report of the incident in the Physical Lab notebook which might contain all the observations you did throughout this incident and the steps you did to restore the normal operations of the tanks. 
