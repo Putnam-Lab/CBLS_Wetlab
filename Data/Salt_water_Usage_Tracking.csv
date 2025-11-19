@@ -1,39 +1,42 @@
 Date,Time,Salt_Added_(lb),DI_Added(in_gal),Person,Salinity(in_psu),Notes
-20250617,10:00,17.0,55.0,TJW/NB,,
-20250623,9:00,27.0,100.0,ZD,,
-20250623,,,31.0, ZD,,Higher salinity hence added DI for lowering down
+20250617,10:00,17,55,TJW/NB,,
+20250623,9:00,27,100,ZD,,
+20250623,,,31, ZD,,Higher salinity hence added DI for lowering down
 20250624,8:30,,,,35.01,good to use
 202507027,12:30,,,ZD,34.49,
-20250701,9:30,,,NB,34.43,checking salinity before use	
-20250701,13:30,28.0,90.0,PP,,
+20250701,9:30,,,NB,34.43,"checking salinity before use	"
+20250701,13:30,28,90,PP,,
 20250702,9:15,,,PP,33.48,Left for mixing again after salinity check
-20250702,13:30,1.0,,PP,,Salinity was same at 13:30 hence added salt and left for mixing overnight
-20250708,10:00,28.5,90.0,NB/PP,,
-20250709,8:52,,5.0,PP,35.9,Salinity checked and was higher. Added DI and Left for mixing
+20250702,13:30,1,,PP,,Salinity was same at 13:30 hence added salt and left for mixing overnight
+20250708,10:00,28.5,90,NB/PP,,
+20250709,8:52,,5,PP,35.9,Salinity checked and was higher. Added DI and Left for mixing
 20250709,12:43,,,NB,34.7,
-20250714,15:30,5.0,,JH,33.72,
-20250724,11:30,23.0,80.0,JH/TJW,27.75, 
-20250724,13:30,7.0,,JH,32.24, Added salt to maintain salinity
+20250714,15:30,5,,JH,33.72,
+20250724,11:30,23,80,JH/TJW,27.75, 
+20250724,13:30,7,,JH,32.24, Added salt to maintain salinity
 20250725,8:45,,,PP,33.89,
 20250725,11:00,0.5,,TJW,34.52,
-20250806,11:00,19.0,65.0,NB/TJW,,
-20250806,17:30,1.0,,PP,31.33, Checkling Salinity after mixing
-20250807,8:00,1.0,,TJW,32.46, Checking salinity after adding salt and overnight mixing
-20250807,9:00,1.0,,TJW,33.07, Checking salinity after adding salt mixing
-20250808,9:00,,,PP,34.46,Salt check after overnight mixing
-20250820,9:00,18.0,60.0,TJW,,
-20250820,11:00,10.0,,TJW,40.0,Adding DI as the salinity was higher
-20250820,14:00,5.0,,PP,36.01,Adding DI as the salinity was higher
+20250806,11:00,19,65,NB/TJW,,
+20250806,17:30,1,,PP,31.33,Salt check
+20250807,8:00,1,,TJW,32.46,Salt check
+20250807,9:00,1,,TJW,33.07,Salt check
+20250808,9:00,,,PP,34.46,Salt check
+20250820,9:00,18,60,TJW,,
+20250820,11:00,10,,TJW,40,Adding DI as the salinity was higher
+20250820,14:00,5,,PP,36.01,Adding DI as the salinity was higher
 20250821,10:30,,,NB,34.05,
-20250825,11:00,19.0,65.0,TJW,,
-20250908,13:00,35.0,8.0,PP,,
-20250908,15:00,2.0,,PP,31.72,Added some more salt
-20250918,9:33,19.5,65.0,PP,,
-20250918,15:00,2.0,,PP,32.30,Added salt as the salinity was lower
+20250825,11:00,19,65,TJW,,
+20250908,13:00,35,8,PP,,
+20250908,15:00,2,,PP,31.72,
+20250918,9:33,19.5,65,PP,,
+20250918,15:00,2,,PP,32.3,Salt check
 20250925,14:00,,,PP,32.44, Salinity check before adding water to the HT after feeding 
-20251002,14:30,23.0,75.0,PP,,
-
-
-
-
-
+20251002,14:30,23,75,PP,,
+20251003,10:00,2.5,,PP,31.87,Salt check and added salt
+20251004,14:30,,,PP,33.98,
+20251022,10:00,22,70,PP,,
+20251023,11:00,,,NP,31.4,Salt check 
+20251028,10:00,2,,PP,34.03,
+20251113,15:00,28.5,90,PP,,
+20251114,10:00,,7,PP,35.8,Added DI as the salinity was higher
+20251115,13:11,,,NB,33.9,Salt check

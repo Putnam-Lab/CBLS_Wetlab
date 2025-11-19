@@ -80,3 +80,5 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20251114,9:35,display,PP,25.61,-53.5,35.7,,,
 20251117,13:10,display,FG,26.03,-67,36.35,420,,
 20251117,15:43,display,PP,25.89,-72.9,34.58,,,
+20251118,10:06,display,NP,25.68,-57.9,34.89,380,,
+20251119,9:08,display,FG,25.61,-53.2,35.26,340,,
