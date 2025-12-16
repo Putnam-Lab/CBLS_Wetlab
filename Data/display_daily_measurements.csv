@@ -98,4 +98,6 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20251210,15:20,display,JH,25.8,-70.7,35.48,,,DMs after DI addition
 20251211,10:30,display,PP,25.78,-59.4,35.84,,,Added DI
 20251212,11:56,display,PP,25.83,-65.4,35.68,,,DI added
-20251212,14:35,display,JH,25.84,-72.9,35.20,,,
+20251212,14:35,display,JH,25.84,-72.9,35.2,,,
+20251215,11:00,display,PP,25.41,-63.5,35.01,360,4.8,
+20251216,9:05,display,PP,26.08,-54.7,35.46,,,
