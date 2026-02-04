@@ -1,4 +1,3 @@
-<<<<<<< Updated upstream,,,,,,,,,,,,,,,,,,
 Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA_dKH,Orion_Temp,light2,light3,light4,tris.date,Probe.Set,notes,,
 20220117,header_tank,,,,NA,NA,NA,,,,NA,NA,NA,20210816,,Pierrick cleaned and constructed new flow,,
 20220117,quarantine_tank,,,,23.88,NA,34.12,,,,91,75,71,20210816,,,,
