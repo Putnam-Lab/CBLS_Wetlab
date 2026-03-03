@@ -3476,3 +3476,6 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,C
 20260303,header_tank,9:15,,NP,23.90,-65.7,35.95,,,NA,NA,NA,NA,20260122,Probe1,,,
 20260303,BT 1/2,9:15,,NP,24.04,-64.6,35.87,354.8,5.7,NA,NA,NA,NA,20260122,Probe1,,,
 20260303,BT 3/4,9:15,,NP,23.94,-64.9,35.91,,,NA,NA,NA,NA,20260122,Probe1,,,
+20260303,header_tank,13:45,,JH,24.53,-69.6,34.06,,,NA,NA,NA,NA,20260122,Probe1,,,
+20260303,BT 1/2,13:45,,JH,23.57,-70.1,34.03,,,NA,NA,NA,NA,20260122,Probe1,,,After addition of DI to HT
+20260303,BT 3/4,13:45,,JH,23.57,-70.3,34.15,,,NA,NA,NA,NA,20260122,Probe1,,,
