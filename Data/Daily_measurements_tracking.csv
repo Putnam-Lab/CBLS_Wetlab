@@ -1,4 +1,4 @@
-﻿Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA_dKH,Orion_Temp,light2,light3,light4,tris.date,Probe.Set,Activity,Dosing_ml,notes
+Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA_dKH,Orion_Temp,light2,light3,light4,tris.date,Probe.Set,Activity,Dosing_ml,notes
 20220117,header_tank,,,,NA,NA,NA,,,,NA,NA,NA,20210816,,,,Pierrick cleaned and constructed new flow
 20220117,quarantine_tank,,,,23.88,NA,34.12,,,,91,75,71,20210816,,,,
 20220117,blue_tank1,,,,25.91,NA,36.62,,,,68,54,55,20210816,,,,
@@ -3500,6 +3500,9 @@
 20260311,header_tank,10:45,,ED,23.87,-73.2,34.72,,6.4,NA,NA,NA,NA,20260122,Probe1,,,
 20260311,BT 1/2,10:45,,ED,23.86,-73.7,34.69,,,NA,NA,NA,NA,20260122,Probe1,,,
 20260311,BT 3/4,10:45,,ED,23.83,-73.7,34.69,,,NA,NA,NA,NA,20260122,Probe1,,,
-20260312,header_tank,9:20,,MM,23.85,-72.4,35.01,,6.6,NA,NA,NA,NA,20260122,Probe1,,,
-20260312,BT 1/2,10:20,,MM,23.85,-73,35.04,,,NA,NA,NA,NA,20260122,Probe1,,,
+20260312,header_tank,9:20,,MM,23.85,-72.4,35.01,,,NA,NA,NA,NA,20260122,Probe1,,,
+20260312,BT 1/2,10:20,,MM,23.85,-73,35.04,,6.6,NA,NA,NA,NA,20260122,Probe1,,,
 20260312,BT 3/4,11:20,,MM,23.83,-72.4,34.95,,,NA,NA,NA,NA,20260122,Probe1,,,
+20260313,header_tank,10:00,,JH,23.31,-75.1,35.01,,,NA,NA,NA,NA,20260122,Probe1,,,
+20260313,BT 1/2,10:00,,JH,23.34,-75.8,35.12,,6.9,NA,NA,NA,NA,20260122,Probe1,,,
+20260313,BT 3/4,10:00,,JH,23.33,-75.7,35.00,,,NA,NA,NA,NA,20260122,Probe1,,,

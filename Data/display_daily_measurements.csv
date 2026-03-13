@@ -1,4 +1,4 @@
-﻿Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA_dKH,Notes
+Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA_dKH,Notes
 20250728,12:30,display,TJW,25.33,-67.1,34.2,380.2,5.4,
 20250729,8:11,display,NB,25.59,-68.5,34.31,436,5.2,
 20250730,8:30,display,PP,25.47,-62.1,34.55,457.1,,
@@ -159,3 +159,4 @@
 20260310,9:45,display,JH,24.57,-52.7,35.45,,4,Added DI
 20260311,10:45,display,ED,24.35,-56.7,34.4,,4.1,
 20260312,9:24,display,MM,24.27,-53.47,34.47,,4,
+20260313,10:00,display,JH,24.48,-52.4,34.70,,4.1,
