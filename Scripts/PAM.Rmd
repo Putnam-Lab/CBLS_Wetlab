@@ -1,0 +1,44 @@
+---
+title: "PAM CBLS"
+author: "Pooja Pednekar"
+date: "2026-04-02"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 8,
+  fig.height = 4,
+  fig.align = 'center',
+  dpi = 300
+)
+```
+
+#Loading packages and data
+```{r}
+library(tidyverse)
+library(janitor)
+library(ggpubr)
+library(lme4)
+library(lmerTest)
+library(emmeans)
+
+
+custom_colors <- c("BT1/2" = "lightblue4", "BT3/4" = "#D55E00")
+
+PAM <- read.csv("C:/PUTNAM LAB/CBLS_Wetlab/Data/PAM_CBLS_Aquarium.csv") %>% clean_names()
+
+PAM <- PAM %>% mutate(date = as.factor(date),
+                   timepoint = factor(timepoint), 
+                tank_id= as.factor(tank_id))
+
+ggplot(PAM,aes(x = date, y = fv_fm_y_1000)) + 
+    geom_boxplot(aes(fill = tank_id)) + labs(x = "Date", y = "Fv/Fm", title = "Fv/Fm by Date and Tank") +
+  theme_minimal()
+
+ggsave("../output/FvFm_recovery_acclimation.png", plot = last_plot(), width = 9, height = 4, bg = "white")
+```
+

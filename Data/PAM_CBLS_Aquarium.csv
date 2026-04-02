@@ -1,0 +1,24 @@
+﻿Date,Tank_ID,Timepoint,Time,Initials,Coral Species,Dark Adapt Mins,Mem #,Fluorescence yield (F),Max fluorescence yield (M = Fm),YIELD (Y),Fv/Fm (Y/1000),Notes
+3/5/2026,BT1/2,3/5/2026,12:00,MM;JH;NP,PACU,30,3887,304,938,690,0.069,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/2026,BT1/2,3/5/2026,12:00,MM;JH;NP,PACU,30,3888,280,908,691,0.0691,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/2026,BT1/2,3/5/2026,12:00,MM;JH;NP,PACU,30,3890,415,1360,694,0.0694,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/2026,BT1/2,3/5/2026,12:00,MM;JH;NP,PACU,30,3891,376,1223,692,0.0692,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/2026,BT3/4,3/5/2026,12:00,MM;JH;NP,PACU,30,3892,305,981,689,0.0689,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/2026,BT3/4,3/5/2026,12:00,MM;JH;NP,PACU,30,3894,281,921,694,0.0694,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/2026,BT3/4,3/5/2026,12:00,MM;JH;NP,PACU,30,3895,292,978,701,0.0701,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PACU,30,3897,309,1033,700,0.07,
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PACU,30,3898,399,1201,667,0.0667,
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PACU,30,3899,430,1275,662,0.0662,
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PACU,30,3900,283,904,686,0.0686,
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PCOMP,30,3902,702,1484,526,0.0526,Switched intensity to 10 and gain to 2
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PCOMP,30,3903,521,1401,628,0.0628,Switched intensity to 10 and gain to 2
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PCOMP,30,3904,401,897,552,0.0552,Switched intensity to 10 and gain to 2
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,MCAP,30,3905,348,1376,747,0.0747,Switched intensity to 10 and gain to 2
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,MCAP,30,3906,530,1629,674,0.0674,Switched intensity to 10 and gain to 2
+3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,MCAP,30,3907,509,1629,687,0.0687,Switched intensity to 10 and gain to 2
+3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3909,325,1044,688,0.0688,Switched intensity to 10 and gain to 2
+3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3910,321,833,614,0.0614,
+3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3911,337,1027,671,0.0671,
+3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3912,589,1896,689,0.0689,
+3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3913,362,1105,672,0.0672,
+3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3914,332,991,664,0.0664,
