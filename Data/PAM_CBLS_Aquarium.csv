@@ -1,24 +1,63 @@
 ﻿Date,Tank_ID,Timepoint,Time,Initials,Coral Species,Dark Adapt Mins,Mem #,Fluorescence yield (F),Max fluorescence yield (M = Fm),YIELD (Y),Fv/Fm (Y/1000),Notes
-3/5/2026,BT1/2,3/5/2026,12:00,MM;JH;NP,PACU,30,3887,304,938,690,0.069,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
-3/5/2026,BT1/2,3/5/2026,12:00,MM;JH;NP,PACU,30,3888,280,908,691,0.0691,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
-3/5/2026,BT1/2,3/5/2026,12:00,MM;JH;NP,PACU,30,3890,415,1360,694,0.0694,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
-3/5/2026,BT1/2,3/5/2026,12:00,MM;JH;NP,PACU,30,3891,376,1223,692,0.0692,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
-3/5/2026,BT3/4,3/5/2026,12:00,MM;JH;NP,PACU,30,3892,305,981,689,0.0689,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
-3/5/2026,BT3/4,3/5/2026,12:00,MM;JH;NP,PACU,30,3894,281,921,694,0.0694,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
-3/5/2026,BT3/4,3/5/2026,12:00,MM;JH;NP,PACU,30,3895,292,978,701,0.0701,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PACU,30,3897,309,1033,700,0.07,
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PACU,30,3898,399,1201,667,0.0667,
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PACU,30,3899,430,1275,662,0.0662,
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PACU,30,3900,283,904,686,0.0686,
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PCOMP,30,3902,702,1484,526,0.0526,Switched intensity to 10 and gain to 2
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PCOMP,30,3903,521,1401,628,0.0628,Switched intensity to 10 and gain to 2
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,PCOMP,30,3904,401,897,552,0.0552,Switched intensity to 10 and gain to 2
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,MCAP,30,3905,348,1376,747,0.0747,Switched intensity to 10 and gain to 2
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,MCAP,30,3906,530,1629,674,0.0674,Switched intensity to 10 and gain to 2
-3/10/2026,BT1/2,3/10/2026,12:30,MM;JH,MCAP,30,3907,509,1629,687,0.0687,Switched intensity to 10 and gain to 2
-3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3909,325,1044,688,0.0688,Switched intensity to 10 and gain to 2
-3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3910,321,833,614,0.0614,
-3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3911,337,1027,671,0.0671,
-3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3912,589,1896,689,0.0689,
-3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3913,362,1105,672,0.0672,
-3/10/2026,BT3/4,3/10/2026,12:30,MM;JH,PACU,30,3914,332,991,664,0.0664,
+3/5/26,BT1/2,3/5/26,12:00,MM;JH;NP,PACU,30,3887,304,938,690,0.69,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/26,BT1/2,3/5/26,12:00,MM;JH;NP,PACU,30,3888,280,908,691,0.691,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/26,BT1/2,3/5/26,12:00,MM;JH;NP,PACU,30,3890,415,1360,694,0.694,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/26,BT1/2,3/5/26,12:00,MM;JH;NP,PACU,30,3891,376,1223,692,0.692,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/26,BT3/4,3/5/26,12:00,MM;JH;NP,PACU,30,3892,305,981,689,0.689,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/26,BT3/4,3/5/26,12:00,MM;JH;NP,PACU,30,3894,281,921,694,0.694,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/5/26,BT3/4,3/5/26,12:00,MM;JH;NP,PACU,30,3895,292,978,701,0.701,Mean intensity changed to 12 instead of 11 as the Florescence yield was not rising beyond 200
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,PACU,30,3897,309,1033,700,0.7,
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,PACU,30,3898,399,1201,667,0.667,
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,PACU,30,3899,430,1275,662,0.662,
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,PACU,30,3900,283,904,686,0.686,
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,PCOMP,30,3902,702,1484,526,0.526,Switched intensity to 10 and gain to 2
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,PCOMP,30,3903,521,1401,628,0.628,Switched intensity to 10 and gain to 2
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,PCOMP,30,3904,401,897,552,0.552,Switched intensity to 10 and gain to 2
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,MCAP,30,3905,348,1376,747,0.747,Switched intensity to 10 and gain to 2
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,MCAP,30,3906,530,1629,674,0.674,Switched intensity to 10 and gain to 2
+3/10/26,BT1/2,3/10/26,12:30,MM;JH,MCAP,30,3907,509,1629,687,0.687,Switched intensity to 10 and gain to 2
+3/10/26,BT3/4,3/10/26,12:30,MM;JH,PACU,30,3909,325,1044,688,0.688,Switched intensity to 10 and gain to 2
+3/10/26,BT3/4,3/10/26,12:30,MM;JH,PACU,30,3910,321,833,614,0.614,
+3/10/26,BT3/4,3/10/26,12:30,MM;JH,PACU,30,3911,337,1027,671,0.671,
+3/10/26,BT3/4,3/10/26,12:30,MM;JH,PACU,30,3912,589,1896,689,0.689,
+3/10/26,BT3/4,3/10/26,12:30,MM;JH,PACU,30,3913,362,1105,672,0.672,
+3/10/26,BT3/4,3/10/26,12:30,MM;JH,PACU,30,3914,332,991,664,0.664,
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PACU,30,3917,386,949,593,0.593,
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PCOMP,30,3918,438,1177,627,0.627,switched intensity to 9 and gain to 3
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PCOMP,30,3919,358,938,618,0.618,switched intensity to 9 and gain to 3
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PCOMP,30,3920,281,1186,763,0.763,switched intensity to 9 and gain to 3
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PCOMP,30,3921,419,1236,661,0.661,switched intensity to 9 and gain to 3
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PCOMP,30,3922,477,1426,665,0.665,switched intensity to 9 and gain to 3
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PCOMP,30,3923,446,1197,627,0.627,switched intensity to 9 and gain to 3
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PCOMP,30,3924,311,921,662,0.662,switched intensity to 9 and gain to 3
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PCOMP,30,3925,489,1475,668,0.668,switched intensity to 9 and gain to 3
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PCOMP,30,3926,377,1135,667,0.667,switched intensity to 9 and gain to 3
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3928,315,863,634,0.634,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3929,336,880,618,0.618,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3930,388,1163,666,0.666,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3931,442,1379,679,0.679,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3933,410,1280,679,0.679,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3934,260,835,688,0.688,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3935,291,950,693,0.693,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3936,351,1056,667,0.667,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3937,480,1454,669,0.669,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,MCAP,30,3938,307,1016,697,0.697,switched intensity to 11 and gain to 3 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PACU,30,3940,319,1014,685,0.685,switched intensity to 11 and gain to 4 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PACU,30,3941,314,965,674,0.674,switched intensity to 11 and gain to 4 
+4/2/26,BT1/2,4/2/26,11:00,MM;JH,PACU,30,3942,300,868,654,0.654,switched intensity to 11 and gain to 4 
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,PACU,30,3943,340,1027,668,0.668,switched intensity to 11 and gain to 4 
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,PACU,30,3944,313,987,682,0.682,switched intensity to 11 and gain to 4 
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,PACU,30,3945,315,999,684,0.684,switched intensity to 11 and gain to 4 
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,PACU,30,3946,315,993,682,0.682,switched intensity to 11 and gain to 4 
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,PACU,30,3947,312,956,673,0.673,switched intensity to 11 and gain to 4 
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,PACU,30,3948,309,883,650,0.65,switched intensity to 11 and gain to 4 
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,PACU,30,3949,356,1263,718,0.718,switched intensity to 11 and gain to 4 
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,Stony Coral,30,3951,319,791,596,0.596,switched settings
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,Stony Coral,30,3952,234,713,671,0.671,switched settings
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,Stony Coral,30,3953,452,1091,585,0.585,switched settings
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,Stony Coral,30,3954,415,590,296,0.296,switched settings
+4/2/26,BT3/4,4/2/26,11:00,MM;JH,Stony Coral,30,3955,418,969,568,0.568,switched settings
+4/2/26,DT,4/2/26,11:00,MM;JH,Stony Coral,30,3956,336,1448,767,0.767,switched settings
+4/2/26,DT,4/2/26,11:00,MM;JH,Stony Coral,30,3957,446,1486,6990,6.99,switched settings
+4/2/26,DT,4/2/26,11:00,MM;JH,PACU,30,3859,330,1118,704,0.704,switched intensity to 11 and gain to 4 
+4/2/26,DT,4/2/26,11:00,MM;JH,PACU,30,3960,332,1121,703,0.703,switched intensity to 11 and gain to 4 
