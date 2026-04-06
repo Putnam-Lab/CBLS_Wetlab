@@ -207,7 +207,10 @@ pHSlope <- pHSlope %>% relocate("pH.total", .after = Salinity_psu) %>%
 
 head(pHSlope)
 
+nutrients <- pHSlope %>% select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C,Phosphorus,Nitrite,Ammonia,Probe.Set, notes,P_Dosing_ml,N_Dosing_ml,P_N_Dosing_Time) %>% filter((!is.na(Phosphorus))|(!is.na(Nitrite))|(!is.na(Ammonia))|(!is.na(P_Dosing_ml))|(!is.na(N_Dosing_ml)))
+
 # Move "TA" after "pH.total"
+
 pHSlope <- pHSlope %>%
   select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C, Salinity_psu, pH.total,Calcium_ppm, TA_dKH, TA, pH_mv, Orion_Temp, light2, light3, light4, tris.date, Probe.Set, notes, `(Intercept)`, TTris, mVTris)
 ```
@@ -219,6 +222,10 @@ Change data format to long format
 pHSlope.long <-pHSlope %>% pivot_longer(cols=Temperature_C:TA,
   names_to = "metric",
   values_to = "value")
+
+nutrients.long <-nutrients %>% pivot_longer(cols=Temperature_C:Ammonia,
+  names_to = "metric",
+  values_to = "value") %>% filter(!is.na(value))
 ```
 
 Filter by relevant dates if needed
@@ -348,6 +355,81 @@ summary<-daily_month%>%
   select(Temperature_C:TA) %>%
   summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE)); summary
 ```
+
+
+## Plot Nutrients
+
+```{r}
+nutrient_dosing <- nutrients.long %>% filter(!is.na(P_Dosing_ml)| !is.na(N_Dosing_ml)) %>%
+  distinct(Date, Tank_ID, P_Dosing_ml, N_Dosing_ml, P_N_Dosing_Time) %>% mutate(
+    dosing_info = paste0(Tank_ID, "\ndosed\n","", P_Dosing_ml, " ml P & ", N_Dosing_ml, " ml N\n","@", P_N_Dosing_Time))
+```
+
+
+Plot all dates 
+```{r}
+facet_labels <- unique(nutrients.long$metric)
+names(facet_labels) = facet_labels
+facet_labels <- replace(facet_labels, which(facet_labels == "Phosphorus"), "Phosphorus (ppb)")
+facet_labels <- replace(facet_labels, which(facet_labels == "Nitrite"), "Nitrite (ppb NO2-)")
+facet_labels <- replace(facet_labels, which(facet_labels == "Ammonia"), "Ammonia (ppm NH3)")
+facet_labels <- replace(facet_labels, which(facet_labels == "Temperature_C"), "Temperature (ºC)")
+
+daily_tank<-nutrients.long %>%
+  ggplot(aes(x=Date, y=value, colour=Tank_ID))+
+  geom_point(size=2)+
+  geom_vline(data = nutrient_dosing,aes(xintercept = as.numeric(Date)),linetype = "dashed",linewidth = 0.7,alpha = 0.6) +
+  geom_label_repel(data = nutrient_dosing %>% crossing(metric = c("Phosphorus")),
+    aes(x = Date,y = Inf,label = dosing_info),size = 3,
+    segment.colour = "grey30",segment.size = 0.4,nudge_x = 0.3, nudge_y = -10,
+    label.padding = unit(0.15, "lines"),show.legend = FALSE,inherit.aes = FALSE) +
+  xlab("Date")+
+  facet_grid(factor(metric,c("Phosphorus","Nitrite","Ammonia","Temperature_C")) ~ ., scales = "free", labeller = as_labeller(facet_labels))+
+  theme_bw() +
+  theme(text = element_text(size = 14)); daily_tank
+
+# Save plot 
+ggsave("../Output/Daily_Nutrients.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+```
+
+Filter and plot by the past month
+```{r}
+# Filter to the past 30 days 
+daily_month <- nutrients.long %>%
+  filter(Date >= Sys.Date() - 30)  # Adjust 30 to the number of days you want to consider
+
+# Plot data from the past month
+daily_month_plot <-daily_month %>%
+  ggplot(aes(x=Date, y=value, colour=Tank_ID))+
+  geom_point(size=2)+
+  geom_vline(data = nutrient_dosing,aes(xintercept = as.numeric(Date)),linetype = "dashed",linewidth = 0.7,alpha = 0.6) +
+  geom_label_repel(data = nutrient_dosing %>% crossing(metric = c("Phosphorus")),
+    aes(x = Date,y = Inf,label = dosing_info),size = 3,
+    segment.colour = "grey30",segment.size = 0.4,nudge_x = 0.3, nudge_y = -10,
+    label.padding = unit(0.15, "lines"),show.legend = FALSE,inherit.aes = FALSE) +
+  xlab("Date")+
+  facet_grid(factor(metric,c("Phosphorus","Nitrite","Ammonia","Temperature_C")) ~ ., scales = "free", labeller = as_labeller(facet_labels))+
+  theme_bw() +
+  theme(text = element_text(size = 14)) + scale_x_date(date_breaks = "1 day", date_labels = "%a\n%b %d")
+daily_month_plot
+
+# Save plot 
+ggsave("../Output/Daily_Nutritents_Past_Month.pdf", daily_month_plot, width = 20, height = 15, units = c("in"))
+```
+
+Summarize daily measurements over the past month
+```{r}
+daily_month <- nutrients %>% 
+  filter(Date >= Sys.Date() - 30)  # Adjust 30 to the number of days you want to consider
+
+summary<-daily_month%>%
+  group_by(Tank_ID)%>%
+  #select(!tank)%>%
+  select(Temperature_C:Ammonia) %>%
+  summarise(across(everything(), list(mean = mean, sd = sd), na.rm = TRUE)); summary
+```
+
+## TA-dkh
 
 ```{r}
 library(ggrepel)
