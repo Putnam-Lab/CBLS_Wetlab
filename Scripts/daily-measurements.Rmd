@@ -208,6 +208,7 @@ pHSlope <- pHSlope %>% relocate("pH.total", .after = Salinity_psu) %>%
 head(pHSlope)
 
 nutrients <- pHSlope %>% select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C,Phosphorus,Nitrite,Ammonia,Probe.Set, notes,P_Dosing_ml,N_Dosing_ml,P_N_Dosing_Time) %>% filter((!is.na(Phosphorus))|(!is.na(Nitrite))|(!is.na(Ammonia))|(!is.na(P_Dosing_ml))|(!is.na(N_Dosing_ml)))
+write.csv(nutrients,"../Data/Nutrient_summary.csv")
 
 # Move "TA" after "pH.total"
 
@@ -389,7 +390,7 @@ daily_tank<-nutrients.long %>%
   theme(text = element_text(size = 14)); daily_tank
 
 # Save plot 
-ggsave("../Output/Daily_Nutrients.pdf", daily_tank, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Nutrients.pdf", daily_tank, width = 10, height = 8, units = c("in"))
 ```
 
 Filter and plot by the past month
@@ -414,7 +415,7 @@ daily_month_plot <-daily_month %>%
 daily_month_plot
 
 # Save plot 
-ggsave("../Output/Daily_Nutritents_Past_Month.pdf", daily_month_plot, width = 20, height = 15, units = c("in"))
+ggsave("../Output/Daily_Nutrients_Past_Month.pdf", daily_month_plot, width = 10, height = 8, units = c("in"))
 ```
 
 Summarize daily measurements over the past month
