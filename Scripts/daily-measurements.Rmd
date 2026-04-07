@@ -30,6 +30,7 @@ library(lubridate) # used for converting 8 digit date into datetime format for R
 library(RColorBrewer)
 library(rmarkdown)
 library(tinytex)
+library(ggrepel)
 
 ## If seacarb needs to be downloaded:
 #packageurl <- "https://cran.r-project.org/src/contrib/Archive/seacarb/seacarb_3.2.tar.gz"
