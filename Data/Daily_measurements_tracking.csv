@@ -3594,5 +3594,5 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,C
 20260420,BT 1/2,8:48,,JM,24.94,-77.4,35.08,,,54,13.16,0.02,,NA,NA,NA,NA,20260410,Probe1,Cleaning,,,,,,
 20260420,BT 3/4,8:48,,JM,24.89,-77.4,35.1,,,,,,,NA,NA,NA,NA,20260410,Probe1,Cleaning,,,,,,Tris Cal and Probe Calibration
 20260421,header_tank,12:05,,MM,24.76,-75.3,35.32,,,,,,,NA,NA,NA,NA,20260420,Probe1,,40,30,,,,
-20260421,BT 1/2,12:05,,MM,24.84,-76,35.26,351.1,8,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
+20260421,BT 1/2,12:05,,MM,24.84,-76,35.26,351.1,8,57,16.45,,14,NA,NA,NA,NA,20260420,Probe1,,,,,,,
 20260421,BT 3/4,12:05,,MM,24.7,-76.1,35.24,,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
