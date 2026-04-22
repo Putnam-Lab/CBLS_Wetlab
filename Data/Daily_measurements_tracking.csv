@@ -3596,6 +3596,6 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,C
 20260421,header_tank,12:05,,MM,24.76,-75.3,35.32,,,,,,,NA,NA,NA,NA,20260420,Probe1,,40,30,,,,
 20260421,BT 1/2,12:05,,MM,24.84,-76,35.26,351.1,8,57,16.45,,14,NA,NA,NA,NA,20260420,Probe1,,,,,,,
 20260421,BT 3/4,12:05,,MM,24.7,-76.1,35.24,,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
-20260422,header_tank,8:00,,TJW,25.04,-76.1,35.23,,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
-20260422,BT 1/2,8:00,,TJW,25.05,-76.7,35.25,263,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
-20260422,BT 3/4,8:00,,TJW,25.01,-76.5,35.24,,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
+20260422,header_tank,8:00,,TJW,25.04,-76.1,35.23,,,,,,,NA,NA,NA,NA,20260420,Probe1,,20,30,,,,Stopped dosing for a day as dkh was higher 
+20260422,BT 1/2,8:00,,TJW,25.05,-76.7,35.25,263,8.2,12,29.61,0.01,13.5,NA,NA,NA,NA,20260420,Probe1,Cleaning,,,,,,
+20260422,BT 3/4,8:00,,TJW,25.01,-76.5,35.24,,,,,,,NA,NA,NA,NA,20260420,Probe1,Cleaning,,,,,,
