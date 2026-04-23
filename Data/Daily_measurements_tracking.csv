@@ -3599,6 +3599,6 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,C
 20260422,header_tank,8:00,,TJW,25.04,-76.1,35.23,,,,,,,NA,NA,NA,NA,20260420,Probe1,,20,30,,,,Stopped dosing for a day as dkh was higher 
 20260422,BT 1/2,8:00,,TJW,25.05,-76.7,35.25,263,8.2,12,29.61,0.01,13.5,NA,NA,NA,NA,20260420,Probe1,Cleaning,,,,,,
 20260422,BT 3/4,8:00,,TJW,25.01,-76.5,35.24,,,,,,,NA,NA,NA,NA,20260420,Probe1,Cleaning,,,,,,
-20260423,header_tank,10:00,,JH,25.17,-74.0,35.37,,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
-20260423,BT 1/2,10:00,,JH,25.19,-75.0,35.31,,7.7,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
+20260423,header_tank,10:00,,JH,25.17,-74,35.37,,,,,,,NA,NA,NA,NA,20260420,Probe1,,0,0,,,,Stopped the Alk dosing to bring it optimal between 6.5-7.0
+20260423,BT 1/2,10:00,,JH,25.19,-75,35.31,,7.7,5,19.74,,12.6,NA,NA,NA,NA,20260420,Probe1,,,,,,,
 20260423,BT 3/4,10:00,,JH,25.15,-75.1,35.31,,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
