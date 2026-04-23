@@ -184,5 +184,6 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20260416,9:30,display,TJW,25.82,-50.9,34.42,,,
 20260417,8:30,display,TJW,26.19,-64.3,34.62,371.5,,
 20260420,8:51,display,JM,25.58,-57.6,35.12,,,
-20260421,12:05,display,MM,25.53,-49.4,35.41,354.8,,
-20260422,8:00,display,TJW,25.86,-57.3,35.67,275.4,,
+20260421,12:05,display,MM,25.53,-49.4,35.41,354.8,5.3,Added 5 ml alk
+20260422,8:00,display,TJW,25.86,-57.3,35.67,275.4,5.6,
+20260423,10:00,display,JH,25.97,-48.5,35.45,,5.4,Added 5 ml alk
