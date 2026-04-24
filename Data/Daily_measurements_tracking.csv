@@ -3602,3 +3602,6 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,C
 20260423,header_tank,10:00,,JH,25.17,-74,35.37,,,,,,,NA,NA,NA,NA,20260420,Probe1,,0,0,,,,Stopped the Alk dosing to bring it optimal between 6.5-7.0
 20260423,BT 1/2,10:00,,JH,25.19,-75,35.31,,7.7,5,19.74,,12.6,NA,NA,NA,NA,20260420,Probe1,,,,,,,
 20260423,BT 3/4,10:00,,JH,25.15,-75.1,35.31,,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
+20260424,header_tank,8:30,,TJW,24.54,-74.8,34.59,,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
+20260424,BT 1/2,8:30,,TJW,24.59,-75,34.66,,7.4,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
+20260424,BT 3/4,8:30,,TJW,24.53,-75,34.57,,,,,,,NA,NA,NA,NA,20260420,Probe1,,,,,,,
