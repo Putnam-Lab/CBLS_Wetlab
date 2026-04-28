@@ -469,3 +469,25 @@ TA_plot <- pHSlope %>%
 ggsave("../Output/TA_dKH_relationship.pdf", TA_plot, width = 7, height = 5, units = c("in"))
 ```
 
+#Water quality checker
+
+```{r}
+## Read in data and save output
+#pdf("../Output/Nutrients_Quality_Testing_Plot.pdf", width = 7, height = 5)
+
+
+#nutrient_checker <- read.csv("../Data/Nutrient_Quality_Checker.csv")
+#head(nutrient_checker)
+
+#box checker plot for water testing checker
+#boxplot(nutrient_checker[, c("Ammonia_ppm", "dKH", "Nitrite_ppb", "Nitrate_ppm", "Phosphorus_ppb")],
+        main = "Water Nutrients Quality Testing Plot",
+        xlab = "Nutrient Type",
+        ylab = "Concentration in ppm/ppb",
+        col = c("skyblue", "lightgreen", "salmon", "plum", "gold"),
+        names = c("Ammonia", "dKH", "Nitrite", "Nitrate", "Phosphorus"),
+        las = 1)
+
+#dev.off()
+```
+
