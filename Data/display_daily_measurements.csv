@@ -190,3 +190,5 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20260424,8:30,display,TJW,26.31,-56.7,35.66,,6.1,
 20260427,8:55,display,JM,25.84,-56.8,35.90,,5.3,Added DI
 20260427,11:22,display,JM,25.88,-63.1,35.49,,4.9,Added DI
+20260427,12:30,display,JH,26.00,-65.5,35.43,,5.0,
+20260428,11:00,display,JH,25.88,-58.9,35.64,,4.9,Added 2L DI
