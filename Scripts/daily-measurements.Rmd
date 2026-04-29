@@ -470,17 +470,17 @@ ggsave("../Output/TA_dKH_relationship.pdf", TA_plot, width = 7, height = 5, unit
 ```
 
 #Water quality checker
+##Plot 1
+#```{r}
+# Read in data and save output
+pdf("../Output/Nutrients_Quality_Testing_Plot.pdf", width = 7, height = 5)
 
-```{r}
-## Read in data and save output
-#pdf("../Output/Nutrients_Quality_Testing_Plot.pdf", width = 7, height = 5)
 
-
-#nutrient_checker <- read.csv("../Data/Nutrient_Quality_Checker.csv")
-#head(nutrient_checker)
+nutrient_checker <- read.csv("../Data/Nutrient_Quality_Checker.csv")
+head(nutrient_checker)
 
 #box checker plot for water testing checker
-#boxplot(nutrient_checker[, c("Ammonia_ppm", "dKH", "Nitrite_ppb", "Nitrate_ppm", "Phosphorus_ppb")],
+boxplot(nutrient_checker[, c("Ammonia_ppm", "dKH", "Nitrite_ppb", "Nitrate_ppm", "Phosphorus_ppb")],
         main = "Water Nutrients Quality Testing Plot",
         xlab = "Nutrient Type",
         ylab = "Concentration in ppm/ppb",
@@ -488,6 +488,72 @@ ggsave("../Output/TA_dKH_relationship.pdf", TA_plot, width = 7, height = 5, unit
         names = c("Ammonia", "dKH", "Nitrite", "Nitrate", "Phosphorus"),
         las = 1)
 
-#dev.off()
+dev.off()
+```
+
+
+
+
+
+
+
+
+#```{r}
+library(ggplot2)
+library(tidyr)
+
+data_long <- pivot_longer(nutrient_checker,
+                          cols = c("Ammonia_ppm", "dKH", "Nitrite_ppb", "Nitrate_ppm", "Phosphorus_ppb"),
+                          names_to = "Assay",
+                          values_to = "Value")
+
+p <- ggplot(data_long, aes(x = "", y = Value, fill = Assay)) +
+  geom_boxplot(width = 0.4, show.legend = FALSE) +
+  facet_wrap(~Assay, scales = "free_y", ncol = 3) +
+
+  # Clean theme
+  theme_classic() +
+
+  labs(title = "Water Measurement by Nutrients",
+       y = "Concentration",
+       x = NULL) +
+
+  theme(
+    strip.text = element_text(size = 12, face = "bold"),   # facet titles
+    axis.text.x = element_blank(),                         # remove useless x labels
+    axis.ticks.x = element_blank(),
+    panel.spacing = unit(1.2, "lines"),                    # space between plots
+    plot.title = element_text(hjust = 0.5, face = "bold")
+  )
+
+p
+
+ggsave("../Output/Nutrient_checker_Faceted.pdf", p, width = 7, height = 5, units = c("in"))
+```
+
+##Plot 2
+#```{r}
+library(ggplot2)
+library(tidyr)
+
+# Convert to long format
+data_long <- pivot_longer(nutrient_checker,
+                          cols = c("Ammonia_ppm", "dKH", "Nitrite_ppb", "Nitrate_ppm", "Phosphorus_ppb"),
+                          names_to = "Assay",
+                          values_to = "Value")
+
+# Faceted boxplot
+p <- ggplot(data_long, aes(x = Assay, y = Value, fill = Assay)) +
+  geom_boxplot() +
+  facet_wrap(~Assay, scales = "free_y") +
+  theme_minimal() +
+  labs(title = "Water tests by Nutrients",
+       x = "",
+       y = "Concentration") +
+  theme(legend.position = "none",
+        axis.text.x = element_blank(),
+        axis.ticks.x = element_blank())
+
+ggsave("../Output/Nutrient_checker_Faceted.pdf", p, width = 7, height = 5, units = c("in"))
 ```
 
