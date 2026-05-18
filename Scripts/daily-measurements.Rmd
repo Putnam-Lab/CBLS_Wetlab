@@ -229,7 +229,8 @@ pHSlope.long <-pHSlope %>% pivot_longer(cols=Temperature_C:TA,
 
 nutrients.long <-nutrients %>% pivot_longer(cols=Temperature_C:Ammonia,
   names_to = "metric",
-  values_to = "value") %>% filter(!is.na(value))
+  values_to = "value") %>% filter(!is.na(value)) %>%
+  filter(Date >= "2026-04-01")
 ```
 
 Filter by relevant dates if needed
@@ -402,12 +403,15 @@ Filter and plot by the past month
 daily_month <- nutrients.long %>%
   filter(Date >= Sys.Date() - 30)  # Adjust 30 to the number of days you want to consider
 
+nutrient_dosing_month <- nutrient_dosing %>%
+  filter(Date >= Sys.Date() - 30) 
+
 # Plot data from the past month
 daily_month_plot <-daily_month %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
   geom_point(size=2)+
-  geom_vline(data = nutrient_dosing,aes(xintercept = as.numeric(Date)),linetype = "dashed",linewidth = 0.7,alpha = 0.6) +
-  geom_label_repel(data = nutrient_dosing %>% crossing(metric = c("Phosphorus")),
+  geom_vline(data = nutrient_dosing_month,aes(xintercept = as.numeric(Date)),linetype = "dashed",linewidth = 0.7,alpha = 0.6) +
+  geom_label_repel(data = nutrient_dosing_month %>% crossing(metric = c("Phosphorus")),
     aes(x = Date,y = Inf,label = dosing_info),size = 3,
     segment.colour = "grey30",segment.size = 0.4,nudge_x = 0.3, nudge_y = -10,
     label.padding = unit(0.15, "lines"),show.legend = FALSE,inherit.aes = FALSE) +
