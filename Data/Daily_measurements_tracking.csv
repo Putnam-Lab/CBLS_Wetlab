@@ -3659,3 +3659,6 @@ Date,Tank_ID,Time,Date.Time,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,C
 20260520,header_tank,10:40,,JH,24.69,-71.7,34.83,,,,,,,NA,NA,NA,NA,20260511,Probe1,,,,,,,
 20260520,BT 1/2,10:40,,JH,24.74,-71.1,34.82,,5.9,,,,,NA,NA,NA,NA,20260511,Probe1,,,,,,,
 20260520,BT 3/4,10:40,,JH,24.74,-71.6,34.81,,,,,,,NA,NA,NA,NA,20260511,Probe1,,,,,,,
+20260521,header_tank,11:00,,JH,24.74,-72.7,34.87,,,,,,,NA,NA,NA,NA,20260511,Probe1,Feeding; Cleaning,,,,,,
+20260521,BT 1/2,11:00,,JH,24.78,-72.4,34.84,,6.0,,,,,NA,NA,NA,NA,20260511,Probe1,Feeding; Cleaning,,,,,,
+20260521,BT 3/4,11:00,,JH,24.77,-72.7,34.84,,,,,,,NA,NA,NA,NA,20260511,Probe1,Feeding; Cleaning,,,,,,
