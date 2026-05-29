@@ -23,6 +23,8 @@ Script updated 3/6/25 by ZD to add Alkalinity dkH measurements.
 
 Script updated 4/8/26 by ZD to include nutrient measurements.
 
+Script updated 5/29/26 by PP to include PAM Measurements. 
+
 ## Load packages 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
@@ -33,6 +35,12 @@ library(RColorBrewer)
 library(rmarkdown)
 library(tinytex)
 library(ggrepel)
+library(janitor)
+library(lmerTest)
+library(ggpubr)
+library(lme4)
+library(emmeans)
+
 
 ## If seacarb needs to be downloaded:
 #packageurl <- "https://cran.r-project.org/src/contrib/Archive/seacarb/seacarb_3.2.tar.gz"
@@ -471,6 +479,49 @@ TA_plot <- pHSlope %>%
   )
 
 ggsave("../Output/TA_dKH_relationship.pdf", TA_plot, width = 7, height = 5, units = c("in"))
+```
+
+
+#PAM Data for Aquarium Room- Adapted from ZD's PAM Script for Timeseries (https://github.com/zdellaert/TimeSeries/blob/main/3-Pacu/code/PAM.md)
+```{r}
+### 1. PAM Data Fv/fm
+PAM <- read.csv("../Data/PAM_CBLS_Aquarium.csv") %>% clean_names
+PAM <- PAM %>% 
+  filter(tank_id == "BT1/2" | tank_id == "BT3/4")%>%
+  mutate(date = as.factor(date)) %>% 
+                mutate(timepoint = factor(timepoint)) %>%#,levels = c("0","1","3","6","12",
+                                                    #           "24","36","48","72","120","170"), ordered = TRUE)) %>% 
+                mutate(treatment = factor(coral_species,levels = c("PCOM","MCAP","PACU","ELAM", ordered=TRUE)))
+
+ggplot(PAM,aes(x = date, y = fv_fm_y_1000)) + 
+    geom_boxplot(aes(fill = coral_species)) + labs(x = "Date", y = "Fv/Fm", title = "Fv/Fm by Date and Tank") +
+  theme_minimal()
+
+ggsave("../Output/PAM_Fv_Fm.pdf", TA_plot, width = 7, height = 5, units = c("in"))
+
+
+#state compare means
+PAM_f <- ggplot(PAM,aes(x = coral_species, y = fv_fm_y_1000)) + 
+    geom_boxplot(aes(fill = coral_species)) + labs(x = "Date", y = "Fv/Fm", title = "Fv/Fm by Date and Treatment") +
+    facet_grid(~timepoint )+
+  theme_minimal()+
+  stat_compare_means(
+  label = "p.signif"
+)
+
+PAM_f
+
+ggsave("../Output/PAM_f.pdf", plot = last_plot(), width = 9, height = 4, bg = "white")
+
+
+#anovamodel  
+PAM_anova <- ggplot(PAM,aes(x = coral_species, y = fv_fm_y_1000)) + 
+    geom_boxplot(aes(fill = date)) + labs(x = "Coral Species", y = "Fv/Fm", title = "Fv/Fm by Date and Coral Species") +
+  theme_minimal()+
+  stat_compare_means(aes(group = date), method = "anova", label = "p.format", size=3)
+
+PAM_anova
+ggsave("../Output/PAM_anova.pdf", plot = last_plot(), width = 9, height = 4, bg = "white")
 ```
 
 #Water quality checker
