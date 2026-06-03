@@ -6,7 +6,7 @@ output: html_document
 ---
 ## Load packages 
 ```{r setup, include=FALSE}
-install.packages("fuzzyjoin")
+#install.packages("fuzzyjoin")
 library(tidyverse)
 library(lubridate) # used for converting 8 digit date into datetime format for R
 library(RColorBrewer)
