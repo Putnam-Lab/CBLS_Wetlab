@@ -493,11 +493,11 @@ PAM <- PAM %>%
                                                     #           "24","36","48","72","120","170"), ordered = TRUE)) %>% 
                 mutate(treatment = factor(coral_species,levels = c("PCOM","MCAP","PACU","ELAM", ordered=TRUE)))
 
-ggplot(PAM,aes(x = date, y = fv_fm_y_1000)) + 
+PAM_fv_fm <- ggplot(PAM,aes(x = date, y = fv_fm_y_1000)) + 
     geom_boxplot(aes(fill = coral_species)) + labs(x = "Date", y = "Fv/Fm", title = "Fv/Fm by Date and Tank") +
   theme_minimal()
 
-ggsave("../Output/PAM_Fv_Fm.pdf", TA_plot, width = 7, height = 5, units = c("in"))
+ggsave("../Output/PAM_Fv_Fm.pdf", PAM_fv_fm, width = 7, height = 5, units = c("in"))
 
 
 #state compare means
