@@ -70,7 +70,7 @@ TA <- read.csv("../Data/CBLS_Aquarium_TA.csv")
 
 # Rename the "SampleID" column to "Tank_ID"
 TA.mod <- TA %>%
-  rename(Tank_ID = SampleID)
+  dplyr::rename(Tank_ID = SampleID)
 
 # Filter rows for specific Tank_ID values ("header_tank", "BT 1/2", "BT 3/4")
 selected_tanks <- c("header_tank", "BT 1/2", "BT 3/4", "QT")
