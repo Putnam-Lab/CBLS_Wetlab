@@ -224,7 +224,7 @@ write.csv(nutrients,"../Data/Nutrient_summary.csv")
 # Move "TA" after "pH.total"
 
 pHSlope <- pHSlope %>%
-  select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C, Salinity_psu, pH.total,Calcium_ppm, TA_dKH, TA, pH_mv, Orion_Temp, light2, light3, light4, tris.date, Probe.Set, notes, `(Intercept)`, TTris, mVTris)
+  select(Date, Tank_ID, Time, Date.Time, Observer.Initials, Temperature_C, Salinity_psu, pH.total,Calcium_ppm, TA_DKH, TA, pH_mv, Orion_Temp, light2, light3, light4, tris.date, Probe.Set, notes, `(Intercept)`, TTris, mVTris)
 ```
 
 ## Change to long format
@@ -451,21 +451,21 @@ summary<-daily_month%>%
 library(ggrepel)
 library(ggpmisc)
 
-pHSlope %>% group_by(Tank_ID,Date,TA_dKH) %>% drop_na(TA) %>% summarize(TA = mean(TA)) %>%
-  ggplot(aes(x = TA, y = TA_dKH)) +
-  geom_point(size = 2) + geom_text_repel(aes(label=TA_dKH)) + 
+pHSlope %>% group_by(Tank_ID,Date,TA_DKH) %>% drop_na(TA) %>% summarize(TA = mean(TA)) %>%
+  ggplot(aes(x = TA, y = TA_DKH)) +
+  geom_point(size = 2) + geom_text_repel(aes(label=TA_DKH)) + 
   geom_smooth(method = "lm", se = FALSE) +  # use linear model (lm) and remove shaded error band
   theme_minimal() 
 
 pHSlope$Date <- as.factor(pHSlope$Date)
 
 TA_plot <- pHSlope %>% 
-  group_by(Tank_ID, Date, TA_dKH) %>% 
+  group_by(Tank_ID, Date, TA_DKH) %>% 
   drop_na(TA) %>% 
   summarize(TA = mean(TA), .groups = "drop") %>% drop_na %>% droplevels() %>%
-  ggplot(aes(x = TA, y = TA_dKH, color=Date)) +
+  ggplot(aes(x = TA, y = TA_DKH, color=Date)) +
   geom_point(size = 2) + geom_smooth(method = "lm", se = FALSE, color = "blue") +
-  geom_text_repel(aes(label = paste0("TA=", round(TA, 1), "\nTA_dKH=", round(TA_dKH, 1)))) +
+  geom_text_repel(aes(label = paste0("TA=", round(TA, 1), "\nTA_DKH=", round(TA_DKH, 1)))) +
   stat_poly_eq(aes(label = paste(..eq.label.., ..rr.label.., sep = "~~~")),
                formula = y ~ x,
                parse = TRUE,
