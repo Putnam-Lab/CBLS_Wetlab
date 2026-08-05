@@ -253,7 +253,8 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20260727,11:10,display,JH,25.53,-59,35.16,,,
 20260728,10:20,display,JH,25.75,-50.1,35.2,,,
 20260729,11:00,display,PP,25.63,-55.2,35.37,,,
-20260730,11:30,display,PP,25.73,-56.8,35.53,,,
-20260731,11:00,display,JH,25.78,-62,34.8,,,Added 2L DI
+20260730,11:30,display,PP,25.73,-56.8,35.53,,,Added 2L DI and 5ml Alkalinity Reagent
+20260731,11:00,display,JH,25.78,-62,34.8,,,
 20260803,9:27,display,PP,26.02,-55.1,35.24,,,
 20260804,9:55,display,JH,25.58,-55.3,35.79,,,
+20260805,11:01,display,PP,25.77,-66.1,35.96,,,Added 2L DI

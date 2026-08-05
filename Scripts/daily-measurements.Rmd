@@ -266,7 +266,7 @@ Plot all dates
 facet_labels <- unique(pHSlope.long$metric)
 names(facet_labels) = facet_labels
 facet_labels <- replace(facet_labels, which(facet_labels == "TA"), "TA (µmol kg-1)")
-facet_labels <- replace(facet_labels, which(facet_labels == "TA_dKH"), "TA (dKH)")
+facet_labels <- replace(facet_labels, which(facet_labels == "TA_DKH"), "TA (DKH)")
 facet_labels <- replace(facet_labels, which(facet_labels == "Calcium_ppm"), "Calcium (ppm)")
 facet_labels <- replace(facet_labels, which(facet_labels == "pH.total"), "pH")
 facet_labels <- replace(facet_labels, which(facet_labels == "Salinity_psu"), "Salinity (psu)")
@@ -276,7 +276,7 @@ daily_tank<-pHSlope.long %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
   geom_point(size=2)+
   xlab("Date")+
-  facet_grid(factor(metric,c("Calcium_ppm","TA_dKH","TA","pH.total","Salinity_psu","Temperature_C")) ~ ., scales = "free", labeller = as_labeller(facet_labels))+
+  facet_grid(factor(metric,c("Calcium_ppm","TA_DKH","TA","pH.total","Salinity_psu","Temperature_C")) ~ ., scales = "free", labeller = as_labeller(facet_labels))+
   geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
   geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
@@ -308,7 +308,7 @@ daily_6month_plot <- daily_6month %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
   geom_point(size=4)+
   xlab("Date")+
-  facet_grid(factor(metric,c("Calcium_ppm","TA_dKH","TA","pH.total","Salinity_psu","Temperature_C")) ~ ., scales = "free", labeller = as_labeller(facet_labels))+
+  facet_grid(factor(metric,c("Calcium_ppm","TA_DKH","TA","pH.total","Salinity_psu","Temperature_C")) ~ ., scales = "free", labeller = as_labeller(facet_labels))+
   geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
   geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
@@ -338,7 +338,7 @@ daily_month_plot <-daily_month %>%
   ggplot(aes(x=Date, y=value, colour=Tank_ID))+
   geom_point(size=4)+
   xlab("Date")+
-  facet_grid(factor(metric,c("Calcium_ppm","TA_dKH","TA","pH.total","Salinity_psu","Temperature_C")) ~ ., scales = "free", labeller = as_labeller(facet_labels))+
+  facet_grid(factor(metric,c("Calcium_ppm","TA_DKH","TA","pH.total","Salinity_psu","Temperature_C")) ~ ., scales = "free", labeller = as_labeller(facet_labels))+
   geom_hline(data = hlines_data[[1]], aes(yintercept = yintercept), linetype = "dashed") +    
   geom_hline(data = hlines_data[[2]], aes(yintercept = yintercept), linetype = "dashed") +
   geom_hline(data = hlines_data[[3]], aes(yintercept = yintercept), linetype = "dashed") +
