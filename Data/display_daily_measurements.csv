@@ -290,4 +290,5 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20260923,13:14,display,PP,26.03,-63.9,35.35,,,PP
 20260924,10:55,display,PP,25.1,-55.3,35.73,,4.4,PP Added 2L DI and 7ml of Alkalinity Dosing
 20260925,13:39,display,PP,25.98,-67.8,35.18,,,PP
-20260929,11:26,display,PP,26.01,-57.4,35.81,,,PP Added 2L DI and 5ml  of Alkalinity Dosing
+20260929,11:26,display,PP,26.01,-57.4,35.81,,,PP Added 2L DI and 10ml  of Alkalinity Dosing
+20260930,10:30,display,PP,25.96,-52.8,35.19,,,PP
