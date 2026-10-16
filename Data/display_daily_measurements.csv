@@ -301,4 +301,5 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20261009,14:20,display,JH,25.52,-72.1,35.58,,,JHPre-water chnage
 20261013,12:50,display,JH,25.77,-63.4,36.28,,,JH Add 2L DI
 20261014,14:11,display,PP,26.08,-67.9,35.54,,,PP
-20261015,11:25,display,PP,25.62,-58.6,35.76,,,PP- Didn’t add DI as its water change day tomorrow 10/16
+20261015,11:25,display,PP,25.62,-58.6,35.76,,,PP- Didnâ€™t add DI as its water change day tomorrow 10/16
+20261016,9:55,display,JH,25.32,-51.9,36.41,,,
