@@ -308,3 +308,5 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20261022,10:08,display,PP,25.6,-58,35.52,,,PP
 20261023,14:30,display,JH,25.79,-69.6,35.91,,,Water Change + 2L DI
 20261026,14:55,display,JH,25.48,-67.6,35.71,,,Added 1.5 L DI
+20261029,11:35,display,PP,25.73,-60.6,35.74,,,Add 2L DI
+20261030,13:35,display,JH,26.17,-67.1,35.97,,,Pre water chnage
