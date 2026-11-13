@@ -311,7 +311,9 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20261029,11:35,display,PP,25.73,-60.6,35.74,,,Add 2L DI
 20261030,13:35,display,JH,26.17,-67.1,35.97,,,Pre water chnage
 20261103,11:23,display,PP,26.44,-56.5,36.72,,,Added 2.5L DI
-20261104,11:35,display,PP,26.70,-63.4,35.50,,,Added DI
+20261104,11:35,display,PP,26.7,-63.4,35.5,,,Added DI
 20261105,12:08,display,PP,26.96,-66.5,35.87,,,Added DI
 20261110,14:00,display,JH,25.17,-76.4,36.58,,,Added 3.5L DI
 20261111,13:14,display,PP,26.64,-70.1,35.19,,,
+20261112,12:28,display,PP,26.06,-55.9,35.42,,,
+20261113,11:36,display,PP,25.59,-52,35.69,,,Added 2L DI. Dosed 10ml Alkalnity Solution
