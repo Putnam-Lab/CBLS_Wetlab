@@ -317,3 +317,5 @@ Date,Time,Tank,Observer.Initials,Temperature_C,pH_mv,Salinity_psu,Calcium_ppm,TA
 20261111,13:14,display,PP,26.64,-70.1,35.19,,,
 20261112,12:28,display,PP,26.06,-55.9,35.42,,,
 20261113,11:36,display,PP,25.59,-52,35.69,,,Added 2L DI. Dosed 10ml Alkalnity Solution
+20261116,11:03,display,PP,25.61,-57.5,36.63,,,PP- Added 3.5 L DI
+2026117,9:48,display,PP,25.68,-47.7,34.54,,,PP- Added 5mls Alkalinity dosing solution
